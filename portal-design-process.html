@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Design Process Map</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F2EC;
+    --surface: #FFFFFF;
+    --ink: #1A1815;
+    --ink-muted: #6B6760;
+    --ink-faint: #B0ADA8;
+    --accent-purple: #4A3F8F;
+    --accent-purple-light: #EAE8F5;
+    --accent-teal: #1A6B5A;
+    --accent-teal-light: #E0F0EB;
+    --accent-amber: #8A5C1A;
+    --accent-amber-light: #F5EBD8;
+    --accent-coral: #8A3A2A;
+    --accent-coral-light: #F5E8E5;
+    --accent-green: #2D5C1A;
+    --accent-green-light: #E5F0DF;
+    --rule: #E0DDD8;
+    --radius: 3px;
+    --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    padding: 0 0 80px;
+  }
+
+  header {
+    padding: 56px 48px 40px;
+    border-bottom: 1px solid var(--rule);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--ink-muted);
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    max-width: 520px;
+  }
+
+  .process {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .phase {
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 28px 0;
+    cursor: pointer;
+    user-select: none;
+    transition: opacity var(--transition);
+  }
+
+  .phase-header:hover { opacity: 0.75; }
+
+  .phase-number {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    min-width: 28px;
+  }
+
+  .phase-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .phase-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    flex: 1;
+  }
+
+  .phase-subtitle {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-left: auto;
+    text-align: right;
+    max-width: 260px;
+    line-height: 1.4;
+  }
+
+  .chevron {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    transition: transform var(--transition);
+    color: var(--ink-faint);
+  }
+
+  .phase.open .chevron { transform: rotate(180deg); }
+
+  .phase-body {
+    display: none;
+    padding: 0 0 36px 48px;
+    animation: slideIn 0.25s ease;
+  }
+
+  .phase.open .phase-body { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-block { }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-body {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--ink-muted);
+  }
+
+  .section-body ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 4px;
+  }
+
+  .section-body ul li {
+    padding: 3px 0 3px 14px;
+    position: relative;
+  }
+
+  .section-body ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--ink-faint);
+    font-size: 12px;
+  }
+
+  .conversation-block {
+    grid-column: 1 / -1;
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+
+  .conversation-block .section-label { color: inherit; opacity: 0.7; }
+  .conversation-block .section-body { color: inherit; opacity: 0.85; }
+
+  /* Color themes per phase type */
+  .tag-discovery  { background: var(--accent-purple-light); color: var(--accent-purple); }
+  .tag-design     { background: var(--accent-teal-light);   color: var(--accent-teal);   }
+  .tag-collab     { background: var(--accent-amber-light);  color: var(--accent-amber);  }
+  .tag-qa         { background: var(--accent-coral-light);  color: var(--accent-coral);  }
+  .tag-launch     { background: var(--accent-green-light);  color: var(--accent-green);  }
+
+  .conv-discovery  { background: var(--accent-purple-light); color: var(--accent-purple); }
+  .conv-design     { background: var(--accent-teal-light);   color: var(--accent-teal);   }
+  .conv-collab     { background: var(--accent-amber-light);  color: var(--accent-amber);  }
+  .conv-qa         { background: var(--accent-coral-light);  color: var(--accent-coral);  }
+  .conv-launch     { background: var(--accent-green-light);  color: var(--accent-green);  }
+
+  @media (max-width: 640px) {
+    header, .process { padding-left: 24px; padding-right: 24px; }
+    .phase.open .phase-body { grid-template-columns: 1fr; }
+    .phase-subtitle { display: none; }
+    .conversation-block { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">UX Reference · Portal Design</p>
+  <h1>The Design<br><em>Process Map</em></h1>
+  <p class="subtitle">A full lifecycle reference for portal design — from first discovery conversation through post-launch measurement. Click any phase to expand.</p>
+</header>
+
+<div class="process" id="process"></div>
+
+<script>
+const phases = [
+  {
+    num: "01",
+    title: "Discovery",
+    subtitle: "Stakeholder interviews · user research · goals alignment",
+    type: "discovery",
+    label: "Designer leads",
+    involves: {
+      heading: "What it involves",
+      body: `Discovery is about learning before deciding. The goal is to understand three things simultaneously: who the users are, what the business actually needs, and what constraints will shape what's possible.`,
+      list: [
+        "Stakeholder interviews — surface conflicting definitions of success early",
+        "User interviews and surveys to understand real behavior vs. assumed behavior",
+        "Review of existing analytics, support tickets, and usage data",
+        "Competitive and comparative audit of similar portals",
+        "Technical constraints conversation with engineering",
+        "Full user lifecycle mapping — not just one moment, but the arc from first login onward"
+      ]
+    },
+    leads: {
+      heading: "Why designers lead it",
+      body: `Discovery isn't just research — it's synthesis. Anyone can collect answers. The designer's job is to find the pattern underneath the answers, identify where stated needs and actual behavior diverge, and translate all of it into design direction. This is also where politically sensitive findings surface — a designer frames those as opportunities, not failures.`
+    },
+    produces: {
+      heading: "What gets produced",
+      list: [
+        "Clear problem statement agreed upon by stakeholders",
+        "User needs ranked by frequency and severity",
+        "List of assumptions that need to be tested",
+        "Shared understanding of what the portal is actually for",
+        "Initial risk flags for scope, tech, or user experience"
+      ]
+    },
+    convo: `A project manager's natural entry point is scope and timeline — defining what gets built and when. Discovery is the phase that answers the prior question: whether the right thing is being built at all. When a designer is involved here, user needs and business goals get tested against each other before any commitments are made. That reduces the most expensive kind of rework — the kind where the product is built correctly but solves the wrong problem.`
+  },
+  {
+    num: "02",
+    title: "Define",
+    subtitle: "User personas · journey mapping · success metrics",
+    type: "discovery",
+    label: "Designer leads",
+    involves: {
+      heading: "What it involves",
+      body: `Define takes Discovery's raw material and structures it into actionable frameworks. This is where patterns become artifacts others can use.`,
+      list: [
+        "User persona development grounded in research (not assumptions)",
+        "Journey mapping across the full portal experience",
+        "Pain point and opportunity prioritization",
+        "Success metric definition — what does 'working' actually look like?",
+        "Alignment workshops to validate findings with stakeholders"
+      ]
+    },
+    leads: {
+      heading: "Why designers lead it",
+      body: `Personas and journey maps are only useful if they're built on real observations and translated into design decisions. A designer leads this phase because the output directly informs every design choice that follows — if personas are wrong here, the product is wrong everywhere.`
+    },
+    produces: {
+      heading: "What gets produced",
+      list: [
+        "Validated user personas with behavioral grounding",
+        "End-to-end journey map with annotated pain points",
+        "Prioritized opportunity areas",
+        "Agreed success metrics tied to user outcomes",
+        "Scope boundaries and out-of-scope documentation"
+      ]
+    },
+    convo: `Project managers work from requirements — lists of what the system needs to do. Define produces something different: a shared picture of who the system needs to serve and why. A journey map, in particular, is one of the most effective tools for moving a project conversation from a feature list to an outcome. It shows the experience from the user's perspective rather than the org chart's, which often surfaces priority conflicts that a requirements document would never catch.`
+  },
+  {
+    num: "03",
+    title: "Information Architecture",
+    subtitle: "Sitemap · content hierarchy · navigation models",
+    type: "design",
+    label: "Designer leads",
+    involves: {
+      heading: "What it involves",
+      body: `IA defines how content and functionality are organized, labeled, and navigated. It's invisible when done well and catastrophic when done poorly.`,
+      list: [
+        "Sitemap development — all content and features mapped structurally",
+        "Content hierarchy decisions — what's primary, secondary, tertiary",
+        "Navigation model selection (top nav, sidebar, hub-and-spoke, etc.)",
+        "Card sorting and tree testing with real users when possible",
+        "Taxonomy and labeling system — what things are called matters",
+        "Role-based access and visibility planning for portal context"
+      ]
+    },
+    leads: {
+      heading: "Why designers lead it",
+      body: `IA is a design discipline, not a technical one. The mental models users bring to a portal — how they expect to find things — are a UX research output. Translating those models into a coherent structure requires design judgment that can't be derived from a feature list.`
+    },
+    produces: {
+      heading: "What gets produced",
+      list: [
+        "Sitemap with all content nodes documented",
+        "Navigation model with annotated rationale",
+        "Content hierarchy documented by section",
+        "Labeling system / taxonomy guide",
+        "Role-based visibility matrix for portal sections"
+      ]
+    },
+    convo: `IA decisions are often invisible to a project manager until they become expensive problems — navigation structures baked into a platform are among the hardest things to change once development begins. Presenting IA work as a risk management activity resonates with PMs because it speaks their language: scope containment, reduced rework, and cleaner handoffs. The design value here isn't aesthetic — it's structural, and the cost of getting it wrong is measurable.`
+  },
+  {
+    num: "04",
+    title: "Concept & Wireframes",
+    subtitle: "Low-fi wireframes · content layout · flow validation",
+    type: "design",
+    label: "Designer leads",
+    involves: {
+      heading: "What it involves",
+      body: `Wireframing translates IA and user needs into spatial decisions — what goes where, and how users move through the portal. Low-fidelity is intentional here: speed of iteration matters more than polish.`,
+      list: [
+        "Page-level wireframes for all major templates",
+        "User flow diagrams showing movement between states",
+        "Content block layout decisions",
+        "Interaction model sketches — modals, drawers, inline editing",
+        "Annotation of behavior and edge cases",
+        "Internal concept review before stakeholder presentation"
+      ]
+    },
+    leads: {
+      heading: "Why designers lead it",
+      body: `Wireframes are hypotheses about how users will navigate and interact. They require design thinking — anticipating behavior, managing cognitive load, sequencing information — not just layout skills. The faster a designer can produce and discard wireframes, the better the final design will be.`
+    },
+    produces: {
+      heading: "What gets produced",
+      list: [
+        "Wireframe set covering all major page templates",
+        "User flow documentation",
+        "Annotated interaction notes",
+        "Concept presentation deck for stakeholder review",
+        "Documented assumptions and open questions"
+      ]
+    },
+    convo: `Wireframes are the cheapest point in the entire project to make structural changes — a two-hour revision here prevents a two-week development rework later. For a project manager, that's a straightforward trade. The value of a designer in this phase is speed and iteration: the ability to generate, test, and discard ideas before any engineering time is committed. Without design involvement at this stage, structural decisions get made implicitly during development — at significantly higher cost.`
+  },
+  {
+    num: "05",
+    title: "Stakeholder Review",
+    subtitle: "Alignment checkpoint · feedback integration · scope confirmation",
+    type: "collab",
+    label: "Collaborative",
+    involves: {
+      heading: "What it involves",
+      body: `A structured checkpoint where stakeholders review direction before significant design investment. The goal is alignment, not approval — surfacing disagreements early.`,
+      list: [
+        "Presentation of IA, wireframes, and design rationale",
+        "Structured feedback session with documented outcomes",
+        "Scope confirmation — what's in, what's out, what's phase two",
+        "Priority conflicts surfaced and resolved",
+        "Sign-off on direction before visual design begins"
+      ]
+    },
+    leads: {
+      heading: "Why designers lead it",
+      body: `Designers present and facilitate this review because they can speak to design rationale in the moment, respond to feedback with alternatives, and distinguish between feedback that reflects a real user need vs. a personal preference. That distinction is critical and requires design judgment.`
+    },
+    produces: {
+      heading: "What gets produced",
+      list: [
+        "Documented stakeholder feedback with decisions noted",
+        "Revised scope document if changes were made",
+        "Confirmed direction for visual design phase",
+        "Log of deferred items for future phases",
+        "Shared alignment on timeline and next steps"
+      ]
+    },
+    convo: `This is a naturally collaborative phase where design and project management bring complementary strengths. A PM manages the agenda, timeline, and decision documentation; a designer presents rationale, fields feedback, and distinguishes between requests that reflect real user needs and those that reflect personal preferences. Both are necessary. When a designer is absent from review sessions, feedback gets interpreted and filtered by someone without design context — which often leads to scope changes that feel reasonable on paper but create UX problems in practice.`
+  },
+  {
+    num: "06",
+    title: "Visual Design & Design System",
+    subtitle: "UI components · tokens · accessibility · brand alignment",
+    type: "design",
+    label: "Designer leads",
+    involves: {
+      heading: "What it involves",
+      body: `Visual design applies the brand, establishes the design system, and produces the high-fidelity UI. The design system is the foundation — components, tokens, and patterns that scale across the entire portal.`,
+      list: [
+        "Design token definition — color, typography, spacing, elevation",
+        "Component library build-out in Figma",
+        "High-fidelity screen design for all templates",
+        "Accessibility review — contrast, focus states, WCAG compliance",
+        "Responsive design across breakpoints",
+        "Brand alignment review with marketing or brand team",
+        "Dark/light mode and state design (empty, loading, error)"
+      ]
+    },
+    leads: {
+      heading: "Why designers lead it",
+      body: `Visual design and design systems are specialized disciplines. Component decisions made here affect development velocity for the entire project and all future iterations. A well-built design system is a force multiplier; a poorly built one creates technical debt that compounds with every new feature.`
+    },
+    produces: {
+      heading: "What gets produced",
+      list: [
+        "Design system in Figma with documented components",
+        "Token documentation (color, type, spacing)",
+        "High-fidelity screens for all major templates",
+        "Accessibility audit notes",
+        "Responsive design specs",
+        "Component usage guidelines"
+      ]
+    },
+    convo: `A design system is one of the few design investments with a clearly measurable return: it reduces design time on future work, accelerates development, and enforces consistency without requiring manual review of every screen. For a project manager, framing a design system as infrastructure — not decoration — is the most effective way to communicate its value. It pays forward across every subsequent phase and every future project that builds on the same platform.`
+  },
+  {
+    num: "07",
+    title: "Prototyping & Usability Testing",
+    subtitle: "Interactive prototypes · user testing · iteration",
+    type: "design",
+    label: "Designer leads",
+    involves: {
+      heading: "What it involves",
+      body: `Prototyping makes designs testable before they're built. Usability testing replaces assumptions with evidence — it's the phase where you find out if what you designed actually works for the people it's meant to serve.`,
+      list: [
+        "Interactive prototype build in Figma or equivalent",
+        "Test script and scenario design",
+        "Participant recruitment and scheduling",
+        "Moderated or unmoderated testing sessions",
+        "Findings synthesis and severity ranking",
+        "Design iteration based on findings",
+        "Second-round testing on critical flows if needed"
+      ]
+    },
+    leads: {
+      heading: "Why designers lead it",
+      body: `Test script design, session moderation, and findings synthesis require design expertise to do correctly. A poorly designed test produces misleading results. A designer running their own usability study also closes the feedback loop fastest — there's no translation layer between observation and design response.`
+    },
+    produces: {
+      heading: "What gets produced",
+      list: [
+        "Clickable prototype at appropriate fidelity",
+        "Usability test report with severity-ranked findings",
+        "Iterated designs addressing critical issues",
+        "Documented edge cases and open questions for dev",
+        "Confidence baseline for key user flows"
+      ]
+    },
+    convo: `Usability testing reframes design decisions as evidence-based rather than subjective — which matters in conversations with project managers who are accustomed to requirements and specs. A test report with severity-ranked findings is a document a PM can act on. It translates the designer's observations into a format that fits naturally into project tracking, making the value of this phase legible across disciplines.`
+  },
+  {
+    num: "08",
+    title: "Dev Handoff",
+    subtitle: "Specs · redlines · component docs · Figma annotations",
+    type: "collab",
+    label: "Collaborative",
+    involves: {
+      heading: "What it involves",
+      body: `Handoff is the bridge between design and engineering. Its quality directly determines how accurately the design is implemented — and how many back-and-forth cycles follow.`,
+      list: [
+        "Figma file organization and annotation for developer use",
+        "Redline specifications for spacing, sizing, and behavior",
+        "Component documentation with props and states",
+        "Interaction and animation specifications",
+        "Asset export in required formats",
+        "Handoff meeting walkthrough with dev team",
+        "Q&A documentation for common implementation questions"
+      ]
+    },
+    leads: {
+      heading: "Why designers lead it",
+      body: `Only the designer knows which details are intentional and which are flexible. A handoff without design leadership produces implementations where developers make aesthetic and behavioral decisions they're not equipped to make — not because they lack skill, but because they lack context.`
+    },
+    produces: {
+      heading: "What gets produced",
+      list: [
+        "Annotated Figma file ready for developer use",
+        "Specification document for complex interactions",
+        "Asset library in required formats",
+        "Handoff meeting notes and open questions log",
+        "Agreed implementation priority order"
+      ]
+    },
+    convo: `A thorough handoff is one of the most tangible ways design reduces project risk for a PM — fewer clarification cycles, fewer mid-sprint surprises, and fewer design decisions being made by developers under time pressure. When a designer owns handoff, the PM gets a cleaner implementation path. Framing handoff quality as a project efficiency metric rather than a design preference makes the case in terms a project manager already cares about.`
+  },
+  {
+    num: "09",
+    title: "QA & Design Review",
+    subtitle: "Visual QA · accessibility audit · bug triage with dev",
+    type: "qa",
+    label: "Designer leads",
+    involves: {
+      heading: "What it involves",
+      body: `QA from the design side is not the same as functional QA. It's a review of whether the implementation matches the intended design and maintains the experience quality across all states and breakpoints.`,
+      list: [
+        "Visual comparison of implemented UI against design specs",
+        "Cross-browser and cross-device review",
+        "Accessibility audit on live or staging environment",
+        "Interaction and animation review",
+        "Edge case and error state verification",
+        "Bug filing with design-specific severity ratings",
+        "Sign-off conversation with dev on acceptable deltas"
+      ]
+    },
+    leads: {
+      heading: "Why designers lead it",
+      body: `Functional QA confirms that the product works. Design QA confirms that the product works *correctly for users*. These are different tests. A button that functions but is too small to tap confidently passes functional QA and fails design QA. Only the designer can make that call.`
+    },
+    produces: {
+      heading: "What gets produced",
+      list: [
+        "Design QA report with severity-rated issues",
+        "Accessibility audit results",
+        "Approved delta list — intentional implementation differences",
+        "Design sign-off documentation",
+        "Remaining issue tracker entries for post-launch iteration"
+      ]
+    },
+    convo: `Functional QA and design QA are different tests with different pass criteria — and both are necessary. A PM's QA process confirms the product works as specified. Design QA confirms it works as intended for the people using it. Without a designer in this phase, experience quality issues get classified as minor bugs or get closed as "works as designed" — because without design context, they're invisible. Making this distinction clear helps a PM understand why design sign-off is a separate gate, not a redundant one.`
+  },
+  {
+    num: "10",
+    title: "Launch & Measure",
+    subtitle: "Analytics review · usability metrics · iteration planning",
+    type: "launch",
+    label: "Designer informs",
+    involves: {
+      heading: "What it involves",
+      body: `Launch is not the end — it's the beginning of the next Discovery cycle. Measuring what actually happens gives the team a feedback loop to improve from.`,
+      list: [
+        "Analytics instrumentation review — is the right data being captured?",
+        "Baseline metric documentation at launch",
+        "Post-launch usability review (first 30–60 days)",
+        "User feedback collection and triage",
+        "Performance monitoring for UX-critical metrics (load time, error rates)",
+        "Iteration backlog prioritization based on real data",
+        "Retrospective with the full team"
+      ]
+    },
+    leads: {
+      heading: "Why designers inform it",
+      body: `Post-launch, design shifts from leading to informing. Analytics are read by data teams; product and engineering own the roadmap. But designers bring the user lens to data interpretation — the difference between a low click rate that means "nobody wants this" vs. "nobody can find this" requires design judgment to decode.`
+    },
+    produces: {
+      heading: "What gets produced",
+      list: [
+        "Launch baseline metrics report",
+        "Post-launch usability findings (if a study is run)",
+        "Prioritized iteration backlog",
+        "Documentation for the next Discovery cycle",
+        "Team retrospective notes"
+      ]
+    },
+    convo: `Post-launch is where design and project management interests converge most naturally — both want to know if the project achieved its goals. A designer's contribution here is interpreting behavioral data through a user lens: distinguishing between a metric that signals a feature problem and one that signals a findability problem requires design judgment, not just analytics. Connecting design decisions to measurable outcomes also creates the feedback loop that makes the next project — and the next conversation about design's role — easier to have.`
+  }
+];
+
+const typeMap = {
+  discovery: 'tag-discovery',
+  design:    'tag-design',
+  collab:    'tag-collab',
+  qa:        'tag-qa',
+  launch:    'tag-launch'
+};
+
+const convMap = {
+  discovery: 'conv-discovery',
+  design:    'conv-design',
+  collab:    'conv-collab',
+  qa:        'conv-qa',
+  launch:    'conv-launch'
+};
+
+function buildPhase(p) {
+  const listHTML = (items) => items
+    ? `<ul>${items.map(i => `<li>${i}</li>`).join('')}</ul>`
+    : '';
+
+  return `
+    <div class="phase" id="phase-${p.num}">
+      <div class="phase-header" onclick="toggle('phase-${p.num}')">
+        <span class="phase-number">${p.num}</span>
+        <span class="phase-tag ${typeMap[p.type]}">${p.label}</span>
+        <span class="phase-title">${p.title}</span>
+        <span class="phase-subtitle">${p.subtitle}</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </div>
+      <div class="phase-body">
+        <div class="section-block">
+          <p class="section-label">${p.involves.heading}</p>
+          <div class="section-body">
+            <p>${p.involves.body}</p>
+            ${listHTML(p.involves.list)}
+          </div>
+        </div>
+        <div class="section-block">
+          <p class="section-label">${p.leads.heading}</p>
+          <div class="section-body"><p>${p.leads.body}</p></div>
+        </div>
+        <div class="section-block">
+          <p class="section-label">${p.produces.heading}</p>
+          <div class="section-body">${listHTML(p.produces.list)}</div>
+        </div>
+        <div class="conversation-block ${convMap[p.type]}">
+          <p class="section-label">The conversation angle</p>
+          <div class="section-body"><p>${p.convo}</p></div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+document.getElementById('process').innerHTML = phases.map(buildPhase).join('');
+
+function toggle(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+</script>
+</body>
+</html>
