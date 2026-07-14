@@ -392,6 +392,28 @@
     margin: 0;
   }
 
+#jl-unity-admissions .case-figure {
+    margin: 48px 0;
+  }
+
+#jl-unity-admissions .case-figure a { display: block; }
+
+#jl-unity-admissions .case-figure img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+  }
+
+#jl-unity-admissions .case-figure-caption {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 12px;
+  }
+
 #jl-unity-admissions .stages {
     display: flex;
     flex-direction: column;
@@ -834,83 +856,11 @@
     </div>
 
     <!-- Flow visualization -->
-    <div class="flow-viz fade-up">
-      <p class="flow-viz-label">Old flow vs. New flow — structure comparison</p>
-
-      <div class="flow-old">
-        <p class="flow-title">Before — 18 static steps, same for everyone</p>
-        <div class="flow-bars-old">
-          <div class="flow-bar-old"><span>01</span></div>
-          <div class="flow-bar-old"><span>02</span></div>
-          <div class="flow-bar-old"><span>03</span></div>
-          <div class="flow-bar-old"><span>04</span></div>
-          <div class="flow-bar-old"><span>05</span></div>
-          <div class="flow-bar-old"><span>06</span></div>
-          <div class="flow-bar-old"><span>07</span></div>
-          <div class="flow-bar-old"><span>08</span></div>
-          <div class="flow-bar-old"><span>09</span></div>
-          <div class="flow-bar-old"><span>10</span></div>
-          <div class="flow-bar-old"><span>11</span></div>
-          <div class="flow-bar-old"><span>12</span></div>
-          <div class="flow-bar-old"><span>13</span></div>
-          <div class="flow-bar-old"><span>14</span></div>
-          <div class="flow-bar-old"><span>15</span></div>
-          <div class="flow-bar-old"><span>16</span></div>
-          <div class="flow-bar-old"><span>17</span></div>
-          <div class="flow-bar-old"><span>18</span></div>
-        </div>
-      </div>
-
-      <div class="flow-new">
-        <p class="flow-title">After — 7 stages, conditional paths per applicant type</p>
-        <div class="flow-new-grid">
-          <div class="flow-stage-col">
-            <div class="flow-stage-header" style="background:var(--peach)"><span>Personal Info</span></div>
-            <div class="flow-branch" style="background:var(--peach)"></div>
-            <div class="flow-branch med" style="background:var(--peach)"></div>
-            <div class="flow-branch dim" style="background:var(--peach)"></div>
-          </div>
-          <div class="flow-stage-col">
-            <div class="flow-stage-header" style="background:var(--red)"><span>Academic History</span></div>
-            <div class="flow-branch" style="background:var(--red)"></div>
-            <div class="flow-branch dim" style="background:var(--red)"></div>
-            <div class="flow-branch" style="background:var(--red)"></div>
-            <div class="flow-branch med" style="background:var(--red)"></div>
-          </div>
-          <div class="flow-stage-col">
-            <div class="flow-stage-header" style="background:var(--pink)"><span>Academic Aspirations</span></div>
-            <div class="flow-branch" style="background:var(--pink)"></div>
-            <div class="flow-branch" style="background:var(--pink)"></div>
-            <div class="flow-branch dim" style="background:var(--pink)"></div>
-            <div class="flow-branch med" style="background:var(--pink)"></div>
-            <div class="flow-branch dim" style="background:var(--pink)"></div>
-          </div>
-          <div class="flow-stage-col">
-            <div class="flow-stage-header" style="background:var(--purple)"><span>Demographics</span></div>
-            <div class="flow-branch med" style="background:var(--purple)"></div>
-            <div class="flow-branch" style="background:var(--purple)"></div>
-          </div>
-          <div class="flow-stage-col">
-            <div class="flow-stage-header" style="background:var(--blue)"><span>Activities & Background</span></div>
-            <div class="flow-branch" style="background:var(--blue)"></div>
-            <div class="flow-branch dim" style="background:var(--blue)"></div>
-            <div class="flow-branch" style="background:var(--blue)"></div>
-            <div class="flow-branch med" style="background:var(--blue)"></div>
-            <div class="flow-branch dim" style="background:var(--blue)"></div>
-          </div>
-          <div class="flow-stage-col">
-            <div class="flow-stage-header" style="background:var(--aqua)"><span>Communication</span></div>
-            <div class="flow-branch med" style="background:var(--aqua)"></div>
-            <div class="flow-branch" style="background:var(--aqua)"></div>
-          </div>
-          <div class="flow-stage-col">
-            <div class="flow-stage-header" style="background:var(--green)"><span>Review & Submit</span></div>
-            <div class="flow-branch" style="background:var(--green)"></div>
-            <div class="flow-branch" style="background:var(--green)"></div>
-            <div class="flow-branch" style="background:var(--green)"></div>
-          </div>
-        </div>
-      </div>
+    <div class="case-figure fade-up">
+      <a href="images/admissions-old-vs-new-flow.jpg" target="_blank" rel="noopener">
+        <img src="images/admissions-old-vs-new-flow.jpg" alt="Old vs. new application flow diagram — 18 static steps compared to 7 conditional stages" loading="lazy">
+      </a>
+      <p class="case-figure-caption">Old flow vs. new flow — structure comparison. Click to view full size.</p>
     </div>
 
     <div class="stages fade-up">
@@ -1007,6 +957,13 @@
 <!-- ── THE FIELD-LEVEL WORK ───────────────────────────────── -->
 <section class="section">
   <div class="wrapper">
+    <div class="case-figure fade-up">
+      <a href="images/admissions-review-submit.jpg" target="_blank" rel="noopener">
+        <img src="images/admissions-review-submit.jpg" alt="Review and Submit screen, step 7 of 7, showing a summary of all entered application information" loading="lazy">
+      </a>
+      <p class="case-figure-caption">Step 7 — Review &amp; Submit, product screenshot</p>
+    </div>
+
     <div class="fade-up">
       <p class="section-label">04 — The Details</p>
       <h2>The work that<br><em>doesn't show in screenshots.</em></h2>
