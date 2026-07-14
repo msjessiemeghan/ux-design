@@ -734,8 +734,8 @@
     <div class="fade-up">
       <p class="section-label">01 — The Problem</p>
       <h2>A form that failed<br><em>the people trying to use it.</em></h2>
-      <p>The existing Unity admissions application was a static, linear sequence of 18 steps — the same 18 steps for every applicant, regardless of who they were or what program they were pursuing. A recent high school graduate saw the same fields as a returning adult learner. A transfer student with 60 credit hours was asked questions only relevant to first-time applicants. A prospective student with no military background was prompted to enter military affiliation details.</p>
-      <p>The problems weren't isolated — they compounded each other. Technical glitches with type-ahead fields caused errors mid-form. Irrelevant questions created confusion about whether the user was in the right place. The sheer visible length of the application created a psychological barrier before users had even begun.</p>
+      <p>The existing Unity admissions application was a static, linear sequence of 18 steps, the same 18 steps for every applicant, regardless of who they were or what program they were pursuing. A recent high school graduate saw the same fields as a returning adult learner. A transfer student with 60 credit hours was asked questions only relevant to first-time applicants. A prospective student with no military background was prompted to enter military affiliation details.</p>
+      <p>The problems weren't isolated; in fact, they compounded each other. Technical glitches with autofill or predictive text fields caused errors mid-form. Questions that were only relevant to some users but not others created confusion about whether the user was in the right place. The sheer visible length of the application created a psychological barrier before users had even begun.</p>
     </div>
 
     <div class="pull fade-up">
@@ -752,7 +752,7 @@
           <li>Overcrowded dropdowns increasing cognitive load</li>
           <li>Full length of application visible upfront — daunting</li>
           <li>Admissions staff receiving incomplete or incorrect data</li>
-          <li>Users abandoning the form early</li>
+          <li>Higher risk of users abandoning the form early</li>
         </ul>
       </div>
       <div class="compare-panel after">
@@ -792,17 +792,17 @@
     <div class="fade-up">
       <p class="section-label">02 — Discovery</p>
       <h2>Auditing the form.<br><em>Interviewing the people who lived with it.</em></h2>
-      <p>The redesign started in two places simultaneously: inside the existing form, and in conversation with the admissions staff who processed its output every day.</p>
-      <p>The form audit mapped every field, every step, and every condition — or lack thereof. Most fields had no logic attached to them at all. They appeared for every user because no one had ever modeled the decision tree underneath the application. The form wasn't badly designed — it was never designed as a flow. It was assembled as a list.</p>
+      <p>The redesign started in two places simultaneously: inside the existing form, and in conversation with the recruitment staff who processed its output every day.</p>
+      <p>The form audit mapped every field, every step, and every condition, or lack thereof. Most fields had no logic attached to them at all. They appeared for every user because no one had ever modeled the decision tree underneath the application. The form wasn't badly designed, it was just never designed as a flow, as it was assembled as a list.</p>
     </div>
 
     <div class="insight fade-up">
       <p class="insight-label">Key Discovery</p>
-      <p>The admissions staff interviews revealed something the form audit alone couldn't: the fields that were causing the most data quality problems downstream were the same fields that appeared to users who had no reason to fill them out. The form was generating noise that staff then had to manually correct. The UX failure was creating an operational failure.</p>
+      <p>The new student recruitment staff interviews revealed something the form audit alone couldn't: the fields that were causing the most data quality problems downstream were the same fields that appeared to users who had no reason to fill them out. The form was generating noise that staff then had to manually correct. The UX failure was creating an operational failure.</p>
     </div>
 
     <div class="fade-up">
-      <p>The stakeholder interviews also surfaced a priority ordering that wasn't visible in the original form. Some fields — program intent, contact information, basic identity — were needed early to route applicants correctly. Others — academic history details, military background — only mattered for specific applicant types and could be gated behind prior answers.</p>
+      <p>The stakeholder interviews also surfaced a priority ordering that wasn't visible in the original form. Some fields, like program intent, contact information, basic identity, were needed early to route applicants correctly. Others like academic history details, and military background, only mattered for specific applicant types and could be gated behind prior answers or dynamically present reworded questions more specific to that users situation or history.</p>
       <p>That ordering became the architecture of the new flow.</p>
     </div>
 
@@ -817,15 +817,15 @@
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-body">
-          <p class="step-title">Admissions stakeholder interviews</p>
-          <p class="step-desc">Interviewed admissions staff to understand what data they actually needed, which fields generated bad or incomplete data, and where downstream processing was breaking down.</p>
+          <p class="step-title">Recruitment stakeholder interviews</p>
+          <p class="step-desc">Interviewed recruitment and staff to understand what data they actually needed, which fields generated bad or incomplete data, and where downstream processing was breaking down.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-body">
           <p class="step-title">Decision tree mapping</p>
-          <p class="step-desc">Built the underlying logic model — which questions gate which subsequent questions. Identified the branching paths: first-time students, transfer students, returning adult learners, military-affiliated applicants.</p>
+          <p class="step-desc">Built the underlying logic model — which questions gate which subsequent questions. Identified the branching paths: first-time students, transfer students, returning adult learners, military-affiliated applicants, bachelor's degree seeking, and master’s degree seeking.</p>
         </div>
       </div>
       <div class="step">
@@ -852,7 +852,7 @@
     <div class="fade-up">
       <p class="section-label">03 — The Solution</p>
       <h2>Seven stages.<br><em>Infinite paths. One clear journey.</em></h2>
-      <p>The redesigned application is organized into seven named stages — each with a clear purpose, a defined scope, and conditional logic that adapts the experience in real time based on what the applicant has already told us.</p>
+      <p>The redesigned application is organized into seven named stages, each with a clear purpose, a defined scope, and conditional logic that adapts the experience in real time based on what the applicant has already told us.</p>
     </div>
 
     <!-- Flow visualization -->
@@ -949,7 +949,7 @@
 
     <div class="insight fade-up">
       <p class="insight-label">The Design Principle</p>
-      <p>The new form doesn't ask less — it asks the same things. What changed is <strong>who gets asked what, and when.</strong> The complexity moved out of the user's experience and into the logic layer where it belongs. That's information architecture doing its actual job.</p>
+      <p>The new form doesn't ask less, it asks the same things, but what changed is who gets asked what, and when. The complexity moved out of the user's experience and into the logic layer where it belongs. That's information architecture doing its actual job.</p>
     </div>
   </div>
 </section>
@@ -967,19 +967,19 @@
     <div class="fade-up">
       <p class="section-label">04 — The Details</p>
       <h2>The work that<br><em>doesn't show in screenshots.</em></h2>
-      <p>The most meaningful improvements in this redesign aren't visible in any single screen — they live in the interactions between screens, and in decisions made at the field level.</p>
+      <p>The most meaningful improvements in this redesign aren't visible in any single screen, they live in the interactions between screens, and in decisions made at the field level.</p>
     </div>
 
     <div class="fade-up">
       <h3>Fixing the autocomplete problem</h3>
-      <p>Several fields in the original form used type-ahead autocomplete — a feature that, in theory, speeds up input and reduces errors. In practice, the dropdowns were overpopulated and the autocomplete logic would trigger at the wrong moment, creating glitches that caused values to either not save correctly or surface error states that confused users.</p>
-      <p>The solution wasn't to remove autocomplete — it was to rethink the question structure upstream. By asking filtering questions earlier in the flow, I could dramatically reduce the option set for downstream dropdowns. A student who has already indicated they're pursuing an undergraduate degree doesn't need to see graduate program options in a dropdown. Smaller sets mean fewer edge cases, fewer glitch opportunities, and a faster, more confident selection experience.</p>
+      <p>Several fields in the original form used type-ahead autocomplete, a feature that, in theory, speeds up input and reduces errors. In practice, the dropdowns were overpopulated and the autocomplete logic would trigger at the wrong moment, creating glitches that caused values to either not save correctly or surface error states that confused users.</p>
+      <p>The solution wasn't to remove autocomplete, it was to rethink the question structure upstream. By asking filtering questions earlier in the flow, I could dramatically reduce the option set for downstream dropdowns. A student who has already indicated they're pursuing an undergraduate degree doesn't need to see graduate program options in a dropdown. Smaller sets mean fewer edge cases, fewer glitch opportunities, and a faster, more confident selection experience.</p>
     </div>
 
     <div class="fade-up">
       <h3>Sequencing as a filter</h3>
-      <p>The decision to move Academic History to Step 2 — immediately after personal information — was deliberate. It's the question whose answer does the most work. Once the form knows whether someone is a first-time student, a transfer student, or a returning adult learner, it can confidently narrow every subsequent stage. That single early question eliminates entire branches for most users.</p>
-      <p>This is the difference between a form that collects data and a form that understands context. The original form collected data. The new one builds a picture as it goes and uses that picture to stop asking unnecessary questions.</p>
+      <p>The decision to move Academic History to Step 2,  immediately after personal information, was deliberate. It's the question whose answer does the most work. Once the form knows whether someone is a first-time student, a transfer student, or a master’s degree-seeking student, it can confidently narrow every subsequent stage. That single early question eliminates entire branches for most users.</p>
+      <p>This is the difference between a form that collects data and a form that understands context. The original form collected data, while the new one builds a picture as it goes and uses that picture to stop asking unnecessary questions.</p>
     </div>
 
     <div class="fade-up">
@@ -998,9 +998,9 @@
     </div>
     <div class="reflection fade-up">
       <p class="reflection-label">Honest retrospective</p>
-      <p>The discovery process — auditing the form and interviewing admissions staff — was the right foundation. If I were to do this again I'd add one more research layer I didn't have time for: observational sessions with prospective students actually completing the application. Stakeholders know what data they need; they don't always know where applicants hesitate, which fields create confusion, or where the emotional friction lives. The form audit tells you what's there. It can't tell you what the experience of encountering it feels like.</p>
-      <p style="margin-top:16px">I'd also instrument the new form from day one — abandonment rates per stage, time spent per step, error rates per field. The absence of baseline metrics from the original form means the redesign's impact will be directionally visible but not precisely measurable. That's a gap I'd want to close in any future engagement of this type.</p>
-      <p style="margin-top:16px">The design is complete. Implementation is in progress. The case study will be updated with outcome data once the new form is live and has been in production long enough to generate meaningful signal.</p>
+      <p>The discovery process which included auditing the form and interviewing recruitment staff, was the right foundation. If I were to do this again I'd add one more research layer I didn't have time for: observational sessions with prospective students actually completing the application. Stakeholders know what data they need; they don't always know where applicants hesitate, which fields create confusion, or where the emotional friction lives. The form audit tells you what's there. It can't tell you what the experience of encountering it feels like.</p>
+      <p style="margin-top:16px">We could only institute tracking analytics at every step on the new form to track abandonment rates per stage, time spent per step, error rates per field. The absence of baseline metrics from the original form means the redesign's impact will be directionally visible but not precisely measurable. That's a gap I'd want to close in any future engagement of this type.</p>
+      <p style="margin-top:16px">The design is complete and implementation is in progress. The case study will be updated with outcome data once the new form is live and has been in production long enough to generate a meaningful signal.</p>
     </div>
   </div>
 </section>
