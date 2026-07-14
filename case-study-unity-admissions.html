@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity Admissions Application — Case Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F8F5EF; }
+  .back-link {
+    display: block;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 20px 40px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+  }
+  .back-link a { color: #4A7A52; text-decoration: none; letter-spacing: 0.02em; }
+  .back-link a:hover { color: #1C3620; }
+  @media (max-width: 700px) { .back-link { padding: 16px 24px 0; } }
+</style>
+<style>
+:root {
+    --forest:      #1C3620;
+    --pine:        #2D5233;
+    --fern:        #4A7A52;
+    --sage:        #7AAB82;
+    --mist:        #B8D4BC;
+    --cream:       #F8F5EF;
+    --parchment:   #F0EBE0;
+    --ink:         #1A1814;
+    --ink-mid:     #4A4640;
+    --ink-faint:   #9A9590;
+    --rule:        #DDD8CE;
+    --gold:        #B8922A;
+    --gold-light:  #F5ECD0;
+    /* stage colors */
+    --peach:       #E8A882;
+    --peach-bg:    #FDF0E8;
+    --red:         #C45C5C;
+    --red-bg:      #FBE8E8;
+    --pink:        #C47090;
+    --pink-bg:     #FAE8F0;
+    --purple:      #8870B8;
+    --purple-bg:   #F0ECF8;
+    --blue:        #5890C8;
+    --blue-bg:     #E8F2FC;
+    --aqua:        #4A9898;
+    --aqua-bg:     #E8F6F6;
+    --green:       #4A8858;
+    --green-bg:    #E8F4EC;
+  }
+
+#jl-unity-admissions {
+    --forest:      #1C3620;
+    --pine:        #2D5233;
+    --fern:        #4A7A52;
+    --sage:        #7AAB82;
+    --mist:        #B8D4BC;
+    --cream:       #F8F5EF;
+    --parchment:   #F0EBE0;
+    --ink:         #1A1814;
+    --ink-mid:     #4A4640;
+    --ink-faint:   #9A9590;
+    --rule:        #DDD8CE;
+    --gold:        #B8922A;
+    --gold-light:  #F5ECD0;
+    /* stage colors */
+    --peach:       #E8A882;
+    --peach-bg:    #FDF0E8;
+    --red:         #C45C5C;
+    --red-bg:      #FBE8E8;
+    --pink:        #C47090;
+    --pink-bg:     #FAE8F0;
+    --purple:      #8870B8;
+    --purple-bg:   #F0ECF8;
+    --blue:        #5890C8;
+    --blue-bg:     #E8F2FC;
+    --aqua:        #4A9898;
+    --aqua-bg:     #E8F6F6;
+    --green:       #4A8858;
+    --green-bg:    #E8F4EC;
+  }
+
+#jl-unity-admissions * { box-sizing: border-box; margin: 0; padding: 0; }
+
+#jl-unity-admissions { scroll-behavior: smooth; }
+
+#jl-unity-admissions {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Proxima Nova', 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+#jl-unity-admissions .hero {
+    background: var(--forest);
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+#jl-unity-admissions .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgba(74,122,82,0.2) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 20%, rgba(45,82,51,0.3) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+#jl-unity-admissions .hero-steps {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    display: flex;
+  }
+
+#jl-unity-admissions .hero-step-bar {
+    flex: 1;
+    opacity: 0.7;
+    animation: barIn 0.6s ease forwards;
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+@keyframes barIn {
+    to { transform: scaleX(1); }
+  }
+
+#jl-unity-admissions .hero-step-bar:nth-child(1) { background: var(--peach);   animation-delay: 0.1s; }
+
+#jl-unity-admissions .hero-step-bar:nth-child(2) { background: var(--red);     animation-delay: 0.25s; }
+
+#jl-unity-admissions .hero-step-bar:nth-child(3) { background: var(--pink);    animation-delay: 0.4s; }
+
+#jl-unity-admissions .hero-step-bar:nth-child(4) { background: var(--purple);  animation-delay: 0.55s; }
+
+#jl-unity-admissions .hero-step-bar:nth-child(5) { background: var(--blue);    animation-delay: 0.7s; }
+
+#jl-unity-admissions .hero-step-bar:nth-child(6) { background: var(--aqua);    animation-delay: 0.85s; }
+
+#jl-unity-admissions .hero-step-bar:nth-child(7) { background: var(--green);   animation-delay: 1.0s; }
+
+#jl-unity-admissions .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 72px;
+  }
+
+#jl-unity-admissions .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+#jl-unity-admissions .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--sage);
+  }
+
+#jl-unity-admissions .hero-title {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: clamp(42px, 6vw, 82px);
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.05;
+    margin-bottom: 24px;
+    max-width: 800px;
+  }
+
+#jl-unity-admissions .hero-title em {
+    font-style: italic;
+    color: var(--mist);
+  }
+
+#jl-unity-admissions .hero-desc {
+    font-size: 18px;
+    color: var(--sage);
+    max-width: 540px;
+    line-height: 1.65;
+    margin-bottom: 48px;
+  }
+
+#jl-unity-admissions .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+#jl-unity-admissions .meta-chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 1px solid rgba(122,171,130,0.3);
+    border-radius: 2px;
+    color: var(--sage);
+    background: rgba(28,54,32,0.4);
+  }
+
+#jl-unity-admissions .wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+#jl-unity-admissions .section {
+    padding: 96px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+#jl-unity-admissions .section:last-of-type { border-bottom: none; }
+
+#jl-unity-admissions .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fern);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+#jl-unity-admissions .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 60px;
+  }
+
+#jl-unity-admissions h2 {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+
+#jl-unity-admissions h2 em { font-style: italic; color: var(--pine); }
+
+#jl-unity-admissions h3 {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 10px;
+    margin-top: 44px;
+  }
+
+#jl-unity-admissions p { color: var(--ink-mid); margin-bottom: 18px; }
+
+#jl-unity-admissions p:last-child { margin-bottom: 0; }
+
+#jl-unity-admissions strong { font-weight: 500; color: var(--ink); }
+
+#jl-unity-admissions .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    margin: 48px 0;
+  }
+
+#jl-unity-admissions .compare-panel {
+    padding: 32px 28px;
+    border-radius: 2px;
+  }
+
+#jl-unity-admissions .compare-panel.before {
+    background: #FAF0F0;
+  }
+
+#jl-unity-admissions .compare-panel.after {
+    background: var(--green-bg);
+  }
+
+#jl-unity-admissions .compare-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+#jl-unity-admissions .compare-panel.before .compare-label { color: var(--red); }
+
+#jl-unity-admissions .compare-panel.after  .compare-label { color: var(--green); }
+
+#jl-unity-admissions .compare-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+#jl-unity-admissions .compare-items li {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.5;
+    padding-left: 16px;
+    position: relative;
+  }
+
+#jl-unity-admissions .compare-panel.before .compare-items li::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-size: 10px;
+    top: 3px;
+  }
+
+#jl-unity-admissions .compare-panel.after .compare-items li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-size: 10px;
+    top: 3px;
+  }
+
+#jl-unity-admissions .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin: 48px 0;
+  }
+
+#jl-unity-admissions .stat {
+    background: var(--parchment);
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+#jl-unity-admissions .stat-number {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 52px;
+    color: var(--pine);
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+#jl-unity-admissions .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    line-height: 1.5;
+  }
+
+#jl-unity-admissions .pull {
+    border-left: 3px solid var(--pine);
+    padding: 6px 0 6px 28px;
+    margin: 48px 0;
+  }
+
+#jl-unity-admissions .pull p {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--ink);
+    font-weight: 400;
+    margin: 0;
+  }
+
+#jl-unity-admissions .stages {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 48px 0;
+  }
+
+#jl-unity-admissions .stage-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+#jl-unity-admissions .stage-label-cell {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+#jl-unity-admissions .stage-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+#jl-unity-admissions .stage-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+#jl-unity-admissions .stage-content-cell {
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.5);
+  }
+
+#jl-unity-admissions .stage-content-cell p {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+#jl-unity-admissions .stage-row.welcome { background: rgba(240,235,224,0.8); }
+
+#jl-unity-admissions .stage-row.peach { background: var(--peach-bg); }
+
+#jl-unity-admissions .stage-row.red { background: var(--red-bg); }
+
+#jl-unity-admissions .stage-row.pink { background: var(--pink-bg); }
+
+#jl-unity-admissions .stage-row.purple { background: var(--purple-bg); }
+
+#jl-unity-admissions .stage-row.blue { background: var(--blue-bg); }
+
+#jl-unity-admissions .stage-row.aqua { background: var(--aqua-bg); }
+
+#jl-unity-admissions .stage-row.green { background: var(--green-bg); }
+
+#jl-unity-admissions .stage-row.confirm { background: rgba(240,235,224,0.8); }
+
+#jl-unity-admissions .insight {
+    background: var(--gold-light);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 3px 3px 0;
+    padding: 22px 26px;
+    margin: 40px 0;
+  }
+
+#jl-unity-admissions .insight-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+#jl-unity-admissions .insight p {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+#jl-unity-admissions .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 44px 0;
+  }
+
+#jl-unity-admissions .step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    background: var(--parchment);
+    overflow: hidden;
+    border-radius: 2px;
+  }
+
+#jl-unity-admissions .step-num {
+    background: var(--pine);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--mist);
+  }
+
+#jl-unity-admissions .step-body { padding: 18px 22px; }
+
+#jl-unity-admissions .step-title {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+#jl-unity-admissions .step-desc {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+#jl-unity-admissions .flow-viz {
+    background: var(--forest);
+    border-radius: 4px;
+    padding: 40px 36px;
+    margin: 48px 0;
+    overflow: hidden;
+  }
+
+#jl-unity-admissions .flow-viz-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 28px;
+  }
+
+#jl-unity-admissions .flow-old, #jl-unity-admissions .flow-new {
+    margin-bottom: 24px;
+  }
+
+#jl-unity-admissions .flow-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+#jl-unity-admissions .flow-old .flow-title { color: rgba(196,92,92,0.8); }
+
+#jl-unity-admissions .flow-new .flow-title { color: var(--sage); }
+
+#jl-unity-admissions .flow-bars-old {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+  }
+
+#jl-unity-admissions .flow-bar-old {
+    height: 28px;
+    background: rgba(196,92,92,0.25);
+    border: 1px solid rgba(196,92,92,0.3);
+    border-radius: 2px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+#jl-unity-admissions .flow-bar-old span {
+    font-family: 'DM Mono', monospace;
+    font-size: 7px;
+    color: rgba(196,92,92,0.7);
+  }
+
+#jl-unity-admissions .flow-new-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+
+#jl-unity-admissions .flow-stage-col {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+#jl-unity-admissions .flow-stage-header {
+    height: 28px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+#jl-unity-admissions .flow-stage-header span {
+    font-family: 'DM Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    color: white;
+    text-align: center;
+    line-height: 1.3;
+    padding: 0 3px;
+  }
+
+#jl-unity-admissions .flow-branch {
+    height: 16px;
+    border-radius: 2px;
+    opacity: 0.25;
+  }
+
+#jl-unity-admissions .flow-branch.dim { opacity: 0.1; }
+
+#jl-unity-admissions .flow-branch.med { opacity: 0.18; }
+
+#jl-unity-admissions .reflection {
+    background: var(--parchment);
+    border-radius: 3px;
+    padding: 44px;
+    margin-top: 44px;
+  }
+
+#jl-unity-admissions .reflection-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+  }
+
+#jl-unity-admissions .case-footer {
+    background: var(--forest);
+    padding: 64px 0;
+    text-align: center;
+  }
+
+#jl-unity-admissions .case-footer p { color: var(--sage); font-size: 15px; margin-bottom: 6px; }
+
+#jl-unity-admissions .case-footer strong { color: var(--cream); }
+
+#jl-unity-admissions .fade-up {
+    opacity: 1;
+    transform: none;
+  }
+
+@media (max-width: 700px) {
+#jl-unity-admissions .hero-content { padding: 0 24px; }
+
+#jl-unity-admissions .wrapper { padding: 0 24px; }
+
+#jl-unity-admissions .compare, #jl-unity-admissions .stat-row { grid-template-columns: 1fr; }
+
+#jl-unity-admissions .stage-row { grid-template-columns: 1fr; }
+
+#jl-unity-admissions .stage-content-cell { border-top: 1px solid rgba(0,0,0,0.05); }
+
+#jl-unity-admissions .flow-new-grid { grid-template-columns: repeat(4, 1fr); }
+
+#jl-unity-admissions .section { padding: 64px 0; }
+
+
+
+}
+
+
+</style>
+</head>
+<body>
+
+<p class="back-link"><a href="index.html">← Back to UX Portfolio</a></p>
+
+<div id="jl-unity-admissions">
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-steps">
+    <div class="hero-step-bar"></div>
+    <div class="hero-step-bar"></div>
+    <div class="hero-step-bar"></div>
+    <div class="hero-step-bar"></div>
+    <div class="hero-step-bar"></div>
+    <div class="hero-step-bar"></div>
+    <div class="hero-step-bar"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Case Study</p>
+    <h1 class="hero-title">From 18 steps<br>to <em>6 decisions.</em></h1>
+    <p class="hero-desc">Redesigning Unity Environmental University's admissions application from a static, one-size-fits-all form into a dynamic, intelligent flow that only asks what it actually needs to know.</p>
+    <div class="hero-meta">
+      <span class="meta-chip">UX Research</span>
+      <span class="meta-chip">Information Architecture</span>
+      <span class="meta-chip">Conditional Logic Design</span>
+      <span class="meta-chip">Stakeholder Interviews</span>
+      <span class="meta-chip">Salesforce Integration</span>
+      <span class="meta-chip">Implementation in Progress</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE PROBLEM ────────────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">01 — The Problem</p>
+      <h2>A form that failed<br><em>the people trying to use it.</em></h2>
+      <p>The existing Unity admissions application was a static, linear sequence of 18 steps — the same 18 steps for every applicant, regardless of who they were or what program they were pursuing. A recent high school graduate saw the same fields as a returning adult learner. A transfer student with 60 credit hours was asked questions only relevant to first-time applicants. A prospective student with no military background was prompted to enter military affiliation details.</p>
+      <p>The problems weren't isolated — they compounded each other. Technical glitches with type-ahead fields caused errors mid-form. Irrelevant questions created confusion about whether the user was in the right place. The sheer visible length of the application created a psychological barrier before users had even begun.</p>
+    </div>
+
+    <div class="pull fade-up">
+      <p>"The complexity wasn't in the questions. It was in showing all of them to everyone."</p>
+    </div>
+
+    <div class="compare fade-up">
+      <div class="compare-panel before">
+        <p class="compare-label">Before</p>
+        <ul class="compare-items">
+          <li>18 static steps shown to every applicant</li>
+          <li>Irrelevant fields appearing for all user types</li>
+          <li>Type-ahead fields causing technical glitches mid-form</li>
+          <li>Overcrowded dropdowns increasing cognitive load</li>
+          <li>Full length of application visible upfront — daunting</li>
+          <li>Admissions staff receiving incomplete or incorrect data</li>
+          <li>Users abandoning the form early</li>
+        </ul>
+      </div>
+      <div class="compare-panel after">
+        <p class="compare-label">After</p>
+        <ul class="compare-items">
+          <li>Dynamic flow — only relevant steps shown per user</li>
+          <li>Conditional logic filters fields by applicant profile</li>
+          <li>Simplified dropdowns reduce input errors</li>
+          <li>Early questions filter out irrelevant later questions</li>
+          <li>Progress is chunked — 7 named stages, not 18 raw steps</li>
+          <li>Cleaner data reaching admissions staff</li>
+          <li>Design complete — implementation in progress</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stat-row fade-up">
+      <div class="stat">
+        <span class="stat-number">18</span>
+        <span class="stat-label">Static steps<br>in original form</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">7</span>
+        <span class="stat-label">Named stages<br>in new design</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Compounding failure<br>modes addressed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DISCOVERY ──────────────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">02 — Discovery</p>
+      <h2>Auditing the form.<br><em>Interviewing the people who lived with it.</em></h2>
+      <p>The redesign started in two places simultaneously: inside the existing form, and in conversation with the admissions staff who processed its output every day.</p>
+      <p>The form audit mapped every field, every step, and every condition — or lack thereof. Most fields had no logic attached to them at all. They appeared for every user because no one had ever modeled the decision tree underneath the application. The form wasn't badly designed — it was never designed as a flow. It was assembled as a list.</p>
+    </div>
+
+    <div class="insight fade-up">
+      <p class="insight-label">Key Discovery</p>
+      <p>The admissions staff interviews revealed something the form audit alone couldn't: the fields that were causing the most data quality problems downstream were the same fields that appeared to users who had no reason to fill them out. The form was generating noise that staff then had to manually correct. The UX failure was creating an operational failure.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>The stakeholder interviews also surfaced a priority ordering that wasn't visible in the original form. Some fields — program intent, contact information, basic identity — were needed early to route applicants correctly. Others — academic history details, military background — only mattered for specific applicant types and could be gated behind prior answers.</p>
+      <p>That ordering became the architecture of the new flow.</p>
+    </div>
+
+    <div class="process-steps fade-up">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <p class="step-title">Form audit</p>
+          <p class="step-desc">Mapped all existing fields, their sequence, and the conditions (or lack thereof) governing when they appeared. Identified which fields were universal vs. applicant-type-specific.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <p class="step-title">Admissions stakeholder interviews</p>
+          <p class="step-desc">Interviewed admissions staff to understand what data they actually needed, which fields generated bad or incomplete data, and where downstream processing was breaking down.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <p class="step-title">Decision tree mapping</p>
+          <p class="step-desc">Built the underlying logic model — which questions gate which subsequent questions. Identified the branching paths: first-time students, transfer students, returning adult learners, military-affiliated applicants.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <p class="step-title">Grouping and sequencing</p>
+          <p class="step-desc">Organized fields into logical thematic stages, sequenced so that early answers narrow later options. Simplified overloaded dropdowns to reduce cognitive load and input errors.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <p class="step-title">Prototype and flow documentation</p>
+          <p class="step-desc">Built the complete high-fidelity flow in Figma — all conditional paths, all screen states, all branching logic. Documented for development handoff.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE SOLUTION ───────────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">03 — The Solution</p>
+      <h2>Seven stages.<br><em>Infinite paths. One clear journey.</em></h2>
+      <p>The redesigned application is organized into seven named stages — each with a clear purpose, a defined scope, and conditional logic that adapts the experience in real time based on what the applicant has already told us.</p>
+    </div>
+
+    <!-- Flow visualization -->
+    <div class="flow-viz fade-up">
+      <p class="flow-viz-label">Old flow vs. New flow — structure comparison</p>
+
+      <div class="flow-old">
+        <p class="flow-title">Before — 18 static steps, same for everyone</p>
+        <div class="flow-bars-old">
+          <div class="flow-bar-old"><span>01</span></div>
+          <div class="flow-bar-old"><span>02</span></div>
+          <div class="flow-bar-old"><span>03</span></div>
+          <div class="flow-bar-old"><span>04</span></div>
+          <div class="flow-bar-old"><span>05</span></div>
+          <div class="flow-bar-old"><span>06</span></div>
+          <div class="flow-bar-old"><span>07</span></div>
+          <div class="flow-bar-old"><span>08</span></div>
+          <div class="flow-bar-old"><span>09</span></div>
+          <div class="flow-bar-old"><span>10</span></div>
+          <div class="flow-bar-old"><span>11</span></div>
+          <div class="flow-bar-old"><span>12</span></div>
+          <div class="flow-bar-old"><span>13</span></div>
+          <div class="flow-bar-old"><span>14</span></div>
+          <div class="flow-bar-old"><span>15</span></div>
+          <div class="flow-bar-old"><span>16</span></div>
+          <div class="flow-bar-old"><span>17</span></div>
+          <div class="flow-bar-old"><span>18</span></div>
+        </div>
+      </div>
+
+      <div class="flow-new">
+        <p class="flow-title">After — 7 stages, conditional paths per applicant type</p>
+        <div class="flow-new-grid">
+          <div class="flow-stage-col">
+            <div class="flow-stage-header" style="background:var(--peach)"><span>Personal Info</span></div>
+            <div class="flow-branch" style="background:var(--peach)"></div>
+            <div class="flow-branch med" style="background:var(--peach)"></div>
+            <div class="flow-branch dim" style="background:var(--peach)"></div>
+          </div>
+          <div class="flow-stage-col">
+            <div class="flow-stage-header" style="background:var(--red)"><span>Academic History</span></div>
+            <div class="flow-branch" style="background:var(--red)"></div>
+            <div class="flow-branch dim" style="background:var(--red)"></div>
+            <div class="flow-branch" style="background:var(--red)"></div>
+            <div class="flow-branch med" style="background:var(--red)"></div>
+          </div>
+          <div class="flow-stage-col">
+            <div class="flow-stage-header" style="background:var(--pink)"><span>Academic Aspirations</span></div>
+            <div class="flow-branch" style="background:var(--pink)"></div>
+            <div class="flow-branch" style="background:var(--pink)"></div>
+            <div class="flow-branch dim" style="background:var(--pink)"></div>
+            <div class="flow-branch med" style="background:var(--pink)"></div>
+            <div class="flow-branch dim" style="background:var(--pink)"></div>
+          </div>
+          <div class="flow-stage-col">
+            <div class="flow-stage-header" style="background:var(--purple)"><span>Demographics</span></div>
+            <div class="flow-branch med" style="background:var(--purple)"></div>
+            <div class="flow-branch" style="background:var(--purple)"></div>
+          </div>
+          <div class="flow-stage-col">
+            <div class="flow-stage-header" style="background:var(--blue)"><span>Activities & Background</span></div>
+            <div class="flow-branch" style="background:var(--blue)"></div>
+            <div class="flow-branch dim" style="background:var(--blue)"></div>
+            <div class="flow-branch" style="background:var(--blue)"></div>
+            <div class="flow-branch med" style="background:var(--blue)"></div>
+            <div class="flow-branch dim" style="background:var(--blue)"></div>
+          </div>
+          <div class="flow-stage-col">
+            <div class="flow-stage-header" style="background:var(--aqua)"><span>Communication</span></div>
+            <div class="flow-branch med" style="background:var(--aqua)"></div>
+            <div class="flow-branch" style="background:var(--aqua)"></div>
+          </div>
+          <div class="flow-stage-col">
+            <div class="flow-stage-header" style="background:var(--green)"><span>Review & Submit</span></div>
+            <div class="flow-branch" style="background:var(--green)"></div>
+            <div class="flow-branch" style="background:var(--green)"></div>
+            <div class="flow-branch" style="background:var(--green)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stages fade-up">
+      <div class="stage-row welcome">
+        <div class="stage-label-cell">
+          <div class="stage-dot" style="background:var(--ink-faint)"></div>
+          <span class="stage-name" style="color:var(--ink-mid)">Welcome</span>
+        </div>
+        <div class="stage-content-cell">
+          <p>Sets expectations before the applicant begins. Reduces anxiety by making the scope of the task legible upfront.</p>
+        </div>
+      </div>
+      <div class="stage-row peach">
+        <div class="stage-label-cell">
+          <div class="stage-dot" style="background:var(--peach)"></div>
+          <span class="stage-name" style="color:var(--peach)">Step 1 — Personal Info</span>
+        </div>
+        <div class="stage-content-cell">
+          <p>Contact details and basic identity. Universal — every applicant sees this stage. Establishes the record before anything conditional begins.</p>
+        </div>
+      </div>
+      <div class="stage-row red">
+        <div class="stage-label-cell">
+          <div class="stage-dot" style="background:var(--red)"></div>
+          <span class="stage-name" style="color:var(--red)">Step 2 — Academic History</span>
+        </div>
+        <div class="stage-content-cell">
+          <p>Prior education background. The answers here are the primary gating mechanism — they determine which subsequent fields appear in Steps 3 and 5. A first-time student and a transfer student take materially different paths from this point forward.</p>
+        </div>
+      </div>
+      <div class="stage-row pink">
+        <div class="stage-label-cell">
+          <div class="stage-dot" style="background:var(--pink)"></div>
+          <span class="stage-name" style="color:var(--pink)">Step 3 — Academic Aspirations</span>
+        </div>
+        <div class="stage-content-cell">
+          <p>Program selection and degree intent. Fields adapt based on Step 2 answers — eligible programs are filtered to match the applicant's academic history, so users are never shown programs they don't qualify for.</p>
+        </div>
+      </div>
+      <div class="stage-row purple">
+        <div class="stage-label-cell">
+          <div class="stage-dot" style="background:var(--purple)"></div>
+          <span class="stage-name" style="color:var(--purple)">Step 4 — Demographic Info</span>
+        </div>
+        <div class="stage-content-cell">
+          <p>Optional demographic data. Presented as a clearly optional, separate stage — not buried within a longer form where its optionality was unclear.</p>
+        </div>
+      </div>
+      <div class="stage-row blue">
+        <div class="stage-label-cell">
+          <div class="stage-dot" style="background:var(--blue)"></div>
+          <span class="stage-name" style="color:var(--blue)">Step 5 — Activities & Background</span>
+        </div>
+        <div class="stage-content-cell">
+          <p>Military affiliation, conviction history, and other background disclosures. These fields are fully conditional — a student with no military background sees none of them. The branching here was the most complex in the original form to untangle.</p>
+        </div>
+      </div>
+      <div class="stage-row aqua">
+        <div class="stage-label-cell">
+          <div class="stage-dot" style="background:var(--aqua)"></div>
+          <span class="stage-name" style="color:var(--aqua)">Step 6 — Communication Preferences</span>
+        </div>
+        <div class="stage-content-cell">
+          <p>How the applicant wants to be contacted. Separated from personal information so it reads as a distinct, lower-stakes choice — not one more field in an already-long form.</p>
+        </div>
+      </div>
+      <div class="stage-row green">
+        <div class="stage-label-cell">
+          <div class="stage-dot" style="background:var(--green)"></div>
+          <span class="stage-name" style="color:var(--green)">Step 7 — Review & Submit</span>
+        </div>
+        <div class="stage-content-cell">
+          <p>Summary of all entered information with edit access before final submission. Only shows what the applicant actually filled in — not the full 18-step form.</p>
+        </div>
+      </div>
+      <div class="stage-row confirm">
+        <div class="stage-label-cell">
+          <div class="stage-dot" style="background:var(--fern)"></div>
+          <span class="stage-name" style="color:var(--fern)">Confirmation</span>
+        </div>
+        <div class="stage-content-cell">
+          <p>Application submitted. Next steps communicated clearly. The first moment of relief in what was previously an anxiety-producing process.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight fade-up">
+      <p class="insight-label">The Design Principle</p>
+      <p>The new form doesn't ask less — it asks the same things. What changed is <strong>who gets asked what, and when.</strong> The complexity moved out of the user's experience and into the logic layer where it belongs. That's information architecture doing its actual job.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE FIELD-LEVEL WORK ───────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">04 — The Details</p>
+      <h2>The work that<br><em>doesn't show in screenshots.</em></h2>
+      <p>The most meaningful improvements in this redesign aren't visible in any single screen — they live in the interactions between screens, and in decisions made at the field level.</p>
+    </div>
+
+    <div class="fade-up">
+      <h3>Fixing the autocomplete problem</h3>
+      <p>Several fields in the original form used type-ahead autocomplete — a feature that, in theory, speeds up input and reduces errors. In practice, the dropdowns were overpopulated and the autocomplete logic would trigger at the wrong moment, creating glitches that caused values to either not save correctly or surface error states that confused users.</p>
+      <p>The solution wasn't to remove autocomplete — it was to rethink the question structure upstream. By asking filtering questions earlier in the flow, I could dramatically reduce the option set for downstream dropdowns. A student who has already indicated they're pursuing an undergraduate degree doesn't need to see graduate program options in a dropdown. Smaller sets mean fewer edge cases, fewer glitch opportunities, and a faster, more confident selection experience.</p>
+    </div>
+
+    <div class="fade-up">
+      <h3>Sequencing as a filter</h3>
+      <p>The decision to move Academic History to Step 2 — immediately after personal information — was deliberate. It's the question whose answer does the most work. Once the form knows whether someone is a first-time student, a transfer student, or a returning adult learner, it can confidently narrow every subsequent stage. That single early question eliminates entire branches for most users.</p>
+      <p>This is the difference between a form that collects data and a form that understands context. The original form collected data. The new one builds a picture as it goes and uses that picture to stop asking unnecessary questions.</p>
+    </div>
+
+    <div class="fade-up">
+      <h3>Visible progress that doesn't lie</h3>
+      <p>In the original 18-step form, progress indicators were either absent or misleading — showing step 6 of 18 when many of those 18 steps were irrelevant to the user viewing them. The new design shows progress through stages, not steps, and only counts the stages that apply to this specific applicant. An applicant with no military background and a straightforward academic history genuinely has fewer stages than someone with a complex transfer situation — and their progress indicator reflects that reality.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── REFLECTION ─────────────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">05 — Reflection</p>
+      <h2>What I'd <em>do differently.</em></h2>
+    </div>
+    <div class="reflection fade-up">
+      <p class="reflection-label">Honest retrospective</p>
+      <p>The discovery process — auditing the form and interviewing admissions staff — was the right foundation. If I were to do this again I'd add one more research layer I didn't have time for: observational sessions with prospective students actually completing the application. Stakeholders know what data they need; they don't always know where applicants hesitate, which fields create confusion, or where the emotional friction lives. The form audit tells you what's there. It can't tell you what the experience of encountering it feels like.</p>
+      <p style="margin-top:16px">I'd also instrument the new form from day one — abandonment rates per stage, time spent per step, error rates per field. The absence of baseline metrics from the original form means the redesign's impact will be directionally visible but not precisely measurable. That's a gap I'd want to close in any future engagement of this type.</p>
+      <p style="margin-top:16px">The design is complete. Implementation is in progress. The case study will be updated with outcome data once the new form is live and has been in production long enough to generate meaningful signal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="case-footer">
+  <div class="wrapper">
+    <p>Unity Environmental University — Admissions Application Redesign</p>
+    <p style="margin-top:8px; font-size:13px">Designed by <strong>Jessie Lacey</strong> — <a href="https://jessiemlacey.com" style="color:var(--mist);text-decoration:none">jessiemlacey.com</a></p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

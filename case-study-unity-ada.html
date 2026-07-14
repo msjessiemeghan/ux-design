@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity ADA Accommodations — Case Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F8F5EF; }
+  .back-link {
+    display: block;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 20px 40px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+  }
+  .back-link a { color: #4A70B8; text-decoration: none; letter-spacing: 0.02em; }
+  .back-link a:hover { color: #1A2340; }
+  @media (max-width: 700px) { .back-link { padding: 16px 24px 0; } }
+</style>
+<style>
+:root {
+    --navy:        #1A2340;
+    --navy-mid:    #2D3F6B;
+    --blue:        #4A70B8;
+    --blue-light:  #E8F0FC;
+    --teal:        #3A8880;
+    --teal-light:  #E0F4F2;
+    --sage:        #7AAB82;
+    --cream:       #F8F5EF;
+    --parchment:   #F0EBE0;
+    --ink:         #1A1814;
+    --ink-mid:     #4A4640;
+    --ink-faint:   #9A9590;
+    --rule:        #DDD8CE;
+    --gold:        #B8922A;
+    --gold-light:  #F5ECD0;
+    --green:       #3A7A4A;
+    --green-light: #E8F4EC;
+    --red:         #B84040;
+    --red-light:   #FAEAEA;
+    --purple:      #7060A8;
+    --purple-light:#F0ECF8;
+  }
+
+#jl-unity-ada {
+    --navy:        #1A2340;
+    --navy-mid:    #2D3F6B;
+    --blue:        #4A70B8;
+    --blue-light:  #E8F0FC;
+    --teal:        #3A8880;
+    --teal-light:  #E0F4F2;
+    --sage:        #7AAB82;
+    --cream:       #F8F5EF;
+    --parchment:   #F0EBE0;
+    --ink:         #1A1814;
+    --ink-mid:     #4A4640;
+    --ink-faint:   #9A9590;
+    --rule:        #DDD8CE;
+    --gold:        #B8922A;
+    --gold-light:  #F5ECD0;
+    --green:       #3A7A4A;
+    --green-light: #E8F4EC;
+    --red:         #B84040;
+    --red-light:   #FAEAEA;
+    --purple:      #7060A8;
+    --purple-light:#F0ECF8;
+  }
+
+#jl-unity-ada * { box-sizing: border-box; margin: 0; padding: 0; }
+
+#jl-unity-ada { scroll-behavior: smooth; }
+
+#jl-unity-ada {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Proxima Nova', 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+#jl-unity-ada .hero {
+    background: var(--navy);
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+#jl-unity-ada .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 100%, rgba(74,112,184,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 85% 15%, rgba(58,136,128,0.2) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+#jl-unity-ada .hero-parties {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    display: flex;
+  }
+
+#jl-unity-ada .party-bar { flex: 1; opacity: 0.75; animation: barIn 0.5s ease forwards; transform-origin: left; transform: scaleX(0); }
+
+@keyframes barIn { to { transform: scaleX(1); } }
+
+#jl-unity-ada .party-bar:nth-child(1) { background: var(--blue);   animation-delay: 0.1s; }
+
+#jl-unity-ada .party-bar:nth-child(2) { background: var(--teal);   animation-delay: 0.3s; }
+
+#jl-unity-ada .party-bar:nth-child(3) { background: var(--gold);   animation-delay: 0.5s; }
+
+#jl-unity-ada .party-bar:nth-child(4) { background: var(--purple); animation-delay: 0.7s; }
+
+#jl-unity-ada .hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 72px;
+  }
+
+#jl-unity-ada .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+#jl-unity-ada .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--sage);
+  }
+
+#jl-unity-ada .hero-title {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: clamp(38px, 5.5vw, 76px);
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.08;
+    margin-bottom: 24px;
+    max-width: 820px;
+  }
+
+#jl-unity-ada .hero-title em { font-style: italic; color: #9AB8E8; }
+
+#jl-unity-ada .hero-desc {
+    font-size: 18px;
+    color: #7A9AB8;
+    max-width: 560px;
+    line-height: 1.65;
+    margin-bottom: 48px;
+  }
+
+#jl-unity-ada .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+#jl-unity-ada .meta-chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border: 1px solid rgba(74,112,184,0.35);
+    border-radius: 2px;
+    color: #9AB8E8;
+    background: rgba(26,35,64,0.5);
+  }
+
+#jl-unity-ada .wrapper { max-width: 780px; margin: 0 auto; padding: 0 40px; }
+
+#jl-unity-ada .section {
+    padding: 96px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+#jl-unity-ada .section:last-of-type { border-bottom: none; }
+
+#jl-unity-ada .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+#jl-unity-ada .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 60px;
+  }
+
+#jl-unity-ada h2 {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+
+#jl-unity-ada h2 em { font-style: italic; color: var(--navy-mid); }
+
+#jl-unity-ada h3 {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 10px;
+    margin-top: 48px;
+  }
+
+#jl-unity-ada p { color: var(--ink-mid); margin-bottom: 18px; }
+
+#jl-unity-ada p:last-child { margin-bottom: 0; }
+
+#jl-unity-ada strong { font-weight: 500; color: var(--ink); }
+
+#jl-unity-ada .pull {
+    border-left: 3px solid var(--blue);
+    padding: 6px 0 6px 28px;
+    margin: 48px 0;
+  }
+
+#jl-unity-ada .pull p {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--ink);
+    font-weight: 400;
+    margin: 0;
+  }
+
+#jl-unity-ada .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    margin: 48px 0;
+  }
+
+#jl-unity-ada .compare-panel { padding: 32px 28px; border-radius: 2px; }
+
+#jl-unity-ada .compare-panel.before { background: var(--red-light); }
+
+#jl-unity-ada .compare-panel.after { background: var(--green-light); }
+
+#jl-unity-ada .compare-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+#jl-unity-ada .compare-panel.before .compare-label { color: var(--red); }
+
+#jl-unity-ada .compare-panel.after  .compare-label { color: var(--green); }
+
+#jl-unity-ada .compare-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+#jl-unity-ada .compare-items li {
+    font-size: 14px;
+    color: var(--ink-mid);
+    line-height: 1.5;
+    padding-left: 16px;
+    position: relative;
+  }
+
+#jl-unity-ada .compare-panel.before .compare-items li::before { content: '✕'; position: absolute; left: 0; color: var(--red); font-size: 10px; top: 3px; }
+
+#jl-unity-ada .compare-panel.after  .compare-items li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-size: 10px; top: 3px; }
+
+#jl-unity-ada .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+    margin: 48px 0;
+  }
+
+#jl-unity-ada .stat { background: var(--parchment); padding: 24px 20px; text-align: center; }
+
+#jl-unity-ada .stat-number {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 44px;
+    color: var(--navy-mid);
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+#jl-unity-ada .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    line-height: 1.5;
+  }
+
+#jl-unity-ada .insight {
+    border-left: 4px solid var(--gold);
+    background: var(--gold-light);
+    border-radius: 0 3px 3px 0;
+    padding: 22px 26px;
+    margin: 40px 0;
+  }
+
+#jl-unity-ada .insight-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+#jl-unity-ada .insight p { font-size: 15px; color: var(--ink); line-height: 1.65; margin: 0; }
+
+#jl-unity-ada .parties {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+    margin: 48px 0;
+  }
+
+#jl-unity-ada .party-card { padding: 24px 26px; border-radius: 2px; }
+
+#jl-unity-ada .party-card.student { background: var(--blue-light); }
+
+#jl-unity-ada .party-card.provider { background: var(--teal-light); }
+
+#jl-unity-ada .party-card.admin { background: var(--gold-light); }
+
+#jl-unity-ada .party-card.system { background: var(--purple-light); }
+
+#jl-unity-ada .party-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+#jl-unity-ada .party-card.student  .party-label { color: var(--blue); }
+
+#jl-unity-ada .party-card.provider .party-label { color: var(--teal); }
+
+#jl-unity-ada .party-card.admin    .party-label { color: var(--gold); }
+
+#jl-unity-ada .party-card.system   .party-label { color: var(--purple); }
+
+#jl-unity-ada .party-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.6; margin: 0; }
+
+#jl-unity-ada .process-steps { display: flex; flex-direction: column; gap: 3px; margin: 44px 0; }
+
+#jl-unity-ada .step { display: grid; grid-template-columns: 48px 1fr; background: var(--parchment); overflow: hidden; border-radius: 2px; }
+
+#jl-unity-ada .step-num {
+    background: var(--navy-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 20px;
+    font-style: italic;
+    color: #9AB8E8;
+  }
+
+#jl-unity-ada .step-body { padding: 18px 22px; }
+
+#jl-unity-ada .step-title { font-weight: 500; font-size: 14px; color: var(--ink); margin-bottom: 3px; }
+
+#jl-unity-ada .step-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.6; margin: 0; }
+
+#jl-unity-ada .flow-overview {
+    background: var(--navy);
+    border-radius: 4px;
+    padding: 40px;
+    margin: 48px 0;
+  }
+
+#jl-unity-ada .flow-overview-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7A9AB8;
+    margin-bottom: 28px;
+  }
+
+#jl-unity-ada .flow-phases {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+#jl-unity-ada .flow-phase {
+    display: grid;
+    grid-template-columns: 28px 160px 1fr;
+    gap: 0;
+    align-items: stretch;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+#jl-unity-ada .flow-phase-num {
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: rgba(255,255,255,0.3);
+  }
+
+#jl-unity-ada .flow-phase-actor {
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+  }
+
+#jl-unity-ada .flow-phase-actor span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+#jl-unity-ada .flow-phase-desc {
+    background: rgba(255,255,255,0.04);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+  }
+
+#jl-unity-ada .flow-phase-desc p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+#jl-unity-ada .fp-student { background: rgba(74,112,184,0.3); }
+
+#jl-unity-ada .fp-student  span { color: #9AB8E8; }
+
+#jl-unity-ada .fp-provider { background: rgba(58,136,128,0.3); }
+
+#jl-unity-ada .fp-provider span { color: #7ACCC6; }
+
+#jl-unity-ada .fp-admin { background: rgba(184,146,42,0.3); }
+
+#jl-unity-ada .fp-admin    span { color: #E8C870; }
+
+#jl-unity-ada .fp-system { background: rgba(112,96,168,0.3); }
+
+#jl-unity-ada .fp-system   span { color: #C0B0E8; }
+
+#jl-unity-ada .fp-branch { background: rgba(255,255,255,0.06); }
+
+#jl-unity-ada .fp-branch   span { color: rgba(255,255,255,0.4); }
+
+#jl-unity-ada .accordion-demo {
+    background: var(--parchment);
+    border-radius: 4px;
+    padding: 36px;
+    margin: 48px 0;
+  }
+
+#jl-unity-ada .accordion-demo-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+  }
+
+#jl-unity-ada .accordion-section {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    margin-bottom: 4px;
+    overflow: hidden;
+  }
+
+#jl-unity-ada .accordion-header {
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+  }
+
+#jl-unity-ada .acc-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+#jl-unity-ada .acc-num.done { background: var(--green-light); color: var(--green); }
+
+#jl-unity-ada .acc-num.active { background: var(--blue-light);  color: var(--blue); }
+
+#jl-unity-ada .acc-num.waiting { background: var(--parchment);   color: var(--ink-faint); border: 1px solid var(--rule); }
+
+#jl-unity-ada .acc-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    flex: 1;
+  }
+
+#jl-unity-ada .acc-status {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+
+#jl-unity-ada .acc-status.complete { background: var(--green-light); color: var(--green); }
+
+#jl-unity-ada .acc-status.active { background: var(--blue-light);  color: var(--blue); }
+
+#jl-unity-ada .acc-status.pending { background: var(--parchment);   color: var(--ink-faint); }
+
+#jl-unity-ada .accordion-body {
+    padding: 14px 18px 18px 52px;
+    background: #FAFAF8;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+
+#jl-unity-ada .toast-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 40px 0;
+  }
+
+#jl-unity-ada .toast {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 4px;
+    max-width: 480px;
+  }
+
+#jl-unity-ada .toast.success { background: var(--green-light); border-left: 3px solid var(--green); }
+
+#jl-unity-ada .toast.info { background: var(--blue-light);  border-left: 3px solid var(--blue); }
+
+#jl-unity-ada .toast.warning { background: var(--gold-light);  border-left: 3px solid var(--gold); }
+
+#jl-unity-ada .toast-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+#jl-unity-ada .toast-text {}
+
+#jl-unity-ada .toast-title { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+
+#jl-unity-ada .toast-desc { font-size: 12px; color: var(--ink-mid); line-height: 1.5; }
+
+#jl-unity-ada .reflection {
+    background: var(--parchment);
+    border-radius: 3px;
+    padding: 44px;
+    margin-top: 44px;
+  }
+
+#jl-unity-ada .reflection-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+  }
+
+#jl-unity-ada .case-footer { background: var(--navy); padding: 64px 0; text-align: center; }
+
+#jl-unity-ada .case-footer p { color: #7A9AB8; font-size: 15px; margin-bottom: 6px; }
+
+#jl-unity-ada .case-footer strong { color: var(--cream); }
+
+#jl-unity-ada .fade-up {
+    opacity: 1;
+    transform: none;
+  }
+
+@media (max-width: 700px) {
+#jl-unity-ada .hero-content { padding: 0 24px; }
+
+#jl-unity-ada .wrapper { padding: 0 24px; }
+
+#jl-unity-ada .compare, #jl-unity-ada .parties { grid-template-columns: 1fr; }
+
+#jl-unity-ada .stat-row { grid-template-columns: repeat(2, 1fr); }
+
+#jl-unity-ada .section { padding: 64px 0; }
+
+#jl-unity-ada .flow-phase { grid-template-columns: 28px 1fr; }
+
+#jl-unity-ada .flow-phase-desc { display: none; }
+
+
+
+}
+
+
+</style>
+</head>
+<body>
+
+<p class="back-link"><a href="index.html">← Back to UX Portfolio</a></p>
+
+<div id="jl-unity-ada">
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-parties">
+    <div class="party-bar"></div>
+    <div class="party-bar"></div>
+    <div class="party-bar"></div>
+    <div class="party-bar"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Case Study</p>
+    <h1 class="hero-title">A process students<br>didn't know existed,<br><em>redesigned from scratch.</em></h1>
+    <p class="hero-desc">Designing Unity Environmental University's first student-facing ADA Accommodations workflow — replacing a paper-and-email process no one could find with a single-screen digital experience integrated with Salesforce, Adobe Sign, and FERPA compliance.</p>
+    <div class="hero-meta">
+      <span class="meta-chip">0 → 1 Feature Design</span>
+      <span class="meta-chip">Salesforce Integration</span>
+      <span class="meta-chip">Adobe Sign + FERPA</span>
+      <span class="meta-chip">Multi-Party Workflow</span>
+      <span class="meta-chip">Iterative Portal Rollout</span>
+      <span class="meta-chip">Design Complete</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE PROBLEM ────────────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">01 — The Problem</p>
+      <h2>A process hidden<br><em>behind paper and people.</em></h2>
+      <p>Students with disabilities at Unity Environmental University had a legal right to request academic accommodations under the ADA. But the process for doing so was so invisible and so friction-heavy that many students either didn't know it existed or gave up and routed through their advisors instead — which wasn't their job.</p>
+      <p>There was no student-facing digital workflow. The Student Portal had a vaguely-labeled "Support" page with Salesforce "cases" that loosely captured some of this — but nothing resembling a guided process. In practice, requesting accommodations meant: finding the right form, printing it, signing it, scanning it, emailing it — and then waiting while your healthcare provider went through the same paper ritual on their end. Privacy was nominally protected by keeping everything offline. The cost was access.</p>
+    </div>
+
+    <div class="pull fade-up">
+      <p>"The old process protected student privacy by making the process nearly impossible to complete."</p>
+    </div>
+
+    <div class="compare fade-up">
+      <div class="compare-panel before">
+        <p class="compare-label">Before</p>
+        <ul class="compare-items">
+          <li>No student-facing digital process existed</li>
+          <li>Students didn't know where to go or that the process existed</li>
+          <li>Paper forms — print, sign, scan, email</li>
+          <li>Healthcare providers required to do the same</li>
+          <li>Students routed through advisors as informal workaround</li>
+          <li>No status visibility — students waited with no feedback</li>
+          <li>Vague "Support" page with unlabeled Salesforce cases</li>
+        </ul>
+      </div>
+      <div class="compare-panel after">
+        <p class="compare-label">After</p>
+        <ul class="compare-items">
+          <li>Single-screen student-facing ADA workflow</li>
+          <li>Clearly surfaced on new Student Support page</li>
+          <li>Digital request form with guided submission</li>
+          <li>Adobe Sign integration — healthcare provider signs digitally</li>
+          <li>FERPA-compliant throughout — privacy protected in code</li>
+          <li>Real-time toast notifications as status changes</li>
+          <li>Appointment scheduling with ADA advisor built in</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stat-row fade-up">
+      <div class="stat">
+        <span class="stat-number">4</span>
+        <span class="stat-label">Parties involved<br>in the new flow</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">1</span>
+        <span class="stat-label">Screen where all<br>stages live</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">0</span>
+        <span class="stat-label">Paper forms<br>in new process</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Integrations:<br>SF · Sign · FERPA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTEXT ────────────────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">02 — Strategic Context</p>
+      <h2>One feature at a time.<br><em>One portal at a time.</em></h2>
+      <p>This project didn't happen in isolation. It was the first feature rollout of a larger, deliberately staged Student Portal redesign — a strategic approach I developed to manage risk and build organizational trust in the new portal before wholesale replacement of the old one.</p>
+      <p>The new Student Portal was fully designed but not yet deployed. Rather than waiting for the entire portal to be complete before going live, I designed a deployment strategy: ship features one at a time, pulling related infrastructure with each one. The ADA Accommodations feature was the first, bringing with it the new <strong>Student Support page</strong> — which consolidated several previously scattered functions and retired a vaguely-defined "Student Success" screen in the process.</p>
+    </div>
+
+    <div class="insight fade-up">
+      <p class="insight-label">Strategic Framing</p>
+      <p>The Student Support page was intentionally designed as more than a container for ADA. It would also house Mental Health &amp; Crisis Support resources, student Goals, and Assessments — functions that previously existed loosely or not at all. ADA was chosen as the first rollout because it had the clearest compliance driver, the most defined stakeholder (the ADA coordinator), and the highest student impact if left in its current state.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>Each feature rollout also brought <strong>shared infrastructure</strong> with it. The toast notification system — visual cues that surface behind-the-scenes Salesforce actions to the student — was designed as a portal-wide pattern, but first deployed here. Students see a toast when their request is received, when their provider submits documentation, and when a decision is made on their case. None of that was visible before.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── DISCOVERY & PROCESS ────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">03 — Discovery & Process</p>
+      <h2>Best case first.<br><em>Then reality-check it.</em></h2>
+      <p>The design process for this feature followed a deliberate sequence — one that prioritized ambition before constraint. I've found that starting from what's technically possible tends to produce solutions anchored in what already exists. Starting from what's ideal produces solutions anchored in what users actually need. The constraints come in later, and they're more useful that way.</p>
+    </div>
+
+    <div class="process-steps fade-up">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <p class="step-title">Map the current process</p>
+          <p class="step-desc">Documented the existing paper-and-email workflow end to end — all parties, all steps, all handoffs. Made the invisible visible before redesigning anything.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <p class="step-title">Technical feasibility conversation with Salesforce developers</p>
+          <p class="step-desc">Before designing anything, talked with the development team about what integrations were possible now vs. later. Understood the Adobe Sign integration potential and the FERPA compliance requirements early — so the design could work with those constraints, not against them.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <p class="step-title">Best-case-scenario first pass</p>
+          <p class="step-desc">Designed the ideal flow assuming all desired integrations were in place. This isn't naïveté — it's a deliberate technique for surfacing what the experience should feel like before negotiating what's achievable. The first pass became the artifact that drove all subsequent conversations.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <p class="step-title">1-on-1 workshop with the ADA coordinator</p>
+          <p class="step-desc">Walked through the wireframes step by step with the person who handles all ADA cases. This wasn't a presentation — it was a working session. Every step generated notes, corrections, and insights that only come from the person who lives inside the process. What students need, what the coordinator needs, what the healthcare provider needs, and where friction hides at each handoff.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <p class="step-title">Revised flow → development specification</p>
+          <p class="step-desc">The workshop output became the specification for the Salesforce developers — including the Adobe Sign integration requirements and the FERPA-compliant data handling approach. The wireframes weren't just design artifacts; they were the communication tool that got what was needed out of the technical team.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <p class="step-title">High-fidelity flow and handoff documentation</p>
+          <p class="step-desc">Built the complete high-fidelity flow covering all states: submission, provider documentation, appointment scheduling, advisor review, approval, denial, and the signed agreement summary. All conditional paths documented for development.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight fade-up">
+      <p class="insight-label">On the workshop method</p>
+      <p>The 1-on-1 format with the ADA coordinator was the most valuable part of the entire process. A group presentation would have produced polite feedback. A working session with wireframes in hand produced specific, operational insight — things like which fields the coordinator actually reviews, how they communicate decisions, and what information the healthcare provider needs to know before they sign. That level of detail can't be assumed. It has to be extracted through direct conversation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE SOLUTION ───────────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">04 — The Solution</p>
+      <h2>Four parties.<br><em>One screen. Zero paper.</em></h2>
+      <p>The redesigned ADA Accommodations feature brings together four parties — the student, their healthcare provider, the ADA coordinator, and the Salesforce/Adobe Sign integration layer — into a single coherent workflow that each party can navigate independently without depending on the others to explain the process.</p>
+    </div>
+
+    <div class="parties fade-up">
+      <div class="party-card student">
+        <p class="party-label">Student</p>
+        <p class="party-desc">Submits a request, provides context about their condition and requested accommodations, schedules an appointment with the ADA advisor, and monitors status — all from one screen.</p>
+      </div>
+      <div class="party-card provider">
+        <p class="party-label">Healthcare Provider</p>
+        <p class="party-desc">Receives an Adobe Sign request via email, reviews the student's submission, and signs documentation digitally — no printing, no scanning, no email attachment chains.</p>
+      </div>
+      <div class="party-card admin">
+        <p class="party-label">ADA Coordinator</p>
+        <p class="party-desc">Reviews the completed case — student request, provider documentation, and appointment notes — and makes a decision: approve accommodations or deny with documented reason.</p>
+      </div>
+      <div class="party-card system">
+        <p class="party-label">Salesforce + Adobe Sign</p>
+        <p class="party-desc">Manages case creation, routes the Adobe Sign request to the provider, triggers toast notifications at each status change, and stores the signed agreement with FERPA-compliant access controls.</p>
+      </div>
+    </div>
+
+    <!-- Flow overview -->
+    <div class="flow-overview fade-up">
+      <p class="flow-overview-label">End-to-end flow — all parties and phases</p>
+      <div class="flow-phases">
+        <div class="flow-phase">
+          <div class="flow-phase-num">1</div>
+          <div class="flow-phase-actor fp-student"><span>Student</span></div>
+          <div class="flow-phase-desc"><p>Lands on Student Support page → Disability &amp; ADA Accommodations → reads policy acknowledgment → submits request with condition context and accommodation needs</p></div>
+        </div>
+        <div class="flow-phase">
+          <div class="flow-phase-num">2</div>
+          <div class="flow-phase-actor fp-system"><span>System</span></div>
+          <div class="flow-phase-desc"><p>Salesforce case created → Adobe Sign request routed to healthcare provider → toast notification: "Your request has been submitted"</p></div>
+        </div>
+        <div class="flow-phase">
+          <div class="flow-phase-num">3</div>
+          <div class="flow-phase-actor fp-provider"><span>Provider</span></div>
+          <div class="flow-phase-desc"><p>Receives Adobe Sign email → reviews student's submitted information → signs provider documentation digitally</p></div>
+        </div>
+        <div class="flow-phase">
+          <div class="flow-phase-num">4</div>
+          <div class="flow-phase-actor fp-system"><span>System</span></div>
+          <div class="flow-phase-desc"><p>Provider signature received → Salesforce case updated → toast notification: "Your provider has submitted their documentation"</p></div>
+        </div>
+        <div class="flow-phase">
+          <div class="flow-phase-num">5</div>
+          <div class="flow-phase-actor fp-student"><span>Student</span></div>
+          <div class="flow-phase-desc"><p>Schedules Interactive Process Meeting with ADA advisor — calendar and time slot selection built into the same screen</p></div>
+        </div>
+        <div class="flow-phase">
+          <div class="flow-phase-num">6</div>
+          <div class="flow-phase-actor fp-admin"><span>ADA Coordinator</span></div>
+          <div class="flow-phase-desc"><p>Reviews complete case — student request, provider documentation, meeting notes → makes decision: approve or deny</p></div>
+        </div>
+        <div class="flow-phase">
+          <div class="flow-phase-num">7a</div>
+          <div class="flow-phase-actor fp-system"><span>Approved</span></div>
+          <div class="flow-phase-desc"><p>Adobe Sign agreement routed → student signs → accommodations go into effect → signed agreement summary visible on screen</p></div>
+        </div>
+        <div class="flow-phase">
+          <div class="flow-phase-num">7b</div>
+          <div class="flow-phase-actor fp-system"><span>Denied</span></div>
+          <div class="flow-phase-desc"><p>Denial notification with documented reason → appeal pathway and advisor contact options presented on screen</p></div>
+        </div>
+        <div class="flow-phase">
+          <div class="flow-phase-num">8</div>
+          <div class="flow-phase-actor fp-student"><span>Student</span></div>
+          <div class="flow-phase-desc"><p>Case summary with full history accessible — request details, provider documentation, meeting record, accommodations agreed, signed PDF available for download</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-up">
+      <h3>The one-screen principle</h3>
+      <p>Every stage of the student's experience — submitting a request, checking whether the provider has signed, scheduling an appointment, seeing a decision, accessing the final agreement — lives on a single screen with an accordion structure. Each section expands to show its current state and required action. Completed sections collapse with a status indicator. The student never has to navigate away, search for status, or wonder what happens next.</p>
+      <p>This wasn't just a UX preference — it was a deliberate response to the visibility problem of the old process. Students didn't know where to go. The answer was: you only ever need to go one place.</p>
+    </div>
+
+    <!-- Accordion demo -->
+    <div class="accordion-demo fade-up">
+      <p class="accordion-demo-label">Single-screen accordion — illustrative state example</p>
+
+      <div class="accordion-section">
+        <div class="accordion-header">
+          <div class="acc-num done">✓</div>
+          <span class="acc-title">Request Details</span>
+          <span class="acc-status complete">Submitted</span>
+        </div>
+      </div>
+
+      <div class="accordion-section">
+        <div class="accordion-header">
+          <div class="acc-num done">✓</div>
+          <span class="acc-title">Healthcare Provider Documentation</span>
+          <span class="acc-status complete">Signed</span>
+        </div>
+      </div>
+
+      <div class="accordion-section">
+        <div class="accordion-header">
+          <div class="acc-num active">3</div>
+          <span class="acc-title">Interactive Process Meeting</span>
+          <span class="acc-status active">Schedule Now</span>
+        </div>
+        <div class="accordion-body">
+          Your request has been submitted and your provider has completed their documentation. The next step is scheduling your Interactive Process Meeting with your ADA advisor. Select a date and time below.
+        </div>
+      </div>
+
+      <div class="accordion-section">
+        <div class="accordion-header">
+          <div class="acc-num waiting">4</div>
+          <span class="acc-title">Decision & Agreement</span>
+          <span class="acc-status pending">Pending</span>
+        </div>
+      </div>
+
+      <div class="accordion-section">
+        <div class="accordion-header">
+          <div class="acc-num waiting">5</div>
+          <span class="acc-title">Request Summary</span>
+          <span class="acc-status pending">Pending</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-up">
+      <h3>Toast notifications as transparency</h3>
+      <p>The old process was a black box. A student submitted paperwork and then waited — with no idea whether it had been received, whether their provider had acted, or whether a decision was coming. The new design surfaces every meaningful behind-the-scenes action as a toast notification, appearing in the portal as each Salesforce event fires.</p>
+    </div>
+
+    <div class="toast-demo fade-up">
+      <div class="toast success">
+        <span class="toast-icon">✓</span>
+        <div class="toast-text">
+          <p class="toast-title">Request submitted</p>
+          <p class="toast-desc">Your ADA accommodation request has been received. Your healthcare provider will be contacted to submit their documentation.</p>
+        </div>
+      </div>
+      <div class="toast info">
+        <span class="toast-icon">↗</span>
+        <div class="toast-text">
+          <p class="toast-title">Provider documentation received</p>
+          <p class="toast-desc">Your healthcare provider has completed and signed their documentation. You can now schedule your Interactive Process Meeting.</p>
+        </div>
+      </div>
+      <div class="toast success">
+        <span class="toast-icon">✓</span>
+        <div class="toast-text">
+          <p class="toast-title">Accommodations approved</p>
+          <p class="toast-desc">Your accommodation request has been approved. Please review and sign your accommodations agreement below.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE TECHNICAL CHALLENGE ────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">05 — The Hard Part</p>
+      <h2>Privacy protected<br><em>by design, not by friction.</em></h2>
+      <p>The hardest challenge in this project wasn't the UX. It was getting the Salesforce developers to implement an Adobe Sign integration that maintained FERPA compliance — federal law governing the privacy of student education records — while enabling a fully digital, multi-party signing workflow.</p>
+      <p>FERPA compliance in this context meant that the student's medical documentation and accommodation details could not be exposed to unauthorized parties at any point in the process — including during the Adobe Sign routing, during storage in Salesforce, and during any downstream access. The old paper process achieved this by keeping everything offline. The new process had to achieve it in code.</p>
+    </div>
+
+    <div class="insight fade-up">
+      <p class="insight-label">Why this matters</p>
+      <p>Many organizations solve privacy by adding friction — making digital processes harder so sensitive information stays off systems entirely. The result, as Unity's old ADA process showed, is that the protection mechanism becomes an access barrier. Students who most need accommodations are also often those who face the most barriers to navigating a cumbersome process. The goal of this design was to make the digital process as privacy-protective as the paper process — not less — while removing every unnecessary obstacle.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>The wireframes were the technical brief. By designing the full flow first — showing exactly what data needed to move between the student, the provider, the Salesforce case, and the Adobe Sign document — I gave the developers a concrete specification to work from rather than abstract requirements. The design wasn't just for users; it was for the engineering conversation.</p>
+      <p>The resulting integration routes the Adobe Sign request through Salesforce with access controls that limit document visibility to the student, the healthcare provider, and the ADA coordinator — nobody else, at any stage. The signed agreement is stored in Salesforce with field-level encryption, and the student-facing portal only surfaces the information the student is authorized to see about their own case.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── REFLECTION ─────────────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">06 — Reflection</p>
+      <h2>What I'd <em>do differently.</em></h2>
+    </div>
+    <div class="reflection fade-up">
+      <p class="reflection-label">Honest retrospective</p>
+      <p>The ADA coordinator workshop was the right call and I'd do it earlier next time — ideally before the first-pass wireframes, not after. Walking through screens generates better conversation than talking abstractly about a process, but even better would be a brief observational session watching the coordinator handle an actual case before designing anything. There's a difference between knowing the steps and seeing where the friction actually lives.</p>
+      <p style="margin-top:16px">The toast notification system I designed as a portal-wide pattern — but it's being deployed here first without the rest of the portal. That means students will encounter toasts on this feature before they appear elsewhere, which could create inconsistent expectations if the rollout of subsequent features takes longer than expected. Sequencing of shared infrastructure in a staged rollout is a design problem I'd approach more explicitly if doing this again.</p>
+      <p style="margin-top:16px">The feature is designed and ready. Implementation is in progress. Once it's live and students are using it, the most important data to collect is: where in the flow do students pause or abandon, and how often does the provider documentation step stall the case. Both of those are places where future iterations could meaningfully reduce time-to-resolution for students waiting on accommodations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="case-footer">
+  <div class="wrapper">
+    <p>Unity Environmental University — ADA Accommodations Workflow</p>
+    <p style="margin-top:8px; font-size:13px">Designed by <strong>Jessie Lacey</strong> — <a href="https://jessiemlacey.com" style="color:#9AB8E8;text-decoration:none">jessiemlacey.com</a></p>
+  </div>
+</footer>
+</div>
+</body>
+</html>

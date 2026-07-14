@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit for Prior Learning — Case Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --unity-dark:  #1C3620;
+    --unity-mid:   #2D5233;
+    --unity-fern:  #4A7A52;
+    --unity-sage:  #7AAB82;
+    --unity-mist:  #B8D4BC;
+    --gold:        #C8920A;
+    --gold-light:  #FFF3D0;
+    --gold-mid:    #E8B840;
+    --amber:       #E07820;
+    --amber-light: #FEF0E0;
+    --cream:       #F8F5EF;
+    --parchment:   #F0EBE0;
+    --ink:         #1A1814;
+    --ink-mid:     #4A4640;
+    --ink-faint:   #9A9590;
+    --rule:        #DDD8CE;
+    --blue:        #2E6EBC;
+    --blue-light:  #E8F2FC;
+    --green:       #3A7A4A;
+    --green-light: #E8F4EC;
+    --red:         #B84040;
+    --red-light:   #FAEAEA;
+    --purple:      #7060A8;
+    --purple-light:#F0ECF8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Proxima Nova', 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  .back-link {
+    display: block;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 20px 40px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+  }
+  .back-link a { color: var(--unity-fern); text-decoration: none; letter-spacing: 0.02em; }
+  .back-link a:hover { color: var(--unity-dark); }
+
+  /* ── HERO ──────────────────────────────────────────────── */
+  .hero {
+    background: var(--unity-dark);
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 40% 100%, rgba(74,122,82,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 90% 20%, rgba(200,146,10,0.12) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .hero-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    display: flex;
+  }
+
+  .hb { flex: 1; opacity: 0.8; animation: barIn 0.5s ease forwards; transform-origin: left; transform: scaleX(0); }
+  @keyframes barIn { to { transform: scaleX(1); } }
+  .hb:nth-child(1){ background: var(--gold);   animation-delay: 0.1s; }
+  .hb:nth-child(2){ background: var(--unity-fern); animation-delay: 0.3s; }
+  .hb:nth-child(3){ background: var(--amber);  animation-delay: 0.5s; }
+  .hb:nth-child(4){ background: var(--blue);   animation-delay: 0.7s; }
+
+  .hero-content {
+    position: relative; z-index: 1;
+    padding: 0 72px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--unity-sage); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--unity-sage); }
+
+  .hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: clamp(38px, 5.5vw, 72px);
+    color: var(--cream); line-height: 1.1;
+    margin-bottom: 24px; max-width: 800px;
+    text-transform: uppercase; letter-spacing: 0.02em;
+  }
+  .hero-title em { font-style: normal; color: var(--gold-mid); }
+
+  .hero-desc {
+    font-size: 18px; color: var(--unity-sage);
+    max-width: 560px; line-height: 1.65; margin-bottom: 48px;
+  }
+
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; }
+  .meta-chip {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 12px; border: 1px solid rgba(122,171,130,0.3);
+    border-radius: 2px; color: var(--unity-sage);
+    background: rgba(28,54,32,0.4);
+  }
+
+  /* ── LAYOUT ────────────────────────────────────────────── */
+  .wrapper { max-width: 780px; margin: 0 auto; padding: 0 40px; }
+
+  .section { padding: 96px 0; border-bottom: 1px solid var(--rule); }
+  .section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--unity-fern); margin-bottom: 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); max-width: 60px; }
+
+  h2 {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: clamp(26px, 3.5vw, 42px);
+    line-height: 1.15; color: var(--ink);
+    margin-bottom: 28px; text-transform: uppercase; letter-spacing: 0.02em;
+  }
+  h2 em { font-style: normal; color: var(--unity-mid); }
+
+  h3 {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 22px; color: var(--ink);
+    margin-bottom: 10px; margin-top: 48px;
+    text-transform: uppercase; letter-spacing: 0.03em;
+  }
+
+  p { color: var(--ink-mid); margin-bottom: 18px; }
+  p:last-child { margin-bottom: 0; }
+  strong { font-weight: 500; color: var(--ink); }
+
+  /* ── PULL QUOTE ─────────────────────────────────────────── */
+  .pull { border-left: 3px solid var(--gold); padding: 6px 0 6px 28px; margin: 48px 0; }
+  .pull p {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 24px; line-height: 1.4;
+    color: var(--ink); margin: 0; letter-spacing: 0.01em;
+  }
+
+  /* ── COMPARE ────────────────────────────────────────────── */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; margin: 48px 0; }
+  .compare-panel { padding: 32px 28px; border-radius: 2px; }
+  .compare-panel.before { background: var(--red-light); }
+  .compare-panel.after  { background: var(--green-light); }
+  .compare-label {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px;
+  }
+  .compare-panel.before .compare-label { color: var(--red); }
+  .compare-panel.after  .compare-label { color: var(--green); }
+  .compare-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .compare-items li { font-size: 14px; color: var(--ink-mid); line-height: 1.5; padding-left: 16px; position: relative; }
+  .compare-panel.before .compare-items li::before { content: '✕'; position: absolute; left: 0; color: var(--red); font-size: 10px; top: 3px; }
+  .compare-panel.after  .compare-items li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-size: 10px; top: 3px; }
+
+  /* ── STAT ROW ───────────────────────────────────────────── */
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin: 48px 0; }
+  .stat { background: var(--parchment); padding: 24px 20px; text-align: center; }
+  .stat-number {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 44px; color: var(--unity-mid);
+    line-height: 1; display: block; margin-bottom: 6px;
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-faint); line-height: 1.5;
+  }
+
+  /* ── INSIGHT ────────────────────────────────────────────── */
+  .insight {
+    border-left: 4px solid var(--gold); background: var(--gold-light);
+    border-radius: 0 3px 3px 0; padding: 22px 26px; margin: 40px 0;
+  }
+  .insight-label {
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 6px;
+  }
+  .insight p { font-size: 15px; color: var(--ink); line-height: 1.65; margin: 0; }
+
+  /* ── PROCESS STEPS ──────────────────────────────────────── */
+  .process-steps { display: flex; flex-direction: column; gap: 3px; margin: 44px 0; }
+  .step { display: grid; grid-template-columns: 48px 1fr; background: var(--parchment); overflow: hidden; border-radius: 2px; }
+  .step-num {
+    background: var(--unity-mid); display: flex; align-items: center; justify-content: center;
+    font-family: 'Oswald', sans-serif; font-weight: 400; font-size: 22px;
+    color: var(--unity-mist);
+  }
+  .step-body { padding: 18px 22px; }
+  .step-title { font-weight: 500; font-size: 14px; color: var(--ink); margin-bottom: 3px; }
+  .step-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.6; margin: 0; }
+
+  /* ── STEP BUILDER ───────────────────────────────────────── */
+  .step-builder { display: flex; flex-direction: column; gap: 3px; margin: 48px 0; }
+
+  .builder-step { border-radius: 3px; overflow: hidden; }
+
+  .builder-header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 18px 22px;
+  }
+
+  .builder-step-num {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .builder-step-title {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 18px; letter-spacing: 0.03em;
+  }
+
+  .builder-body { padding: 0 22px 22px 70px; }
+  .builder-body p { font-size: 14px; color: var(--ink-mid); line-height: 1.65; margin-bottom: 10px; }
+  .builder-body p:last-child { margin-bottom: 0; }
+
+  .builder-detail {
+    background: rgba(255,255,255,0.5);
+    border-radius: 2px; padding: 14px 16px; margin-top: 10px;
+  }
+  .builder-detail-label {
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .builder-detail p { font-size: 13px; margin: 0; }
+
+  .bs-1 { background: var(--gold-light); }
+  .bs-1 .builder-step-num { background: var(--gold-light); color: var(--gold); border: 2px solid var(--gold); }
+  .bs-1 .builder-step-title { color: var(--gold); }
+  .bs-1 .builder-detail-label { color: var(--gold); }
+
+  .bs-2 { background: var(--green-light); }
+  .bs-2 .builder-step-num { background: var(--green-light); color: var(--green); border: 2px solid var(--green); }
+  .bs-2 .builder-step-title { color: var(--green); }
+  .bs-2 .builder-detail-label { color: var(--green); }
+
+  .bs-3 { background: var(--blue-light); }
+  .bs-3 .builder-step-num { background: var(--blue-light); color: var(--blue); border: 2px solid var(--blue); }
+  .bs-3 .builder-step-title { color: var(--blue); }
+  .bs-3 .builder-detail-label { color: var(--blue); }
+
+  /* ── STATUS TAGS ────────────────────────────────────────── */
+  .status-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px; margin: 40px 0; }
+  .status-card { padding: 18px 20px; border-radius: 2px; }
+  .status-card.submitted  { background: var(--amber-light); }
+  .status-card.review     { background: var(--blue-light); }
+  .status-card.incomplete { background: var(--gold-light); }
+  .status-card.accepted   { background: var(--green-light); }
+  .status-card.rejected   { background: var(--red-light); }
+  .status-card.pending    { background: var(--parchment); }
+
+  .status-tag {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 6px;
+  }
+  .status-card.submitted  .status-tag { color: var(--amber); }
+  .status-card.review     .status-tag { color: var(--blue); }
+  .status-card.incomplete .status-tag { color: var(--gold); }
+  .status-card.accepted   .status-tag { color: var(--green); }
+  .status-card.rejected   .status-tag { color: var(--red); }
+  .status-card.pending    .status-tag { color: var(--ink-faint); }
+
+  .status-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.55; margin: 0; }
+
+  /* ── PAYMENT BRANCH ─────────────────────────────────────── */
+  .payment-branch {
+    background: var(--unity-dark); border-radius: 4px;
+    padding: 36px; margin: 48px 0;
+  }
+  .payment-branch-label {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--unity-sage); margin-bottom: 24px;
+  }
+  .payment-paths { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .payment-path { background: rgba(255,255,255,0.06); border-radius: 3px; padding: 20px; }
+  .payment-path-title {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 16px; letter-spacing: 0.03em;
+    margin-bottom: 10px;
+  }
+  .path-now .payment-path-title { color: var(--gold-mid); }
+  .path-later .payment-path-title { color: #9AB8E8; }
+  .payment-path ul { list-style: none; padding: 0; }
+  .payment-path ul li { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.55; padding: 3px 0 3px 14px; position: relative; }
+  .payment-path ul li::before { content: '→'; position: absolute; left: 0; color: rgba(255,255,255,0.25); font-size: 11px; top: 4px; }
+
+  /* ── PROGRESS BAR DEMO ──────────────────────────────────── */
+  .progress-demo {
+    background: white; border: 1px solid var(--rule);
+    border-radius: 4px; padding: 28px 28px 24px;
+    margin: 48px 0;
+  }
+  .progress-demo-label {
+    font-family: 'DM Mono', monospace; font-size: 9px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 16px;
+  }
+  .progress-title {
+    font-size: 14px; font-weight: 500; color: var(--ink);
+    margin-bottom: 12px; display: flex; justify-content: space-between;
+  }
+  .progress-bar-wrap {
+    height: 12px; background: #E8E4DC; border-radius: 6px;
+    overflow: hidden; display: flex; margin-bottom: 10px;
+  }
+  .pb-transfer { background: var(--blue); width: 16.7%; }
+  .pb-cpl      { background: var(--unity-fern); width: 27.8%; }
+  .progress-legend {
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-faint); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .progress-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2px; margin-top: 16px;
+  }
+  .ps { padding: 12px 14px; background: var(--parchment); text-align: center; }
+  .ps-num { font-family: 'Oswald', sans-serif; font-size: 26px; color: var(--unity-mid); display: block; }
+  .ps-label { font-size: 11px; color: var(--ink-faint); }
+
+  /* ── REFLECTION ─────────────────────────────────────────── */
+  .reflection { background: var(--parchment); border-radius: 3px; padding: 44px; margin-top: 44px; }
+  .reflection-label {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 16px;
+  }
+
+  /* ── FOOTER ─────────────────────────────────────────────── */
+  .case-footer { background: var(--unity-dark); padding: 64px 0; text-align: center; }
+  .case-footer p { color: var(--unity-sage); font-size: 15px; margin-bottom: 6px; }
+  .case-footer strong { color: var(--cream); }
+
+  /* ── FADE ───────────────────────────────────────────────── */
+  .fade-up { opacity: 1; }
+
+  /* ── RESPONSIVE ─────────────────────────────────────────── */
+  @media (max-width: 700px) {
+    .back-link { padding: 16px 24px 0; }
+    .hero-content { padding: 0 24px; }
+    .wrapper { padding: 0 24px; }
+    .compare, .stat-row, .status-grid, .payment-paths { grid-template-columns: 1fr; }
+    .section { padding: 64px 0; }
+    .progress-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<p class="back-link"><a href="index.html">← Back to UX Portfolio</a></p>
+
+<!-- ── HERO ──────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bar">
+    <div class="hb"></div><div class="hb"></div>
+    <div class="hb"></div><div class="hb"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Case Study</p>
+    <h1 class="hero-title">From patchwork<br>to <em>guided process.</em></h1>
+    <p class="hero-desc">Designing Unity Environmental University's Credit for Prior Learning Portfolio — replacing a fragmented, manual process with a fully guided, in-portal workflow that surfaces learning outcomes, organizes evidence, and handles payment at the point of submission.</p>
+    <div class="hero-meta">
+      <span class="meta-chip">0 → 1 Feature Design</span>
+      <span class="meta-chip">Multi-Stakeholder Process</span>
+      <span class="meta-chip">Course Search Integration</span>
+      <span class="meta-chip">Learning Outcome Mapping</span>
+      <span class="meta-chip">Payment Integration</span>
+      <span class="meta-chip">Iterative Portal Rollout</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE PROBLEM ────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">01 — The Problem</p>
+      <h2>A process held together<br><em>by email and assumption.</em></h2>
+      <p>Unity Environmental University offers students the ability to earn academic credit for professional experience, internships, and uncertified training through a Credit for Prior Learning (CPL) Portfolio. The idea is sound — students with real-world expertise shouldn't have to repeat learning they've already demonstrated. The process for accessing that credit was not.</p>
+      <p>Students could upload documents to a general repository, but the uploads had no organization, no context, and no connection to any specific course. After uploading, the student then had to track down the Dean, initiate a conversation to explain which course they wanted to challenge and why, learn the requirements for that course's portfolio, and pay a fee through a third-party system that existed entirely outside the portal. There were no notifications, no guidance, no status visibility, and no confirmation that anything was moving forward.</p>
+    </div>
+
+    <div class="pull fade-up">
+      <p>"A student who had the experience to earn credit had to navigate a process that assumed they already knew how it worked."</p>
+    </div>
+
+    <div class="compare fade-up">
+      <div class="compare-panel before">
+        <p class="compare-label">Before</p>
+        <ul class="compare-items">
+          <li>Unorganized document uploads to a general repository</li>
+          <li>No connection between uploaded files and a specific course</li>
+          <li>Student had to manually contact the Dean to initiate review</li>
+          <li>Learning outcomes not surfaced — students guessed at requirements</li>
+          <li>Payment via a separate third-party system outside the portal</li>
+          <li>No notifications triggered on either end of the process</li>
+          <li>No status visibility — students waited with no feedback</li>
+          <li>Entirely manual on the administrative side</li>
+        </ul>
+      </div>
+      <div class="compare-panel after">
+        <p class="compare-label">After</p>
+        <ul class="compare-items">
+          <li>Structured 3-step portfolio builder inside the Student Portal</li>
+          <li>Course search connects portfolio directly to the challenged course</li>
+          <li>Learning outcomes surfaced from the course — no guessing</li>
+          <li>Students address each learning outcome with direct written responses</li>
+          <li>Specific file references linked to each learning outcome response</li>
+          <li>Payment at time of submission or deferred with clear conditions</li>
+          <li>Portfolio status visible on dashboard with next-step guidance</li>
+          <li>Notifications triggered at each stage change</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stat-row fade-up">
+      <div class="stat">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Guided steps<br>replacing manual process</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">5</span>
+        <span class="stat-label">Portfolio statuses<br>visible to students</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">0</span>
+        <span class="stat-label">External systems<br>required by student</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Stakeholders aligned<br>through workshop process</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTEXT ────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">02 — Strategic Context</p>
+      <h2>One feature at a time.<br><em>Each one pulling infrastructure with it.</em></h2>
+      <p>The CPL Portfolio feature is part of the same staged rollout strategy that governs all new Student Portal features at Unity — design within the new but not-yet-deployed portal, then release one feature at a time rather than waiting for the full portal to be complete.</p>
+      <p>What makes this feature strategically more complex than the ADA Accommodations workflow is the technical dependency it creates. To surface learning outcomes from a challenged course, the portal needs a functioning course search. I had already designed a robust course search as part of the forthcoming Course Registration tool — but that tool wasn't ready for deployment. The solution was deliberate: strip the course search down to the functionality needed for CPL, deploy it as part of this rollout, and document the intended scale-up for development so they could build with the more complete version in mind from the beginning.</p>
+    </div>
+
+    <div class="insight fade-up">
+      <p class="insight-label">The Infrastructure Strategy</p>
+      <p>Rather than blocking the CPL feature until Course Registration was ready, or building a throwaway course search just for CPL, the decision was to deploy a simplified version of the designed course search and communicate the full intended architecture to the development team in parallel. This gives students a working feature now, gives developers the context to build toward the complete version, and avoids the technical debt of a disconnected implementation. Each feature rollout is also a foundation for the next one.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>The CPL Portfolio also introduces the <strong>Credit Management section</strong> — a new top-level navigation area that will eventually house both CPL and Transfer Evaluation under a unified framework. The Combined Transfer Credits &amp; Credit for Prior Learning Progress bar at the top of Credit Management gives students a visual understanding of how their prior learning credits and transfer credits combine toward their degree — a transparency feature that didn't exist before and that required designing a new data visualization component for the portal.</p>
+    </div>
+
+    <!-- Progress bar demo -->
+    <div class="progress-demo fade-up">
+      <p class="progress-demo-label">Credit Management — Combined Progress Bar</p>
+      <div class="progress-title">
+        <span>Combined Transfer Credits & Credit for Prior Learning Progress</span>
+        <strong>40 of 90 max credits</strong>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="pb-transfer"></div>
+        <div class="pb-cpl"></div>
+      </div>
+      <div class="progress-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Transfer Credits 15 of 90 max</div>
+        <div class="legend-item"><div class="legend-dot" style="background:var(--unity-fern)"></div>CPL Credits 25 of 30 max</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#E8E4DC"></div>Remaining capacity 50 credits</div>
+      </div>
+      <div class="progress-stats">
+        <div class="ps"><span class="ps-num">15</span><span class="ps-label">Transfer credits</span></div>
+        <div class="ps"><span class="ps-num">25</span><span class="ps-label">CPL credits</span></div>
+        <div class="ps"><span class="ps-num">40</span><span class="ps-label">Combined total</span></div>
+        <div class="ps"><span class="ps-num">50</span><span class="ps-label">Remaining</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DISCOVERY ──────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">03 — Discovery & Process</p>
+      <h2>Workshops, best-case-first,<br><em>and a design decision that went beyond the ask.</em></h2>
+      <p>The discovery and design process for the CPL Portfolio followed the same best-case-first methodology used for the ADA Accommodations feature — design the ideal experience first, then reality-check it through direct stakeholder engagement. The process was more complex here because the stakeholder group was larger.</p>
+    </div>
+
+    <div class="process-steps fade-up">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <p class="step-title">Map the current process</p>
+          <p class="step-desc">Documented every step of the existing patchwork workflow — document uploads, manual Dean outreach, third-party payment, absence of notifications — to make the full friction surface visible before designing anything.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <p class="step-title">Best-case-scenario first pass</p>
+          <p class="step-desc">Designed the ideal CPL Portfolio experience in three steps: document upload with drag-and-drop and cloud storage link support (Step 1), course search with learning outcomes (Step 2), and review and submit with integrated payment (Step 3).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <p class="step-title">1-on-1 workshop with Megann (Assistant Dean of Student Success)</p>
+          <p class="step-desc">Walked through the rough wireframes step by step with the person who handles all CPL cases day to day. This session surfaced operational details and generated the working specification that drove subsequent development and stakeholder conversations.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <p class="step-title">Expanded review — Doreen (VP of Student Outcomes)</p>
+          <p class="step-desc">Once the design reached a solid working state, brought in the primary decision-maker. Used Adobe Acrobat and Adobe Cloud for commenting on screenshots — no account creation required for stakeholders, removing a barrier to participation.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <p class="step-title">Async stakeholder review — Michaeleen (Dean of Baccalaureate Programs)</p>
+          <p class="step-desc">Multiple decision-makers meant not all review could happen synchronously. Adobe Cloud commenting enabled Michaeleen and others to review and respond on their own timeline, with Megann consolidating feedback from behind-the-scenes conversations.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <p class="step-title">Major structural change — Step order reversed</p>
+          <p class="step-desc">The consolidated stakeholder feedback produced one significant change: Challenge a Course (originally Step 2) needed to move to Step 1, so that Learning Outcomes — newly added — were surfaced earlier in the process. Document upload moved to Step 2. The design rationale was sound: students need to know what they're submitting against before they organize and upload their evidence.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-body">
+          <p class="step-title">Design insight — going beyond what stakeholders asked for</p>
+          <p class="step-desc">Stakeholders were satisfied to display learning outcomes clearly. Further investigation revealed that students are required to specifically address each learning outcome in their portfolio — not just submit documents generally. This insight drove a design decision not requested by stakeholders: required text fields under each learning outcome, carried from the course selection in Step 1, so students could directly summarize how their portfolio demonstrates each outcome and reference specific files by name.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight fade-up">
+      <p class="insight-label">The Insight Moment</p>
+      <p>The difference between showing learning outcomes and requiring students to address them is the difference between a transparent process and a guided one. Stakeholders knew what the requirements were. Students didn't. The design decision to add per-outcome text fields wasn't in scope — it came from asking one more question about how the process actually works. That kind of investigation is what separates a feature that functions from one that actually helps.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE SOLUTION ───────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">04 — The Solution</p>
+      <h2>Three steps.<br><em>One complete guided experience.</em></h2>
+      <p>The redesigned CPL Portfolio brings the entire process into the Student Portal — course selection, learning outcome mapping, document upload, outcome addressing, review, and payment — in a structured three-step flow that gives students clear guidance at every point.</p>
+    </div>
+
+    <div class="step-builder fade-up">
+      <div class="builder-step bs-1">
+        <div class="builder-header">
+          <div class="builder-step-num">1</div>
+          <span class="builder-step-title">Challenge a Course</span>
+        </div>
+        <div class="builder-body">
+          <p>The student searches for and selects the course they are challenging with their prior learning. The course search — a simplified version of the fuller Course Registration search — surfaces the course name, description, credits, and critically, the <strong>learning outcomes</strong> the student's portfolio must demonstrate.</p>
+          <p>Moving this to Step 1 was the key structural insight: students need to know what they're submitting against before they organize their evidence. The learning outcomes selected here carry forward into Step 2, where students must respond to each one directly.</p>
+          <div class="builder-detail">
+            <p class="builder-detail-label">What it surfaces</p>
+            <p>Course name, credit value, course description, and the full list of learning outcomes the portfolio must address — pulled from the course database and displayed before any documents are uploaded.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="builder-step bs-2">
+        <div class="builder-header">
+          <div class="builder-step-num">2</div>
+          <span class="builder-step-title">Upload Portfolio Documents</span>
+        </div>
+        <div class="builder-body">
+          <p>The student uploads their portfolio evidence using a drag-and-drop interface (or click to upload), with file type restrictions, maximum file size, and a cloud storage share link option for large files. A callout box reiterates the required documents list so students can verify completeness before proceeding.</p>
+          <p>Below the upload zone, each learning outcome from Step 1 is displayed with a required text field. Students must write a direct summary of how their portfolio demonstrates that specific outcome and reference the specific file names where it is covered. This field is required — the portfolio cannot be submitted without addressing each outcome.</p>
+          <div class="builder-detail">
+            <p class="builder-detail-label">The design decision beyond the ask</p>
+            <p>Stakeholders requested that learning outcomes be displayed clearly. Investigation revealed students are required to address each one specifically. The text fields were added — not requested — because the requirement existed whether or not the design surfaced it. Without the fields, students would still be expected to do this work; they just wouldn't know how or where.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="builder-step bs-3">
+        <div class="builder-header">
+          <div class="builder-step-num">3</div>
+          <span class="builder-step-title">Review & Submit</span>
+        </div>
+        <div class="builder-body">
+          <p>The student reviews their complete submission: the challenged course, the uploaded files, and their learning outcome responses. A clear notice explains the non-refundable processing fee before submission. Once submitted, the student is given the choice to pay immediately or defer payment — with full transparency into the consequences of deferral.</p>
+          <div class="builder-detail">
+            <p class="builder-detail-label">Review includes</p>
+            <p>Challenged course name and learning outcomes, uploaded file list, learning outcome written responses, and the non-refundable fee disclosure before the final submit action.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment branch -->
+    <div class="payment-branch fade-up">
+      <p class="payment-branch-label">Post-submission — payment decision</p>
+      <div class="payment-paths">
+        <div class="payment-path path-now">
+          <p class="payment-path-title">Pay Now</p>
+          <ul>
+            <li>Fee processed at time of submission</li>
+            <li>Portfolio moves immediately to Under Review</li>
+            <li>Estimated decision date shown on dashboard</li>
+            <li>Notifications triggered as status changes</li>
+          </ul>
+        </div>
+        <div class="payment-path path-later">
+          <p class="payment-path-title">Pay Later</p>
+          <ul>
+            <li>Portfolio remains in Submitted — Pending Payment status</li>
+            <li>Will not move to Review until payment received</li>
+            <li>Portfolio expires within 60 days if unpaid</li>
+            <li>Conditions shown clearly before confirming deferral</li>
+            <li>Option to change mind and pay now presented</li>
+            <li>Dashboard shows payment due and expiry countdown</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-up">
+      <h3>Portfolio status on the dashboard</h3>
+      <p>Once submitted, every portfolio is visible on the Credit Management dashboard with a clear status indicator, submission date, and next-step guidance. Students never have to wonder where their portfolio is in the process.</p>
+    </div>
+
+    <div class="status-grid fade-up">
+      <div class="status-card submitted">
+        <p class="status-tag">Submitted — Pending Payment</p>
+        <p class="status-desc">Portfolio received. Payment not yet made. 60-day expiry window active. Link to pay now shown.</p>
+      </div>
+      <div class="status-card review">
+        <p class="status-tag">Under Review</p>
+        <p class="status-desc">Payment received. Portfolio is being reviewed by the Dean. Estimated decision date shown.</p>
+      </div>
+      <div class="status-card incomplete">
+        <p class="status-tag">Incomplete</p>
+        <p class="status-desc">Action required. Dean has flagged missing or insufficient materials. Feedback shown with next steps.</p>
+      </div>
+      <div class="status-card accepted">
+        <p class="status-tag">Accepted</p>
+        <p class="status-desc">Credits applied. Course credited date shown. Credit reflected in Combined Progress bar.</p>
+      </div>
+      <div class="status-card rejected">
+        <p class="status-tag">Not Accepted</p>
+        <p class="status-desc">Decision with documented reason. Next steps and appeal options presented clearly.</p>
+      </div>
+      <div class="status-card pending">
+        <p class="status-tag">New</p>
+        <p class="status-desc">Draft started but not yet submitted. Student can return to complete and submit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE DESIGN DECISIONS ───────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">05 — The Design Decisions</p>
+      <h2>The details that<br><em>don't show in a screenshot.</em></h2>
+    </div>
+
+    <div class="fade-up">
+      <h3>Learning outcomes as a required input, not a display</h3>
+      <p>The most consequential design decision in this project wasn't in scope. Stakeholders asked for learning outcomes to be displayed clearly — a reasonable ask that would have improved on the previous process. But displaying requirements and requiring responses to them are different design choices with very different outcomes for students.</p>
+      <p>A student who reads the learning outcomes and then uploads a folder of documents is doing the same thing they were doing before — just with more information. A student who is required to write one to two sentences directly addressing each learning outcome, and reference the specific files where that outcome is demonstrated, is doing something materially different: they are constructing an argument, not just submitting evidence. That distinction matters to the Dean who reviews the portfolio and to the student who needs to understand what the portfolio is actually for.</p>
+    </div>
+
+    <div class="fade-up">
+      <h3>Cloud storage links alongside file upload</h3>
+      <p>Video files, large design portfolios, and multimedia work samples frequently exceed file size limits for standard upload interfaces. Adding a cloud storage share link option alongside the drag-and-drop uploader means students with large or complex portfolios don't have to compress or fragment their work to fit the form. The requirement was the same; the accommodation was the form adapting to the reality of what students actually submit.</p>
+    </div>
+
+    <div class="fade-up">
+      <h3>Payment deferral with explicit conditions</h3>
+      <p>Offering payment deferral was a student-centered decision — not every student has the processing fee available at the moment they finish their portfolio. But deferral without clear conditions would have created a worse problem: portfolios sitting in limbo without students understanding why nothing was moving. The design shows the deferral option but requires students to read and acknowledge the conditions — 60-day expiry, no review until payment received — before confirming. Transparency at the point of decision is less friction than confusion after the fact.</p>
+    </div>
+
+    <div class="fade-up">
+      <h3>The course search as a deliberate partial deployment</h3>
+      <p>The course search embedded in Step 1 is a simplified version of a more robust search designed for the forthcoming Course Registration feature. Rather than building a throwaway implementation or blocking CPL on Course Registration's timeline, the decision was to deploy the simplified version with development documentation describing the intended full architecture. Students get working functionality now. Developers build with the complete picture in mind from the start. The foundation doesn't need to be rebuilt later.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── REFLECTION ─────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">06 — Reflection</p>
+      <h2>What I'd <em>do differently.</em></h2>
+    </div>
+    <div class="reflection fade-up">
+      <p class="reflection-label">Honest retrospective</p>
+      <p>The multi-stakeholder review process worked well — the combination of a 1-on-1 workshop with Megann, a joint session with Doreen, and async Adobe Cloud commenting for Michaeleen was the right approach for a group with different schedules and decision-making authority. The async tool choice specifically removed the account-creation barrier that would have slowed things down. I'd use this structure again.</p>
+      <p style="margin-top:16px">The learning outcome text fields were the right call, but they came from my own investigation rather than a structured research question. If I were doing this again, I'd add one question to the initial stakeholder conversation: "What does the Dean actually review when they evaluate a portfolio?" That question would have surfaced the outcome-addressing requirement in session one rather than in a later investigation, and could have shaped the Step 1 → Step 2 reorder decision from the start.</p>
+      <p style="margin-top:16px">The payment deferral flow is clear, but the 60-day expiry countdown on the dashboard is a design element I'd want to user-test before finalizing. A countdown timer can feel urgent and helpful or stressful and arbitrary depending on how it's presented. Without observational data from students under real conditions, the optimal framing for that element remains an assumption.</p>
+      <p style="margin-top:16px">The feature is designed and awaiting implementation. The case study will be updated with outcome data — portfolio completion rates, payment deferral rates, and Dean review turnaround time — once the feature is live and generating signal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────── -->
+<footer class="case-footer">
+  <div class="wrapper">
+    <p>Unity Environmental University — Credit for Prior Learning Portfolio</p>
+    <p style="margin-top:8px;font-size:13px">Designed by <strong>Jessie Lacey</strong> — <a href="https://jessiemlacey.com" style="color:var(--unity-mist);text-decoration:none">jessiemlacey.com</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

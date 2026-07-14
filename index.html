@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jessie Lacey — UX Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F2EC;
+    --surface: #FFFFFF;
+    --ink: #1A1815;
+    --ink-muted: #6B6760;
+    --ink-faint: #B0ADA8;
+    --rule: #E0DDD8;
+    --radius: 3px;
+    --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    padding: 0 0 80px;
+  }
+
+  header {
+    padding: 72px 48px 48px;
+    max-width: 1080px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+
+  h1 em { font-style: italic; color: var(--ink-muted); }
+
+  .subtitle {
+    font-size: 16px;
+    color: var(--ink-muted);
+    line-height: 1.65;
+    max-width: 560px;
+  }
+
+  main {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  section.group {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  section.group:last-child { border-bottom: none; }
+
+  .group-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 8px;
+  }
+
+  .group-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .group-desc {
+    font-size: 14px;
+    color: var(--ink-muted);
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  /* ── Case study cards ─────────────────────────────────── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .case-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--surface);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .case-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(26, 24, 21, 0.1);
+  }
+
+  .card-thumb {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-thumb svg { width: 100%; height: 100%; }
+
+  .card-body { padding: 22px 26px 26px; }
+
+  .card-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+
+  .card-desc {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .chip {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 2px;
+    background: var(--bg);
+    color: var(--ink-muted);
+    border: 1px solid var(--rule);
+  }
+
+  /* ── Tool cards ───────────────────────────────────────── */
+  .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .tool-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 28px 28px 26px;
+    transition: transform var(--transition), box-shadow var(--transition);
+  }
+
+  .tool-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(26, 24, 21, 0.1);
+  }
+
+  .tool-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tool-icon svg { width: 20px; height: 20px; }
+
+  .tool-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .tool-desc {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+  }
+
+  .tool-link {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-top: auto;
+    padding-top: 6px;
+  }
+
+  footer.site-footer {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 40px 48px 0;
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+
+  footer.site-footer a { color: var(--ink-muted); }
+
+  @media (max-width: 760px) {
+    header, main, footer.site-footer { padding-left: 24px; padding-right: 24px; }
+    .card-grid, .tool-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">UX Portfolio</p>
+  <h1>Jessie Lacey<br><em>Product & UX Design</em></h1>
+  <p class="subtitle">Case studies and tools from real product and design work — 0→1 features, portal redesigns, and standalone civic and consumer products.</p>
+</header>
+
+<main>
+
+  <!-- ── CASE STUDIES ─────────────────────────────────────── -->
+  <section class="group">
+    <p class="group-label">Portfolio</p>
+    <h2 class="group-title">Case Studies</h2>
+    <p class="group-desc">Deep dives into discovery, design decisions, and reflection — from a solo-built consumer app to multi-stakeholder university platform features.</p>
+
+    <div class="card-grid">
+
+      <!-- GrowWise -->
+      <a class="case-card" href="case-study-growwise.html">
+        <div class="card-thumb" style="background:#2C1F0E;">
+          <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="16" width="280" height="128" rx="4" fill="rgba(61,92,42,0.18)" stroke="rgba(107,143,90,0.25)" stroke-width="1"/>
+            <line x1="100" y1="16" x2="100" y2="144" stroke="rgba(107,143,90,0.18)" stroke-width="0.5"/>
+            <line x1="180" y1="16" x2="180" y2="144" stroke="rgba(107,143,90,0.18)" stroke-width="0.5"/>
+            <line x1="260" y1="16" x2="260" y2="144" stroke="rgba(107,143,90,0.18)" stroke-width="0.5"/>
+            <line x1="20" y1="60" x2="300" y2="60" stroke="rgba(107,143,90,0.18)" stroke-width="0.5"/>
+            <line x1="20" y1="100" x2="300" y2="100" stroke="rgba(107,143,90,0.18)" stroke-width="0.5"/>
+            <circle cx="60" cy="38" r="16" fill="rgba(155,191,122,0.55)"/>
+            <circle cx="60" cy="38" r="7" fill="rgba(61,92,42,0.8)"/>
+            <circle cx="140" cy="80" r="22" fill="rgba(61,92,42,0.5)"/>
+            <circle cx="140" cy="80" r="10" fill="rgba(155,191,122,0.8)"/>
+            <circle cx="220" cy="38" r="12" fill="rgba(200,230,160,0.6)"/>
+            <circle cx="230" cy="120" r="18" fill="rgba(107,143,90,0.5)"/>
+            <circle cx="280" cy="80" r="9" fill="rgba(155,191,122,0.5)"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <p class="card-eyebrow" style="color:#4A7A52;">Solo Product</p>
+          <p class="card-title">GrowWise</p>
+          <p class="card-desc">A companion-planting and square-foot gardening planner designed, built, and shipped independently — from first sketch to the App Store.</p>
+          <div class="card-meta">
+            <span class="chip">0 → 1 Product</span>
+            <span class="chip">iOS & Android</span>
+            <span class="chip">Sole Designer & Developer</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Unity ADA -->
+      <a class="case-card" href="case-study-unity-ada.html">
+        <div class="card-thumb" style="background:#1A2340;">
+          <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="24" y="24" width="272" height="24" rx="3" fill="rgba(74,112,184,0.35)"/>
+            <rect x="24" y="56" width="272" height="24" rx="3" fill="rgba(58,136,128,0.3)"/>
+            <rect x="24" y="88" width="180" height="24" rx="3" fill="rgba(74,112,184,0.5)"/>
+            <rect x="24" y="120" width="130" height="16" rx="3" fill="rgba(184,146,42,0.35)"/>
+            <circle cx="278" cy="100" r="9" fill="rgba(154,184,232,0.9)"/>
+            <path d="M274 100 l3 3 l6 -7" stroke="#1A2340" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <p class="card-eyebrow" style="color:#4A70B8;">0 → 1 Feature</p>
+          <p class="card-title">Unity ADA Accommodations</p>
+          <p class="card-desc">Redesigning a paper-and-email process into a single-screen digital workflow integrated with Salesforce, Adobe Sign, and FERPA compliance.</p>
+          <div class="card-meta">
+            <span class="chip">Salesforce Integration</span>
+            <span class="chip">Multi-Party Workflow</span>
+            <span class="chip">Design Complete</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Unity Admissions -->
+      <a class="case-card" href="case-study-unity-admissions.html">
+        <div class="card-thumb" style="background:#1C3620;">
+          <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="60" width="30" height="20" rx="2" fill="#E8A882"/>
+            <rect x="56" y="52" width="30" height="28" rx="2" fill="#C45C5C"/>
+            <rect x="92" y="44" width="30" height="36" rx="2" fill="#C47090"/>
+            <rect x="128" y="36" width="30" height="44" rx="2" fill="#8870B8"/>
+            <rect x="164" y="52" width="30" height="28" rx="2" fill="#5890C8"/>
+            <rect x="200" y="44" width="30" height="36" rx="2" fill="#4A9898"/>
+            <rect x="236" y="28" width="30" height="52" rx="2" fill="#4A8858"/>
+            <text x="20" y="104" font-family="monospace" font-size="9" fill="rgba(184,212,188,0.6)">7 stages, conditional paths</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <p class="card-eyebrow" style="color:#4A7A52;">Feature Redesign</p>
+          <p class="card-title">Unity Admissions Application</p>
+          <p class="card-desc">Turning a static 18-step form into a dynamic, conditional 7-stage flow that only asks applicants what it actually needs to know.</p>
+          <div class="card-meta">
+            <span class="chip">Information Architecture</span>
+            <span class="chip">Conditional Logic</span>
+            <span class="chip">Implementation in Progress</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Unity CPL -->
+      <a class="case-card" href="case-study-unity-cpl.html">
+        <div class="card-thumb" style="background:#1C3620;">
+          <svg viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="26" width="80" height="108" rx="4" fill="rgba(200,146,10,0.28)" stroke="rgba(200,146,10,0.4)" stroke-width="1"/>
+            <rect x="120" y="26" width="80" height="108" rx="4" fill="rgba(74,122,82,0.3)" stroke="rgba(74,122,82,0.4)" stroke-width="1"/>
+            <rect x="210" y="26" width="80" height="108" rx="4" fill="rgba(46,110,188,0.28)" stroke="rgba(46,110,188,0.4)" stroke-width="1"/>
+            <circle cx="70" cy="52" r="12" fill="none" stroke="#E8B840" stroke-width="2"/>
+            <text x="65" y="57" font-family="monospace" font-size="12" fill="#E8B840">1</text>
+            <circle cx="160" cy="52" r="12" fill="none" stroke="#7AAB82" stroke-width="2"/>
+            <text x="155" y="57" font-family="monospace" font-size="12" fill="#7AAB82">2</text>
+            <circle cx="250" cy="52" r="12" fill="none" stroke="#8FB8E8" stroke-width="2"/>
+            <text x="245" y="57" font-family="monospace" font-size="12" fill="#8FB8E8">3</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <p class="card-eyebrow" style="color:#C8920A;">0 → 1 Feature</p>
+          <p class="card-title">Unity CPL Portfolio</p>
+          <p class="card-desc">Replacing a fragmented, email-driven credit process with a fully guided three-step portfolio workflow, from course search to payment.</p>
+          <div class="card-meta">
+            <span class="chip">Multi-Stakeholder Process</span>
+            <span class="chip">Payment Integration</span>
+            <span class="chip">Design Complete</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── TOOLS ─────────────────────────────────────────────── -->
+  <section class="group">
+    <p class="group-label">Built & Live</p>
+    <h2 class="group-title">Tools</h2>
+    <p class="group-desc">Standalone tools and reference material — a general UX design process reference, and a civic budgeting tool for exploring federal tax and spending tradeoffs.</p>
+
+    <div class="tool-grid">
+
+      <a class="tool-card" href="design-process.html">
+        <div class="tool-icon" style="background:#EAE8F5;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4A3F8F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 7v5l3 3"/>
+          </svg>
+        </div>
+        <p class="tool-title">Design Process</p>
+        <p class="tool-desc">A full lifecycle reference map — from discovery through post-launch measurement — documenting where and why design leads, informs, or collaborates at each phase.</p>
+        <p class="tool-link">View reference →</p>
+      </a>
+
+      <a class="tool-card" href="https://msjessiemeghan.github.io/taxtherich/" target="_blank" rel="noopener">
+        <div class="tool-icon" style="background:#E5F0DF;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2D5C1A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+        </div>
+        <p class="tool-title">The People's Ledger</p>
+        <p class="tool-desc">An interactive civic budgeting tool — set taxes, redirect spending, and fund programs to explore federal budget tradeoffs with real, cited data.</p>
+        <p class="tool-link">Open tool ↗</p>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Designed by Jessie Lacey — <a href="https://jessiemlacey.com">jessiemlacey.com</a></p>
+</footer>
+
+</body>
+</html>

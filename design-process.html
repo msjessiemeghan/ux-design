@@ -38,8 +38,24 @@
     padding: 0 0 80px;
   }
 
+  .back-link {
+    display: block;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 48px 0;
+    font-size: 13px;
+  }
+
+  .back-link a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .back-link a:hover { color: var(--ink); }
+
   header {
-    padding: 56px 48px 40px;
+    padding: 32px 48px 40px;
     border-bottom: 1px solid var(--rule);
     max-width: 900px;
     margin: 0 auto;
@@ -216,7 +232,7 @@
   .conv-launch     { background: var(--accent-green-light);  color: var(--accent-green);  }
 
   @media (max-width: 640px) {
-    header, .process { padding-left: 24px; padding-right: 24px; }
+    header, .process, .back-link { padding-left: 24px; padding-right: 24px; }
     .phase.open .phase-body { grid-template-columns: 1fr; }
     .phase-subtitle { display: none; }
     .conversation-block { grid-column: 1; }
@@ -225,10 +241,12 @@
 </head>
 <body>
 
+<p class="back-link"><a href="index.html">← Back to UX Portfolio</a></p>
+
 <header>
-  <p class="eyebrow">UX Reference · Portal Design</p>
+  <p class="eyebrow">UX Reference · Design Process</p>
   <h1>The Design<br><em>Process Map</em></h1>
-  <p class="subtitle">A full lifecycle reference for portal design — from first discovery conversation through post-launch measurement. Click any phase to expand.</p>
+  <p class="subtitle">A full lifecycle reference for UX design — from first discovery conversation through post-launch measurement. Click any phase to expand.</p>
 </header>
 
 <div class="process" id="process"></div>
@@ -248,7 +266,7 @@ const phases = [
         "Stakeholder interviews — surface conflicting definitions of success early",
         "User interviews and surveys to understand real behavior vs. assumed behavior",
         "Review of existing analytics, support tickets, and usage data",
-        "Competitive and comparative audit of similar portals",
+        "Competitive and comparative audit of similar products",
         "Technical constraints conversation with engineering",
         "Full user lifecycle mapping — not just one moment, but the arc from first login onward"
       ]
@@ -263,11 +281,11 @@ const phases = [
         "Clear problem statement agreed upon by stakeholders",
         "User needs ranked by frequency and severity",
         "List of assumptions that need to be tested",
-        "Shared understanding of what the portal is actually for",
+        "Shared understanding of what the product is actually for",
         "Initial risk flags for scope, tech, or user experience"
       ]
     },
-    convo: `A project manager's natural entry point is scope and timeline — defining what gets built and when. Discovery is the phase that answers the prior question: whether the right thing is being built at all. When a designer is involved here, user needs and business goals get tested against each other before any commitments are made. That reduces the most expensive kind of rework — the kind where the product is built correctly but solves the wrong problem.`
+    convo: `Decisions made in Discovery are the hardest and most costly to undo later. A business analyst's requirements gathering asks "what should the system do" — Discovery asks "what problem are we actually solving, and for whom." Framing your involvement as reducing downstream risk — not claiming turf — is the cleanest way to make the case.`
   },
   {
     num: "02",
@@ -280,7 +298,7 @@ const phases = [
       body: `Define takes Discovery's raw material and structures it into actionable frameworks. This is where patterns become artifacts others can use.`,
       list: [
         "User persona development grounded in research (not assumptions)",
-        "Journey mapping across the full portal experience",
+        "Journey mapping across the full product experience",
         "Pain point and opportunity prioritization",
         "Success metric definition — what does 'working' actually look like?",
         "Alignment workshops to validate findings with stakeholders"
@@ -300,7 +318,7 @@ const phases = [
         "Scope boundaries and out-of-scope documentation"
       ]
     },
-    convo: `Project managers work from requirements — lists of what the system needs to do. Define produces something different: a shared picture of who the system needs to serve and why. A journey map, in particular, is one of the most effective tools for moving a project conversation from a feature list to an outcome. It shows the experience from the user's perspective rather than the org chart's, which often surfaces priority conflicts that a requirements document would never catch.`
+    convo: `Journey maps are one of the most effective tools for showing stakeholders what the experience looks like from the user's perspective — not the org chart's perspective. Presenting one early in a project can shift the entire conversation from features to outcomes.`
   },
   {
     num: "03",
@@ -317,12 +335,12 @@ const phases = [
         "Navigation model selection (top nav, sidebar, hub-and-spoke, etc.)",
         "Card sorting and tree testing with real users when possible",
         "Taxonomy and labeling system — what things are called matters",
-        "Role-based access and visibility planning for portal context"
+        "Role-based access and visibility planning where relevant"
       ]
     },
     leads: {
       heading: "Why designers lead it",
-      body: `IA is a design discipline, not a technical one. The mental models users bring to a portal — how they expect to find things — are a UX research output. Translating those models into a coherent structure requires design judgment that can't be derived from a feature list.`
+      body: `IA is a design discipline, not a technical one. The mental models users bring to a product — how they expect to find things — are a UX research output. Translating those models into a coherent structure requires design judgment that can't be derived from a feature list.`
     },
     produces: {
       heading: "What gets produced",
@@ -331,10 +349,10 @@ const phases = [
         "Navigation model with annotated rationale",
         "Content hierarchy documented by section",
         "Labeling system / taxonomy guide",
-        "Role-based visibility matrix for portal sections"
+        "Role-based visibility matrix where applicable"
       ]
     },
-    convo: `IA decisions are often invisible to a project manager until they become expensive problems — navigation structures baked into a platform are among the hardest things to change once development begins. Presenting IA work as a risk management activity resonates with PMs because it speaks their language: scope containment, reduced rework, and cleaner handoffs. The design value here isn't aesthetic — it's structural, and the cost of getting it wrong is measurable.`
+    convo: `This is often the phase where the most expensive technical rework originates — navigation structures baked into a CMS or platform are difficult to undo. Making the case for IA investment upfront is a risk management argument as much as a design one.`
   },
   {
     num: "04",
@@ -344,7 +362,7 @@ const phases = [
     label: "Designer leads",
     involves: {
       heading: "What it involves",
-      body: `Wireframing translates IA and user needs into spatial decisions — what goes where, and how users move through the portal. Low-fidelity is intentional here: speed of iteration matters more than polish.`,
+      body: `Wireframing translates IA and user needs into spatial decisions — what goes where, and how users move through the product. Low-fidelity is intentional here: speed of iteration matters more than polish.`,
       list: [
         "Page-level wireframes for all major templates",
         "User flow diagrams showing movement between states",
@@ -368,7 +386,7 @@ const phases = [
         "Documented assumptions and open questions"
       ]
     },
-    convo: `Wireframes are the cheapest point in the entire project to make structural changes — a two-hour revision here prevents a two-week development rework later. For a project manager, that's a straightforward trade. The value of a designer in this phase is speed and iteration: the ability to generate, test, and discard ideas before any engineering time is committed. Without design involvement at this stage, structural decisions get made implicitly during development — at significantly higher cost.`
+    convo: `Wireframes are the cheapest point to make structural changes. Showing stakeholders that a two-hour wireframe revision costs far less than a two-week development rework is one of the most effective arguments for involving design earlier in the process.`
   },
   {
     num: "05",
@@ -401,7 +419,7 @@ const phases = [
         "Shared alignment on timeline and next steps"
       ]
     },
-    convo: `This is a naturally collaborative phase where design and project management bring complementary strengths. A PM manages the agenda, timeline, and decision documentation; a designer presents rationale, fields feedback, and distinguishes between requests that reflect real user needs and those that reflect personal preferences. Both are necessary. When a designer is absent from review sessions, feedback gets interpreted and filtered by someone without design context — which often leads to scope changes that feel reasonable on paper but create UX problems in practice.`
+    convo: `This is the phase where a supervisor's strengths and a designer's are most complementary. One brings organizational authority and business context; the other brings design rationale and user advocacy. Framing stakeholder review as a joint responsibility — not a handoff — is a natural opening to collaborate more visibly.`
   },
   {
     num: "06",
@@ -411,7 +429,7 @@ const phases = [
     label: "Designer leads",
     involves: {
       heading: "What it involves",
-      body: `Visual design applies the brand, establishes the design system, and produces the high-fidelity UI. The design system is the foundation — components, tokens, and patterns that scale across the entire portal.`,
+      body: `Visual design applies the brand, establishes the design system, and produces the high-fidelity UI. The design system is the foundation — components, tokens, and patterns that scale across the entire product.`,
       list: [
         "Design token definition — color, typography, spacing, elevation",
         "Component library build-out in Figma",
@@ -437,7 +455,7 @@ const phases = [
         "Component usage guidelines"
       ]
     },
-    convo: `A design system is one of the few design investments with a clearly measurable return: it reduces design time on future work, accelerates development, and enforces consistency without requiring manual review of every screen. For a project manager, framing a design system as infrastructure — not decoration — is the most effective way to communicate its value. It pays forward across every subsequent phase and every future project that builds on the same platform.`
+    convo: `Design systems are often the most tangible demonstration of design's long-term value — they reduce future design and development time measurably. Framing design system work as an institutional asset (not just a project deliverable) is a strong way to communicate strategic value.`
   },
   {
     num: "07",
@@ -472,7 +490,7 @@ const phases = [
         "Confidence baseline for key user flows"
       ]
     },
-    convo: `Usability testing reframes design decisions as evidence-based rather than subjective — which matters in conversations with project managers who are accustomed to requirements and specs. A test report with severity-ranked findings is a document a PM can act on. It translates the designer's observations into a format that fits naturally into project tracking, making the value of this phase legible across disciplines.`
+    convo: `Usability testing is one of the most concrete ways to demonstrate that design decisions are evidence-based rather than subjective. Referencing real usability study findings in conversations about design's role is a powerful way to show what design-led discovery actually produces.`
   },
   {
     num: "08",
@@ -507,7 +525,7 @@ const phases = [
         "Agreed implementation priority order"
       ]
     },
-    convo: `A thorough handoff is one of the most tangible ways design reduces project risk for a PM — fewer clarification cycles, fewer mid-sprint surprises, and fewer design decisions being made by developers under time pressure. When a designer owns handoff, the PM gets a cleaner implementation path. Framing handoff quality as a project efficiency metric rather than a design preference makes the case in terms a project manager already cares about.`
+    convo: `Strong handoff practices visibly reduce development rework — which is a metric that resonates with project managers and business analysts. Documenting the time saved through rigorous handoff is one way to quantify design's operational value beyond the visual output.`
   },
   {
     num: "09",
@@ -542,7 +560,7 @@ const phases = [
         "Remaining issue tracker entries for post-launch iteration"
       ]
     },
-    convo: `Functional QA and design QA are different tests with different pass criteria — and both are necessary. A PM's QA process confirms the product works as specified. Design QA confirms it works as intended for the people using it. Without a designer in this phase, experience quality issues get classified as minor bugs or get closed as "works as designed" — because without design context, they're invisible. Making this distinction clear helps a PM understand why design sign-off is a separate gate, not a redundant one.`
+    convo: `Design QA is often skipped when designers aren't embedded in the delivery process — which is one of the hidden costs of excluding designers from later phases. Naming this phase explicitly in a process conversation makes visible something that's currently happening inconsistently or not at all.`
   },
   {
     num: "10",
@@ -577,7 +595,7 @@ const phases = [
         "Team retrospective notes"
       ]
     },
-    convo: `Post-launch is where design and project management interests converge most naturally — both want to know if the project achieved its goals. A designer's contribution here is interpreting behavioral data through a user lens: distinguishing between a metric that signals a feature problem and one that signals a findability problem requires design judgment, not just analytics. Connecting design decisions to measurable outcomes also creates the feedback loop that makes the next project — and the next conversation about design's role — easier to have.`
+    convo: `Connecting design decisions back to measurable outcomes — even informally — is one of the most effective ways to build credibility for design's role in planning. Being able to say "the navigation change made in phase 3 reduced support tickets by X" is the language that moves conversations about design authority forward.`
   }
 ];
 

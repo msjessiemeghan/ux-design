@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GrowWise — Case Study</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #FAF8F2; }
+  .back-link {
+    display: block;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 20px 40px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+  }
+  .back-link a { color: #6B8F5A; text-decoration: none; letter-spacing: 0.02em; }
+  .back-link a:hover { color: #3D5C2A; }
+  @media (max-width: 768px) { .back-link { padding: 16px 24px 0; } }
+</style>
+<style>
+:root {
+    --soil:       #2C1F0E;
+    --bark:       #4A3520;
+    --moss:       #3D5C2A;
+    --sage:       #6B8F5A;
+    --sprout:     #9BBF7A;
+    --leaf:       #C8E6A0;
+    --parchment:  #F4EFE4;
+    --cream:      #FAF8F2;
+    --ink:        #1C1610;
+    --ink-mid:    #5C4F3A;
+    --ink-faint:  #A89880;
+    --rule:       #DDD4C0;
+    --amber:      #C4821A;
+    --amber-light:#F5E8C8;
+  }
+
+#jl-growwise {
+    --soil:       #2C1F0E;
+    --bark:       #4A3520;
+    --moss:       #3D5C2A;
+    --sage:       #6B8F5A;
+    --sprout:     #9BBF7A;
+    --leaf:       #C8E6A0;
+    --parchment:  #F4EFE4;
+    --cream:      #FAF8F2;
+    --ink:        #1C1610;
+    --ink-mid:    #5C4F3A;
+    --ink-faint:  #A89880;
+    --rule:       #DDD4C0;
+    --amber:      #C4821A;
+    --amber-light:#F5E8C8;
+  }
+
+#jl-growwise * { box-sizing: border-box; margin: 0; padding: 0; }
+
+#jl-growwise { scroll-behavior: smooth; }
+
+#jl-growwise {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Proxima Nova', 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+#jl-growwise .hero {
+    min-height: 100vh;
+    background: var(--soil);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+#jl-growwise .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(61,92,42,0.35) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(155,191,122,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+#jl-growwise .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 72px;
+    position: relative;
+    z-index: 1;
+  }
+
+#jl-growwise .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sprout);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+#jl-growwise .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--sprout);
+  }
+
+#jl-growwise .hero-title {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 400;
+    color: var(--parchment);
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+
+#jl-growwise .hero-title em {
+    font-style: italic;
+    color: var(--sprout);
+  }
+
+#jl-growwise .hero-subtitle {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--sage);
+    margin-bottom: 40px;
+    line-height: 1.4;
+  }
+
+#jl-growwise .hero-desc {
+    font-size: 16px;
+    color: var(--ink-faint);
+    max-width: 420px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+#jl-growwise .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+#jl-growwise .meta-chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid rgba(155,191,122,0.3);
+    border-radius: 2px;
+    color: var(--sprout);
+    background: rgba(61,92,42,0.2);
+  }
+
+#jl-growwise .hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 60px 40px;
+  }
+
+#jl-growwise .garden-grid {
+    width: 320px;
+    height: 320px;
+    position: relative;
+  }
+
+#jl-growwise .garden-grid svg {
+    width: 100%;
+    height: 100%;
+    opacity: 0.85;
+  }
+
+#jl-growwise .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 72px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+#jl-growwise .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: var(--ink-faint);
+    position: relative;
+    overflow: hidden;
+  }
+
+#jl-growwise .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: var(--sprout);
+    animation: scanline 2s ease-in-out infinite;
+  }
+
+@keyframes scanline {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+
+#jl-growwise .wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+#jl-growwise .wrapper-wide {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+#jl-growwise .section {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+#jl-growwise .section:last-child { border-bottom: none; }
+
+#jl-growwise .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+#jl-growwise .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    max-width: 80px;
+  }
+
+#jl-growwise h2 {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+
+#jl-growwise h2 em { font-style: italic; color: var(--moss); }
+
+#jl-growwise h3 {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 12px;
+    margin-top: 48px;
+  }
+
+#jl-growwise p { color: var(--ink-mid); margin-bottom: 20px; }
+
+#jl-growwise p:last-child { margin-bottom: 0; }
+
+#jl-growwise strong { font-weight: 500; color: var(--ink); }
+
+#jl-growwise .pull {
+    border-left: 3px solid var(--moss);
+    padding: 8px 0 8px 28px;
+    margin: 48px 0;
+  }
+
+#jl-growwise .pull p {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink);
+    font-weight: 400;
+    margin: 0;
+  }
+
+#jl-growwise .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin: 48px 0;
+  }
+
+#jl-growwise .stat {
+    background: var(--parchment);
+    padding: 32px 28px;
+    text-align: center;
+  }
+
+#jl-growwise .stat-number {
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 48px;
+    color: var(--moss);
+    line-height: 1;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+#jl-growwise .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    line-height: 1.5;
+  }
+
+#jl-growwise .process-steps {
+    margin: 48px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+#jl-growwise .step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 0;
+    background: var(--parchment);
+    overflow: hidden;
+  }
+
+#jl-growwise .step-num {
+    background: var(--moss);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--leaf);
+    flex-shrink: 0;
+  }
+
+#jl-growwise .step-content {
+    padding: 20px 24px;
+  }
+
+#jl-growwise .step-title {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+#jl-growwise .step-desc {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+#jl-growwise .state-machine {
+    background: var(--soil);
+    border-radius: 4px;
+    padding: 40px;
+    margin: 48px 0;
+    overflow-x: auto;
+  }
+
+#jl-growwise .state-machine-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 32px;
+  }
+
+#jl-growwise .states-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+#jl-growwise .state-node {
+    background: rgba(61,92,42,0.25);
+    border: 1px solid rgba(107,143,90,0.3);
+    border-radius: 3px;
+    padding: 12px 14px;
+    position: relative;
+  }
+
+#jl-growwise .state-node.highlight {
+    background: rgba(61,92,42,0.5);
+    border-color: var(--sage);
+  }
+
+#jl-growwise .state-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--sprout);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+#jl-growwise .state-desc {
+    font-size: 11px;
+    color: var(--sage);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+#jl-growwise .state-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sprout);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0.6;
+  }
+
+#jl-growwise .tool-stack {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin: 48px 0;
+  }
+
+#jl-growwise .tool-item {
+    background: var(--parchment);
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+#jl-growwise .tool-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--moss);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--leaf);
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+#jl-growwise .tool-text {}
+
+#jl-growwise .tool-name {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+#jl-growwise .tool-role {
+    font-size: 12px;
+    color: var(--ink-faint);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+#jl-growwise .insight {
+    background: var(--amber-light);
+    border-left: 4px solid var(--amber);
+    border-radius: 0 4px 4px 0;
+    padding: 24px 28px;
+    margin: 40px 0;
+  }
+
+#jl-growwise .insight-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+
+#jl-growwise .insight p {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+#jl-growwise .reflection {
+    background: var(--parchment);
+    border-radius: 4px;
+    padding: 48px;
+    margin-top: 48px;
+  }
+
+#jl-growwise .reflection-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+  }
+
+#jl-growwise .case-footer {
+    background: var(--soil);
+    padding: 72px 0;
+    text-align: center;
+  }
+
+#jl-growwise .case-footer p {
+    color: var(--sage);
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+#jl-growwise .case-footer strong {
+    color: var(--parchment);
+  }
+
+#jl-growwise .fade-up {
+    opacity: 1;
+    transform: none;
+  }
+
+@media (max-width: 768px) {
+#jl-growwise .hero { grid-template-columns: 1fr; }
+
+#jl-growwise .hero-visual { display: none; }
+
+#jl-growwise .hero-text { padding: 60px 28px; }
+
+#jl-growwise .wrapper, #jl-growwise .wrapper-wide { padding: 0 24px; }
+
+#jl-growwise .stat-row { grid-template-columns: 1fr; }
+
+#jl-growwise .states-grid { grid-template-columns: repeat(2, 1fr); }
+
+#jl-growwise .tool-stack { grid-template-columns: 1fr; }
+
+#jl-growwise .section { padding: 64px 0; }
+
+#jl-growwise .scroll-hint { left: 28px; }
+
+
+
+}
+
+
+</style>
+</head>
+<body>
+
+<p class="back-link"><a href="index.html">← Back to UX Portfolio</a></p>
+
+<div id="jl-growwise">
+<!-- ── HERO ──────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Case Study</p>
+    <h1 class="hero-title">Grow<em>Wise</em></h1>
+    <p class="hero-subtitle">From frustration to the App Store —<br>a solo-built garden intelligence app</p>
+    <p class="hero-desc">A companion planting and square foot gardening planner designed, built, and shipped independently — from first sketch to live deployment on iOS and Android.</p>
+    <div class="hero-meta">
+      <span class="meta-chip">0 → 1 Product</span>
+      <span class="meta-chip">iOS & Android</span>
+      <span class="meta-chip">AI-Assisted Dev</span>
+      <span class="meta-chip">Sole Designer & Developer</span>
+      <span class="meta-chip">Live on App Store & Google Play</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="garden-grid">
+      <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Garden grid -->
+        <rect x="10" y="10" width="300" height="300" rx="4" fill="rgba(61,92,42,0.15)" stroke="rgba(107,143,90,0.2)" stroke-width="1"/>
+        <!-- Grid lines -->
+        <line x1="70" y1="10" x2="70" y2="310" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
+        <line x1="130" y1="10" x2="130" y2="310" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
+        <line x1="190" y1="10" x2="190" y2="310" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
+        <line x1="250" y1="10" x2="250" y2="310" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
+        <line x1="10" y1="70" x2="310" y2="70" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
+        <line x1="10" y1="130" x2="310" y2="130" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
+        <line x1="10" y1="190" x2="310" y2="190" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
+        <line x1="10" y1="250" x2="310" y2="250" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
+        <!-- Plant cells - various states -->
+        <rect x="12" y="12" width="56" height="56" rx="2" fill="rgba(155,191,122,0.3)" stroke="rgba(155,191,122,0.5)" stroke-width="1"/>
+        <circle cx="40" cy="40" r="16" fill="rgba(155,191,122,0.6)"/>
+        <circle cx="40" cy="40" r="8" fill="rgba(61,92,42,0.8)"/>
+
+        <rect x="72" y="12" width="56" height="56" rx="2" fill="rgba(155,191,122,0.15)" stroke="rgba(155,191,122,0.3)" stroke-width="1" stroke-dasharray="3 2"/>
+
+        <rect x="132" y="12" width="56" height="56" rx="2" fill="rgba(155,191,122,0.3)" stroke="rgba(155,191,122,0.5)" stroke-width="1"/>
+        <circle cx="160" cy="40" r="12" fill="rgba(200,230,160,0.7)"/>
+
+        <rect x="192" y="12" width="56" height="56" rx="2" fill="rgba(61,92,42,0.4)" stroke="rgba(107,143,90,0.5)" stroke-width="1"/>
+        <circle cx="220" cy="40" r="16" fill="rgba(61,92,42,0.7)"/>
+        <circle cx="220" cy="40" r="6" fill="rgba(155,191,122,0.9)"/>
+
+        <rect x="252" y="12" width="56" height="56" rx="2" fill="rgba(155,191,122,0.15)" stroke="rgba(155,191,122,0.2)" stroke-width="1"/>
+
+        <rect x="12" y="72" width="56" height="56" rx="2" fill="rgba(155,191,122,0.15)" stroke="rgba(155,191,122,0.2)" stroke-width="1"/>
+
+        <rect x="72" y="72" width="116" height="116" rx="2" fill="rgba(61,92,42,0.3)" stroke="rgba(107,143,90,0.4)" stroke-width="1"/>
+        <circle cx="130" cy="130" r="32" fill="rgba(61,92,42,0.5)"/>
+        <circle cx="130" cy="130" r="18" fill="rgba(107,143,90,0.6)"/>
+        <circle cx="130" cy="130" r="8" fill="rgba(155,191,122,0.9)"/>
+        <text x="130" y="134" text-anchor="middle" fill="rgba(200,230,160,0.9)" font-size="8" font-family="monospace">4×4</text>
+
+        <rect x="192" y="72" width="56" height="56" rx="2" fill="rgba(155,191,122,0.2)" stroke="rgba(155,191,122,0.4)" stroke-width="1"/>
+        <circle cx="220" cy="100" r="10" fill="rgba(155,191,122,0.5)"/>
+
+        <rect x="252" y="72" width="56" height="56" rx="2" fill="rgba(155,191,122,0.3)" stroke="rgba(155,191,122,0.5)" stroke-width="1"/>
+        <circle cx="280" cy="100" r="14" fill="rgba(155,191,122,0.6)"/>
+
+        <rect x="192" y="132" width="116" height="56" rx="2" fill="rgba(61,92,42,0.2)" stroke="rgba(107,143,90,0.3)" stroke-width="1"/>
+        <circle cx="220" cy="160" r="8" fill="rgba(107,143,90,0.5)"/>
+        <circle cx="252" cy="160" r="8" fill="rgba(107,143,90,0.5)"/>
+        <circle cx="284" cy="160" r="8" fill="rgba(107,143,90,0.5)"/>
+
+        <rect x="12" y="132" width="56" height="56" rx="2" fill="rgba(155,191,122,0.3)" stroke="rgba(155,191,122,0.5)" stroke-width="1"/>
+        <circle cx="40" cy="160" r="14" fill="rgba(200,230,160,0.5)"/>
+
+        <rect x="12" y="192" width="176" height="116" rx="2" fill="rgba(61,92,42,0.25)" stroke="rgba(107,143,90,0.35)" stroke-width="1"/>
+        <text x="100" y="258" text-anchor="middle" fill="rgba(107,143,90,0.6)" font-size="10" font-family="monospace">planned</text>
+
+        <rect x="192" y="192" width="116" height="116" rx="2" fill="rgba(155,191,122,0.1)" stroke="rgba(155,191,122,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="250" y="258" text-anchor="middle" fill="rgba(107,143,90,0.4)" font-size="10" font-family="monospace">empty</text>
+
+        <!-- Companion indicator lines -->
+        <line x1="40" y1="40" x2="160" y2="40" stroke="rgba(155,191,122,0.3)" stroke-width="1" stroke-dasharray="2 3"/>
+        <circle cx="100" cy="40" r="3" fill="rgba(155,191,122,0.5)"/>
+      </svg>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span class="scroll-line"></span>
+    Scroll to read
+  </div>
+</section>
+
+<!-- ── THE PROBLEM ────────────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">01 — The Problem</p>
+      <h2>New to gardening.<br><em>Short on time, space, and energy.</em></h2>
+      <p>Like most people who start a garden, I came in with enthusiasm and left the first season confused. What went wrong? What should have gone next to what? When was I supposed to start those seeds inside? I looked for an app that could answer these questions and found nothing that actually worked — tools that were either too simple to be useful or too complex to bother with.</p>
+      <p>Then I discovered two methodologies that changed how I thought about the problem: <strong>companion planting</strong> (which plants support or suppress each other) and <strong>square foot gardening</strong> (how to maximize yield in a small space through density and planning). Together they formed a system — and systems, I know how to design.</p>
+    </div>
+
+    <div class="pull fade-up">
+      <p>"Most gardening apps show you information. None of them helped me make decisions."</p>
+    </div>
+
+    <div class="fade-up">
+      <p>The gap wasn't data — there's plenty of gardening data online. The gap was <strong>decision support</strong>: given my specific space, my growing zone, my time constraints, and what I want to eat — what should I plant, where should I put it, when do I need to act, and what do I do when things go wrong?</p>
+      <p>No existing app answered that question. So I built one.</p>
+    </div>
+
+    <div class="stat-row fade-up">
+      <div class="stat">
+        <span class="stat-number">60+</span>
+        <span class="stat-label">Plant species<br>in the database</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">13</span>
+        <span class="stat-label">Lifecycle states<br>per planting instance</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">2</span>
+        <span class="stat-label">Years of seed data<br>built before writing code</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE SYSTEMS CHALLENGE ──────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">02 — The Systems Challenge</p>
+      <h2>One plant, <em>thirteen states.</em><br>Two user realities. Infinite timing variables.</h2>
+      <p>The hardest design problem wasn't the visual layout. It was the underlying state model — what it means for a planting to exist, progress, fail, or succeed, and how that maps to a user's actual experience in the garden.</p>
+    </div>
+
+    <div class="insight fade-up">
+      <p class="insight-label">Key Insight</p>
+      <p>There are two fundamentally different user realities: someone starting a seed indoors 8–10 weeks before last frost, and someone direct-sowing outside. These aren't just different steps — they're different timelines, different tracking needs, different failure modes, and different harvest expectations. The app had to hold both realities simultaneously without confusing users who only lived in one of them.</p>
+    </div>
+
+    <div class="fade-up">
+      <p>The 13-state lifecycle I designed maps a planting instance from first intention through final harvest or failure — accounting for every branching path a real plant takes:</p>
+    </div>
+
+    <div class="state-machine fade-up">
+      <p class="state-machine-title">Plant Lifecycle State Machine — 13 States</p>
+      <div class="states-grid">
+        <div class="state-node highlight">
+          <span class="state-dot"></span>
+          <span class="state-name">Planned</span>
+          <p class="state-desc">Placed in grid. Seeds needed calculated. Not yet started.</p>
+        </div>
+        <div class="state-node">
+          <span class="state-dot"></span>
+          <span class="state-name">Started Inside</span>
+          <p class="state-desc">Seed sown in tray. Indoor timer begins relative to last frost.</p>
+        </div>
+        <div class="state-node">
+          <span class="state-dot"></span>
+          <span class="state-name">Germinated</span>
+          <p class="state-desc">Seedling visible. Transplant window begins.</p>
+        </div>
+        <div class="state-node">
+          <span class="state-dot"></span>
+          <span class="state-name">Failed to Germinate</span>
+          <p class="state-desc">Dead end. Prompts resow or replace with nursery plant.</p>
+        </div>
+        <div class="state-node highlight">
+          <span class="state-dot"></span>
+          <span class="state-name">Direct Sown</span>
+          <p class="state-desc">Alternate path. Skips indoor states entirely.</p>
+        </div>
+        <div class="state-node">
+          <span class="state-dot"></span>
+          <span class="state-name">Transplanted</span>
+          <p class="state-desc">In ground. From started-inside or nursery purchase.</p>
+        </div>
+        <div class="state-node">
+          <span class="state-dot"></span>
+          <span class="state-name">Nursery Purchase</span>
+          <p class="state-desc">Third path. Bypasses seeding entirely.</p>
+        </div>
+        <div class="state-node">
+          <span class="state-dot"></span>
+          <span class="state-name">Growing</span>
+          <p class="state-desc">Established. Harvest window approaching.</p>
+        </div>
+        <div class="state-node highlight">
+          <span class="state-dot"></span>
+          <span class="state-name">Ready to Harvest</span>
+          <p class="state-desc">Visual cues shown. What to look for at this stage.</p>
+        </div>
+        <div class="state-node">
+          <span class="state-dot"></span>
+          <span class="state-name">Harvesting</span>
+          <p class="state-desc">Ongoing harvest. Some plants yield repeatedly.</p>
+        </div>
+        <div class="state-node">
+          <span class="state-dot"></span>
+          <span class="state-name">Seeds Saved</span>
+          <p class="state-desc">End of cycle. Seeds returned to inventory.</p>
+        </div>
+        <div class="state-node">
+          <span class="state-dot"></span>
+          <span class="state-name">Done</span>
+          <p class="state-desc">Season complete. Removed from active view.</p>
+        </div>
+        <div class="state-node">
+          <span class="state-dot"></span>
+          <span class="state-name">Plant Died</span>
+          <p class="state-desc">Failure state. Prompts diagnosis and replant decision.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-up">
+      <p>The companion planting logic, which initially seemed like the complex part, turned out to be more elegant once I realized it operates at the plant <em>family</em> level — alliums, asteraceae, solanaceae — rather than requiring custom rules for every individual plant pair. That insight collapsed what could have been thousands of relationship rules into a manageable taxonomy.</p>
+    </div>
+
+    <div class="fade-up">
+      <h3>Two views, three tabs</h3>
+      <p>The planning interface needed to serve two mental models simultaneously: spatial thinkers who plan by grid and sequential thinkers who plan by timing. I designed both — a visual grid view and a list view sortable by timing or alphabetically — unified by the same three-tab structure: <strong>Active</strong> (in the ground now), <strong>Planned</strong> (placed but not yet started), and <strong>Done</strong> (completed, failed, or saved).</p>
+      <p>The three-tab structure did something important beyond organization: it defined the seed inventory. A planting only counts toward seeds needed once it's in the Planned tab — giving users a clear, accurate picture of what to buy before the season starts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE BUILD ───────────────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">03 — The Build</p>
+      <h2>From personal tool to<br><em>App Store product.</em></h2>
+      <p>GrowWise began as a tool I was building for myself in Lovable.ai — a prototype that worked well enough to use in my own garden. The moment it became a real product was when I realized the underlying system I'd built had value for anyone who gardened the same way I was trying to learn.</p>
+    </div>
+
+    <div class="process-steps fade-up">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <p class="step-title">Prototype in Lovable.ai</p>
+          <p class="step-desc">Started as a personal tool. Built the core planning logic and grid view. Validated the concept by using it in my own garden every weekend.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <p class="step-title">Connected GitHub + Supabase</p>
+          <p class="step-desc">Once the scope expanded beyond personal use, connected to version control and built out the Supabase backend — user authentication, plant database, planting instances, growing zone data.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <p class="step-title">Extracted from Lovable → Cursor</p>
+          <p class="step-desc">Moved the codebase out of Lovable and into Cursor for full development control. Used Claude Code for specific problem-solving — complex state transitions, timing logic, edge cases.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <p class="step-title">Native app deployment via Xcode + Android Studio</p>
+          <p class="step-desc">Deployed to both platforms independently. Handled App Store and Google Play review processes, metadata, screenshots, and all technical requirements.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <p class="step-title">Visual design system in Adobe Illustrator</p>
+          <p class="step-desc">Designed all icons in Illustrator. Created the intro animation in Premiere. Established a visual language that carried through the app and into the physical world.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <p class="step-title">The 3D printed side-quest</p>
+          <p class="step-desc">Designed and 3D printed physical garden labels with swappable icon-chips. The physical design system became the foundation for the app's plant categorization icons — the digital and physical systems informing each other.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-stack fade-up">
+      <div class="tool-item">
+        <div class="tool-icon">LV</div>
+        <div class="tool-text">
+          <p class="tool-name">Lovable.ai</p>
+          <p class="tool-role">Rapid prototyping — concept validation before committing to full build</p>
+        </div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">SB</div>
+        <div class="tool-text">
+          <p class="tool-name">Supabase</p>
+          <p class="tool-role">Backend database — plants, users, planting instances, growing zones</p>
+        </div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">CS</div>
+        <div class="tool-text">
+          <p class="tool-name">Cursor</p>
+          <p class="tool-role">Primary development environment — full codebase control and iteration</p>
+        </div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">CC</div>
+        <div class="tool-text">
+          <p class="tool-name">Claude Code</p>
+          <p class="tool-role">Complex problem-solving — state machine logic, timing calculations, edge cases</p>
+        </div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">AI</div>
+        <div class="tool-text">
+          <p class="tool-name">Adobe Illustrator</p>
+          <p class="tool-role">Icon design system — all plant category and UI icons</p>
+        </div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">GH</div>
+        <div class="tool-text">
+          <p class="tool-name">GitHub + Xcode / Android Studio</p>
+          <p class="tool-role">Version control and native deployment to both app stores</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTING & ITERATION ────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">04 — Testing & Iteration</p>
+      <h2>Every weekend in the garden<br><em>was a usability test.</em></h2>
+      <p>Testing was 20 beta testers — roughly 10 on iOS, 10 on Android, all friends and family — and me, using the app every time I worked in my garden. That second part mattered most.</p>
+    </div>
+
+    <div class="pull fade-up">
+      <p>"A new build shipped every other weekend. The garden told me what to fix."</p>
+    </div>
+
+    <div class="fade-up">
+      <p>The iteration cycle was simple and direct: spend Saturday in the garden using the app, notice what was confusing or missing, build the fix, ship Sunday. Repeat. Over two growing seasons this produced a cadence of <strong>continuous real-world usability testing</strong> — not in a lab, not with a script, but under actual conditions with actual stakes.</p>
+      <p>Key features that emerged from this process: the timing relative to last frost (I needed to know how many weeks I had, not a calendar date that meant nothing to me), the seed quantity calculator (I kept buying too many or too few), and the harvest guidance per plant (I kept harvesting too early or missing the window entirely).</p>
+    </div>
+
+    <div class="insight fade-up">
+      <p class="insight-label">What this demonstrates</p>
+      <p>The willingness to be your own most critical user — and to treat every friction point as a design failure rather than a user error — is the same discipline that produces good UX in any domain. The garden was just an unusually honest feedback environment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── REFLECTION ─────────────────────────────────────────── -->
+<section class="section">
+  <div class="wrapper">
+    <div class="fade-up">
+      <p class="section-label">05 — Reflection</p>
+      <h2>What I'd do <em>differently.</em></h2>
+    </div>
+    <div class="reflection fade-up">
+      <p class="reflection-label">Honest retrospective</p>
+      <p>The database I built over two years before writing code is both the app's greatest asset and its greatest constraint. The plant data is rich and accurate — but it's opinionated toward my own growing experience. A more rigorous approach would have involved structured interviews with gardeners at different experience levels and in different growing zones before I finalized the data model.</p>
+      <p style="margin-top: 16px;">The 3D printing side-quest was genuinely one of the best design decisions I made — the physical labels forced me to think about the icon system with a discipline that a purely digital design process wouldn't have demanded. I'd do it again, earlier.</p>
+      <p style="margin-top: 16px;">And the state machine, which I'm most proud of, could be surfaced more explicitly to users. Right now the complexity is hidden — which is correct from a UX standpoint — but experienced gardeners have asked for more visibility into the logic. A "power user" mode is on the roadmap.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="case-footer">
+  <div class="wrapper">
+    <p>GrowWise is live on the <strong>App Store</strong> and <strong>Google Play.</strong></p>
+    <p style="margin-top: 8px; font-size: 13px;">Designed and built by <strong style="color: var(--parchment)">Jessie Lacey</strong> — <a href="https://jessiemlacey.com" style="color: var(--sprout); text-decoration: none;">jessiemlacey.com</a></p>
+  </div>
+</footer>
+</div>
+</body>
+</html>
