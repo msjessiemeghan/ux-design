@@ -570,6 +570,28 @@
     line-height: 1.6;
   }
 
+#jl-unity-ada .case-figure {
+    margin: 48px 0;
+  }
+
+#jl-unity-ada .case-figure a { display: block; }
+
+#jl-unity-ada .case-figure img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+  }
+
+#jl-unity-ada .case-figure-caption {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 12px;
+  }
+
 #jl-unity-ada .toast-demo {
     display: flex;
     flex-direction: column;
@@ -901,6 +923,13 @@
       </div>
     </div>
 
+    <div class="case-figure fade-up">
+      <a href="images/ada-workflow-diagram.jpg" target="_blank" rel="noopener">
+        <img src="images/ada-workflow-diagram.jpg" alt="Full ADA Accommodations workflow diagram across all parties and states" loading="lazy">
+      </a>
+      <p class="case-figure-caption">Full workflow diagram — all parties, states, and branches. Click to view full size.</p>
+    </div>
+
     <div class="fade-up">
       <h3>The one-screen principle</h3>
       <p>Every stage of the student's experience — submitting a request, checking whether the provider has signed, scheduling an appointment, seeing a decision, accessing the final agreement — lives on a single screen with an accordion structure. Each section expands to show its current state and required action. Completed sections collapse with a status indicator. The student never has to navigate away, search for status, or wonder what happens next.</p>
@@ -908,51 +937,11 @@
     </div>
 
     <!-- Accordion demo -->
-    <div class="accordion-demo fade-up">
-      <p class="accordion-demo-label">Single-screen accordion — illustrative state example</p>
-
-      <div class="accordion-section">
-        <div class="accordion-header">
-          <div class="acc-num done">✓</div>
-          <span class="acc-title">Request Details</span>
-          <span class="acc-status complete">Submitted</span>
-        </div>
-      </div>
-
-      <div class="accordion-section">
-        <div class="accordion-header">
-          <div class="acc-num done">✓</div>
-          <span class="acc-title">Healthcare Provider Documentation</span>
-          <span class="acc-status complete">Signed</span>
-        </div>
-      </div>
-
-      <div class="accordion-section">
-        <div class="accordion-header">
-          <div class="acc-num active">3</div>
-          <span class="acc-title">Interactive Process Meeting</span>
-          <span class="acc-status active">Schedule Now</span>
-        </div>
-        <div class="accordion-body">
-          Your request has been submitted and your provider has completed their documentation. The next step is scheduling your Interactive Process Meeting with your ADA advisor. Select a date and time below.
-        </div>
-      </div>
-
-      <div class="accordion-section">
-        <div class="accordion-header">
-          <div class="acc-num waiting">4</div>
-          <span class="acc-title">Decision & Agreement</span>
-          <span class="acc-status pending">Pending</span>
-        </div>
-      </div>
-
-      <div class="accordion-section">
-        <div class="accordion-header">
-          <div class="acc-num waiting">5</div>
-          <span class="acc-title">Request Summary</span>
-          <span class="acc-status pending">Pending</span>
-        </div>
-      </div>
+    <div class="case-figure fade-up">
+      <a href="images/ada-steps-process-full.jpg" target="_blank" rel="noopener">
+        <img src="images/ada-steps-process-full.jpg" alt="Single-screen accordion showing ADA Accommodations request steps in the product" loading="lazy">
+      </a>
+      <p class="case-figure-caption">Single-screen accordion — product screenshot</p>
     </div>
 
     <div class="fade-up">
@@ -960,28 +949,11 @@
       <p>The old process was a black box. A student submitted paperwork and then waited — with no idea whether it had been received, whether their provider had acted, or whether a decision was coming. The new design surfaces every meaningful behind-the-scenes action as a toast notification, appearing in the portal as each Salesforce event fires.</p>
     </div>
 
-    <div class="toast-demo fade-up">
-      <div class="toast success">
-        <span class="toast-icon">✓</span>
-        <div class="toast-text">
-          <p class="toast-title">Request submitted</p>
-          <p class="toast-desc">Your ADA accommodation request has been received. Your healthcare provider will be contacted to submit their documentation.</p>
-        </div>
-      </div>
-      <div class="toast info">
-        <span class="toast-icon">↗</span>
-        <div class="toast-text">
-          <p class="toast-title">Provider documentation received</p>
-          <p class="toast-desc">Your healthcare provider has completed and signed their documentation. You can now schedule your Interactive Process Meeting.</p>
-        </div>
-      </div>
-      <div class="toast success">
-        <span class="toast-icon">✓</span>
-        <div class="toast-text">
-          <p class="toast-title">Accommodations approved</p>
-          <p class="toast-desc">Your accommodation request has been approved. Please review and sign your accommodations agreement below.</p>
-        </div>
-      </div>
+    <div class="case-figure fade-up">
+      <a href="images/ada-accordion-example.jpg" target="_blank" rel="noopener">
+        <img src="images/ada-accordion-example.jpg" alt="ADA Accommodations accordion example showing request submitted, provider documentation received, and accommodations approved states" loading="lazy">
+      </a>
+      <p class="case-figure-caption">Toast notifications and accordion states — product screenshot</p>
     </div>
   </div>
 </section>
