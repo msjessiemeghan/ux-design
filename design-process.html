@@ -4,25 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Design Process Map</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Work+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #F5F2EC;
+    --bg: #FFFFFF;
     --surface: #FFFFFF;
-    --ink: #1A1815;
-    --ink-muted: #6B6760;
-    --ink-faint: #B0ADA8;
-    --accent-purple: #4A3F8F;
-    --accent-purple-light: #EAE8F5;
-    --accent-teal: #1A6B5A;
-    --accent-teal-light: #E0F0EB;
-    --accent-amber: #8A5C1A;
-    --accent-amber-light: #F5EBD8;
-    --accent-coral: #8A3A2A;
-    --accent-coral-light: #F5E8E5;
-    --accent-green: #2D5C1A;
-    --accent-green-light: #E5F0DF;
-    --rule: #E0DDD8;
+    --ink: #222222;
+    --ink-muted: #777777;
+    --ink-faint: #AAAAAA;
+    --accent-purple: #5C8A2A;
+    --accent-purple-light: #EAF5DC;
+    --accent-teal: #5C8A2A;
+    --accent-teal-light: #EAF5DC;
+    --accent-amber: #B8922A;
+    --accent-amber-light: #F5ECD0;
+    --accent-coral: #5C8A2A;
+    --accent-coral-light: #EAF5DC;
+    --accent-green: #272727;
+    --accent-green-light: #F2F2F2;
+    --rule: #E5E5E5;
     --radius: 3px;
     --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -32,56 +32,61 @@
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-weight: 300;
     min-height: 100vh;
-    padding: 0 0 80px;
+    padding: 0;
   }
 
-  .back-link {
-    display: block;
-    max-width: 900px;
+  .site-header { background: #FFFFFF; border-bottom: 1px dashed #D8D8D8; }
+  .site-header-inner {
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 24px 48px 0;
-    font-size: 13px;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-
-  .back-link a {
+  .site-header-back {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.06em;
     color: var(--ink-muted);
     text-decoration: none;
-    letter-spacing: 0.02em;
   }
+  .site-header-back:hover { color: #5C8A2A; }
+  .site-header-logo img { height: 36px; display: block; }
 
-  .back-link a:hover { color: var(--ink); }
-
-  header {
-    padding: 32px 48px 40px;
+  header:not(.site-header) {
+    padding: 48px 48px 40px;
     border-bottom: 1px solid var(--rule);
     max-width: 900px;
     margin: 0 auto;
   }
 
   .eyebrow {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--ink-muted);
+    color: #5C8A2A;
     margin-bottom: 12px;
   }
 
   h1 {
-    font-family: 'DM Serif Display', serif;
+    font-family: 'Alfa Slab One', sans-serif;
     font-size: clamp(28px, 4vw, 42px);
     font-weight: 400;
     line-height: 1.15;
     color: var(--ink);
     margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
   }
 
   h1 em {
-    font-style: italic;
-    color: var(--ink-muted);
+    font-style: normal;
+    color: #5C8A2A;
   }
 
   .subtitle {
@@ -94,7 +99,7 @@
   .process {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 48px;
+    padding: 0 48px 80px;
   }
 
   .phase {
@@ -115,25 +120,25 @@
   .phase-header:hover { opacity: 0.75; }
 
   .phase-number {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.06em;
     color: var(--ink-faint);
     min-width: 28px;
   }
 
   .phase-tag {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 3px 8px;
+    padding: 3px 9px;
     border-radius: 2px;
     white-space: nowrap;
   }
 
   .phase-title {
-    font-family: 'DM Serif Display', serif;
+    font-family: 'Alfa Slab One', sans-serif;
     font-size: 20px;
     font-weight: 400;
     flex: 1;
@@ -174,9 +179,9 @@
   .section-block { }
 
   .section-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--ink-faint);
     margin-bottom: 8px;
@@ -231,8 +236,24 @@
   .conv-qa         { background: var(--accent-coral-light);  color: var(--accent-coral);  }
   .conv-launch     { background: var(--accent-green-light);  color: var(--accent-green);  }
 
+  .site-footer {
+    background: #272727;
+    padding: 64px 0;
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  .site-footer img { height: 44px; margin-bottom: 24px; }
+
+  .site-footer p { font-size: 13px; color: #8EC63F; }
+
+  .site-footer a { color: #8EC63F; text-decoration: none; }
+
+  .site-footer strong { color: #FFFFFF; }
+
   @media (max-width: 640px) {
-    header, .process, .back-link { padding-left: 24px; padding-right: 24px; }
+    header, .process, .site-header-inner { padding-left: 24px; padding-right: 24px; }
+    .site-header-logo img { height: 30px; }
     .phase.open .phase-body { grid-template-columns: 1fr; }
     .phase-subtitle { display: none; }
     .conversation-block { grid-column: 1; }
@@ -241,7 +262,14 @@
 </head>
 <body>
 
-<p class="back-link"><a href="index.html">← Back to UX Portfolio</a></p>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-header-back" href="index.html">← UX Portfolio</a>
+    <a class="site-header-logo" href="https://jessiemlacey.com" target="_blank" rel="noopener" aria-label="Jessie M Lacey / J·ML Studio">
+      <img src="images/jml-logo.png" alt="J/ML Studio logo">
+    </a>
+  </div>
+</header>
 
 <header>
   <p class="eyebrow">UX Reference · Design Process</p>
@@ -663,5 +691,11 @@ function toggle(id) {
   el.classList.toggle('open');
 }
 </script>
+
+<footer class="site-footer">
+  <img src="images/jml-logo.png" alt="J/ML Studio logo">
+  <p>Designed by <strong>Jessie Lacey</strong> — <a href="https://jessiemlacey.com">jessiemlacey.com</a></p>
+</footer>
+
 </body>
 </html>
