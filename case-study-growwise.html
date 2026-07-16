@@ -184,15 +184,19 @@
   }
 
 #jl-growwise .garden-grid {
-    width: 320px;
-    height: 320px;
+    width: 100%;
+    max-width: 460px;
     position: relative;
   }
 
-#jl-growwise .garden-grid svg {
+#jl-growwise .garden-grid img {
+    display: block;
     width: 100%;
-    height: 100%;
-    opacity: 0.85;
+    border-radius: 12px;
+    border: 5px solid var(--soil);
+    outline: 1px solid rgba(142,198,63,0.3);
+    outline-offset: -6px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.45);
   }
 
 #jl-growwise .scroll-hint {
@@ -671,66 +675,7 @@
   </div>
   <div class="hero-visual">
     <div class="garden-grid">
-      <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Garden grid -->
-        <rect x="10" y="10" width="300" height="300" rx="4" fill="rgba(92,138,42,0.15)" stroke="rgba(142,198,63,0.2)" stroke-width="1"/>
-        <!-- Grid lines -->
-        <line x1="70" y1="10" x2="70" y2="310" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
-        <line x1="130" y1="10" x2="130" y2="310" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
-        <line x1="190" y1="10" x2="190" y2="310" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
-        <line x1="250" y1="10" x2="250" y2="310" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
-        <line x1="10" y1="70" x2="310" y2="70" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
-        <line x1="10" y1="130" x2="310" y2="130" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
-        <line x1="10" y1="190" x2="310" y2="190" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
-        <line x1="10" y1="250" x2="310" y2="250" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
-        <!-- Plant cells - various states -->
-        <rect x="12" y="12" width="56" height="56" rx="2" fill="rgba(168,214,107,0.3)" stroke="rgba(168,214,107,0.5)" stroke-width="1"/>
-        <circle cx="40" cy="40" r="16" fill="rgba(168,214,107,0.6)"/>
-        <circle cx="40" cy="40" r="8" fill="rgba(92,138,42,0.8)"/>
-
-        <rect x="72" y="12" width="56" height="56" rx="2" fill="rgba(168,214,107,0.15)" stroke="rgba(168,214,107,0.3)" stroke-width="1" stroke-dasharray="3 2"/>
-
-        <rect x="132" y="12" width="56" height="56" rx="2" fill="rgba(168,214,107,0.3)" stroke="rgba(168,214,107,0.5)" stroke-width="1"/>
-        <circle cx="160" cy="40" r="12" fill="rgba(217,239,192,0.7)"/>
-
-        <rect x="192" y="12" width="56" height="56" rx="2" fill="rgba(92,138,42,0.4)" stroke="rgba(142,198,63,0.5)" stroke-width="1"/>
-        <circle cx="220" cy="40" r="16" fill="rgba(92,138,42,0.7)"/>
-        <circle cx="220" cy="40" r="6" fill="rgba(168,214,107,0.9)"/>
-
-        <rect x="252" y="12" width="56" height="56" rx="2" fill="rgba(168,214,107,0.15)" stroke="rgba(168,214,107,0.2)" stroke-width="1"/>
-
-        <rect x="12" y="72" width="56" height="56" rx="2" fill="rgba(168,214,107,0.15)" stroke="rgba(168,214,107,0.2)" stroke-width="1"/>
-
-        <rect x="72" y="72" width="116" height="116" rx="2" fill="rgba(92,138,42,0.3)" stroke="rgba(142,198,63,0.4)" stroke-width="1"/>
-        <circle cx="130" cy="130" r="32" fill="rgba(92,138,42,0.5)"/>
-        <circle cx="130" cy="130" r="18" fill="rgba(142,198,63,0.6)"/>
-        <circle cx="130" cy="130" r="8" fill="rgba(168,214,107,0.9)"/>
-        <text x="130" y="134" text-anchor="middle" fill="rgba(217,239,192,0.9)" font-size="8" font-family="monospace">4×4</text>
-
-        <rect x="192" y="72" width="56" height="56" rx="2" fill="rgba(168,214,107,0.2)" stroke="rgba(168,214,107,0.4)" stroke-width="1"/>
-        <circle cx="220" cy="100" r="10" fill="rgba(168,214,107,0.5)"/>
-
-        <rect x="252" y="72" width="56" height="56" rx="2" fill="rgba(168,214,107,0.3)" stroke="rgba(168,214,107,0.5)" stroke-width="1"/>
-        <circle cx="280" cy="100" r="14" fill="rgba(168,214,107,0.6)"/>
-
-        <rect x="192" y="132" width="116" height="56" rx="2" fill="rgba(92,138,42,0.2)" stroke="rgba(142,198,63,0.3)" stroke-width="1"/>
-        <circle cx="220" cy="160" r="8" fill="rgba(142,198,63,0.5)"/>
-        <circle cx="252" cy="160" r="8" fill="rgba(142,198,63,0.5)"/>
-        <circle cx="284" cy="160" r="8" fill="rgba(142,198,63,0.5)"/>
-
-        <rect x="12" y="132" width="56" height="56" rx="2" fill="rgba(168,214,107,0.3)" stroke="rgba(168,214,107,0.5)" stroke-width="1"/>
-        <circle cx="40" cy="160" r="14" fill="rgba(217,239,192,0.5)"/>
-
-        <rect x="12" y="192" width="176" height="116" rx="2" fill="rgba(92,138,42,0.25)" stroke="rgba(142,198,63,0.35)" stroke-width="1"/>
-        <text x="100" y="258" text-anchor="middle" fill="rgba(142,198,63,0.6)" font-size="10" font-family="monospace">planned</text>
-
-        <rect x="192" y="192" width="116" height="116" rx="2" fill="rgba(168,214,107,0.1)" stroke="rgba(168,214,107,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
-        <text x="250" y="258" text-anchor="middle" fill="rgba(142,198,63,0.4)" font-size="10" font-family="monospace">empty</text>
-
-        <!-- Companion indicator lines -->
-        <line x1="40" y1="40" x2="160" y2="40" stroke="rgba(168,214,107,0.3)" stroke-width="1" stroke-dasharray="2 3"/>
-        <circle cx="100" cy="40" r="3" fill="rgba(168,214,107,0.5)"/>
-      </svg>
+      <img src="images/case-study-growwise-thumb.jpg" alt="GrowWise Bed 2 grid view screenshot showing a planted square-foot garden">
     </div>
   </div>
   <div class="scroll-hint">
