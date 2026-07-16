@@ -4,25 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Credit for Prior Learning — Case Study</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Work+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
   :root {
-    --unity-dark:  #1C3620;
-    --unity-mid:   #2D5233;
-    --unity-fern:  #4A7A52;
-    --unity-sage:  #7AAB82;
-    --unity-mist:  #B8D4BC;
+    --unity-dark:  #272727;
+    --unity-mid:   #3A3A3A;
+    --unity-fern:  #5C8A2A;
+    --unity-sage:  #A8D66B;
+    --unity-mist:  #D9EFC0;
     --gold:        #C8920A;
     --gold-light:  #FFF3D0;
     --gold-mid:    #E8B840;
     --amber:       #E07820;
     --amber-light: #FEF0E0;
-    --cream:       #F8F5EF;
-    --parchment:   #F0EBE0;
-    --ink:         #1A1814;
-    --ink-mid:     #4A4640;
-    --ink-faint:   #9A9590;
-    --rule:        #DDD8CE;
+    --cream:       #FFFFFF;
+    --parchment:   #F2F2F2;
+    --ink:         #222222;
+    --ink-mid:     #777777;
+    --ink-faint:   #AAAAAA;
+    --rule:        #E5E5E5;
     --blue:        #2E6EBC;
     --blue-light:  #E8F2FC;
     --green:       #3A7A4A;
@@ -39,23 +39,32 @@
   body {
     background: var(--cream);
     color: var(--ink);
-    font-family: 'Proxima Nova', 'Inter', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-weight: 300;
     font-size: 17px;
     line-height: 1.75;
     overflow-x: hidden;
   }
 
-  .back-link {
-    display: block;
-    max-width: 780px;
+  .site-header { background: #FFFFFF; border-bottom: 1px dashed #D8D8D8; }
+  .site-header-inner {
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 20px 40px 0;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  .back-link a { color: var(--unity-fern); text-decoration: none; letter-spacing: 0.02em; }
-  .back-link a:hover { color: var(--unity-dark); }
+  .site-header-back {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    color: #777777;
+    text-decoration: none;
+  }
+  .site-header-back:hover { color: #5C8A2A; }
+  .site-header-logo img { height: 36px; display: block; }
+  @media (max-width: 768px) { .site-header-inner { padding: 14px 24px; } .site-header-logo img { height: 30px; } }
 
   /* ── HERO ──────────────────────────────────────────────── */
   .hero {
@@ -73,7 +82,7 @@
     content: '';
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 70% 50% at 40% 100%, rgba(74,122,82,0.25) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 50% at 40% 100%, rgba(142,198,63,0.25) 0%, transparent 60%),
       radial-gradient(ellipse 50% 40% at 90% 20%, rgba(200,146,10,0.12) 0%, transparent 55%);
     pointer-events: none;
   }
@@ -98,7 +107,7 @@
   }
 
   .hero-eyebrow {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--unity-sage); margin-bottom: 24px;
     display: flex; align-items: center; gap: 12px;
@@ -106,7 +115,7 @@
   .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--unity-sage); }
 
   .hero-title {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Alfa Slab One', sans-serif;
     font-weight: 400;
     font-size: clamp(38px, 5.5vw, 72px);
     color: var(--cream); line-height: 1.1;
@@ -122,11 +131,11 @@
 
   .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; }
   .meta-chip {
-    font-family: 'DM Mono', monospace; font-size: 10px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 10px;
     letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 5px 12px; border: 1px solid rgba(122,171,130,0.3);
+    padding: 5px 12px; border: 1px solid rgba(92,138,42,0.3);
     border-radius: 2px; color: var(--unity-sage);
-    background: rgba(28,54,32,0.4);
+    background: rgba(39,39,39,0.4);
   }
 
   /* ── LAYOUT ────────────────────────────────────────────── */
@@ -136,7 +145,7 @@
   .section:last-of-type { border-bottom: none; }
 
   .section-label {
-    font-family: 'DM Mono', monospace; font-size: 10px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 10px;
     letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--unity-fern); margin-bottom: 18px;
     display: flex; align-items: center; gap: 10px;
@@ -144,7 +153,7 @@
   .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); max-width: 60px; }
 
   h2 {
-    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400;
     font-size: clamp(26px, 3.5vw, 42px);
     line-height: 1.15; color: var(--ink);
     margin-bottom: 28px; text-transform: uppercase; letter-spacing: 0.02em;
@@ -152,7 +161,7 @@
   h2 em { font-style: normal; color: var(--unity-mid); }
 
   h3 {
-    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400;
     font-size: 22px; color: var(--ink);
     margin-bottom: 10px; margin-top: 48px;
     text-transform: uppercase; letter-spacing: 0.03em;
@@ -165,7 +174,7 @@
   /* ── PULL QUOTE ─────────────────────────────────────────── */
   .pull { border-left: 3px solid var(--gold); padding: 6px 0 6px 28px; margin: 48px 0; }
   .pull p {
-    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400;
     font-size: 24px; line-height: 1.4;
     color: var(--ink); margin: 0; letter-spacing: 0.01em;
   }
@@ -176,7 +185,7 @@
   .compare-panel.before { background: var(--red-light); }
   .compare-panel.after  { background: var(--green-light); }
   .compare-label {
-    font-family: 'DM Mono', monospace; font-size: 10px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 10px;
     letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 16px;
   }
   .compare-panel.before .compare-label { color: var(--red); }
@@ -190,12 +199,12 @@
   .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin: 48px 0; }
   .stat { background: var(--parchment); padding: 24px 20px; text-align: center; }
   .stat-number {
-    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400;
     font-size: 44px; color: var(--unity-mid);
     line-height: 1; display: block; margin-bottom: 6px;
   }
   .stat-label {
-    font-family: 'DM Mono', monospace; font-size: 9px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 9px;
     letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--ink-faint); line-height: 1.5;
   }
@@ -206,7 +215,7 @@
     border-radius: 0 3px 3px 0; padding: 22px 26px; margin: 40px 0;
   }
   .insight-label {
-    font-family: 'DM Mono', monospace; font-size: 9px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 9px;
     letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 6px;
   }
@@ -217,7 +226,7 @@
   .step { display: grid; grid-template-columns: 48px 1fr; background: var(--parchment); overflow: hidden; border-radius: 2px; }
   .step-num {
     background: var(--unity-mid); display: flex; align-items: center; justify-content: center;
-    font-family: 'Oswald', sans-serif; font-weight: 400; font-size: 22px;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400; font-size: 22px;
     color: var(--unity-mist);
   }
   .step-body { padding: 18px 22px; }
@@ -237,12 +246,12 @@
   .builder-step-num {
     width: 32px; height: 32px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 500;
+    font-family: 'Bebas Neue', sans-serif; font-size: 12px; font-weight: 500;
     flex-shrink: 0;
   }
 
   .builder-step-title {
-    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400;
     font-size: 18px; letter-spacing: 0.03em;
   }
 
@@ -255,7 +264,7 @@
     border-radius: 2px; padding: 14px 16px; margin-top: 10px;
   }
   .builder-detail-label {
-    font-family: 'DM Mono', monospace; font-size: 9px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 9px;
     letter-spacing: 0.12em; text-transform: uppercase;
     margin-bottom: 6px;
   }
@@ -287,7 +296,7 @@
   .status-card.pending    { background: var(--parchment); }
 
   .status-tag {
-    font-family: 'DM Mono', monospace; font-size: 10px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 10px;
     letter-spacing: 0.1em; text-transform: uppercase;
     font-weight: 500; margin-bottom: 6px;
   }
@@ -306,19 +315,19 @@
     padding: 36px; margin: 48px 0;
   }
   .payment-branch-label {
-    font-family: 'DM Mono', monospace; font-size: 10px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 10px;
     letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--unity-sage); margin-bottom: 24px;
   }
   .payment-paths { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .payment-path { background: rgba(255,255,255,0.06); border-radius: 3px; padding: 20px; }
   .payment-path-title {
-    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400;
     font-size: 16px; letter-spacing: 0.03em;
     margin-bottom: 10px;
   }
   .path-now .payment-path-title { color: var(--gold-mid); }
-  .path-later .payment-path-title { color: #9AB8E8; }
+  .path-later .payment-path-title { color: #AEAEAE; }
   .payment-path ul { list-style: none; padding: 0; }
   .payment-path ul li { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.55; padding: 3px 0 3px 14px; position: relative; }
   .payment-path ul li::before { content: '→'; position: absolute; left: 0; color: rgba(255,255,255,0.25); font-size: 11px; top: 4px; }
@@ -330,7 +339,7 @@
     margin: 48px 0;
   }
   .progress-demo-label {
-    font-family: 'DM Mono', monospace; font-size: 9px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 9px;
     letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--ink-faint); margin-bottom: 16px;
   }
@@ -339,7 +348,7 @@
     margin-bottom: 12px; display: flex; justify-content: space-between;
   }
   .progress-bar-wrap {
-    height: 12px; background: #E8E4DC; border-radius: 6px;
+    height: 12px; background: #E5E5E5; border-radius: 6px;
     overflow: hidden; display: flex; margin-bottom: 10px;
   }
   .pb-transfer { background: var(--blue); width: 16.7%; }
@@ -354,19 +363,20 @@
     gap: 2px; margin-top: 16px;
   }
   .ps { padding: 12px 14px; background: var(--parchment); text-align: center; }
-  .ps-num { font-family: 'Oswald', sans-serif; font-size: 26px; color: var(--unity-mid); display: block; }
+  .ps-num { font-family: 'Alfa Slab One', sans-serif; font-size: 26px; color: var(--unity-mid); display: block; }
   .ps-label { font-size: 11px; color: var(--ink-faint); }
 
   /* ── REFLECTION ─────────────────────────────────────────── */
   .reflection { background: var(--parchment); border-radius: 3px; padding: 44px; margin-top: 44px; }
   .reflection-label {
-    font-family: 'DM Mono', monospace; font-size: 10px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 10px;
     letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--ink-faint); margin-bottom: 16px;
   }
 
   /* ── FOOTER ─────────────────────────────────────────────── */
   .case-footer { background: var(--unity-dark); padding: 64px 0; text-align: center; }
+  .case-footer img { height: 44px; margin-bottom: 24px; }
   .case-footer p { color: var(--unity-sage); font-size: 15px; margin-bottom: 6px; }
   .case-footer strong { color: var(--cream); }
 
@@ -386,7 +396,14 @@
 </head>
 <body>
 
-<p class="back-link"><a href="index.html">← Back to UX Portfolio</a></p>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-header-back" href="index.html">← UX Portfolio</a>
+    <a class="site-header-logo" href="https://jessiemlacey.com" target="_blank" rel="noopener" aria-label="Jessie M Lacey / J·ML Studio">
+      <img src="images/jml-logo.png" alt="J/ML Studio logo">
+    </a>
+  </div>
+</header>
 
 <!-- ── HERO ──────────────────────────────────── -->
 <section class="hero">
@@ -506,7 +523,7 @@
       <div class="progress-legend">
         <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div>Transfer Credits 15 of 90 max</div>
         <div class="legend-item"><div class="legend-dot" style="background:var(--unity-fern)"></div>CPL Credits 25 of 30 max</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#E8E4DC"></div>Remaining capacity 50 credits</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#E5E5E5"></div>Remaining capacity 50 credits</div>
       </div>
       <div class="progress-stats">
         <div class="ps"><span class="ps-num">15</span><span class="ps-label">Transfer credits</span></div>
@@ -753,6 +770,7 @@
 <!-- ── FOOTER ─────────────────────────────────── -->
 <footer class="case-footer">
   <div class="wrapper">
+    <img src="images/jml-logo.png" alt="J/ML Studio logo">
     <p>Unity Environmental University — Credit for Prior Learning Portfolio</p>
     <p style="margin-top:8px;font-size:13px">Designed by <strong>Jessie Lacey</strong> — <a href="https://jessiemlacey.com" style="color:var(--unity-mist);text-decoration:none">jessiemlacey.com</a></p>
   </div>

@@ -4,53 +4,61 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GrowWise — Case Study</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Work+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: #FAF8F2; }
-  .back-link {
-    display: block;
-    max-width: 780px;
+  body { margin: 0; background: #FFFFFF; }
+  .site-header { background: #FFFFFF; border-bottom: 1px dashed #D8D8D8; }
+  .site-header-inner {
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 20px 40px 0;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  .back-link a { color: #6B8F5A; text-decoration: none; letter-spacing: 0.02em; }
-  .back-link a:hover { color: #3D5C2A; }
-  @media (max-width: 768px) { .back-link { padding: 16px 24px 0; } }
+  .site-header-back {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    color: #777777;
+    text-decoration: none;
+  }
+  .site-header-back:hover { color: #5C8A2A; }
+  .site-header-logo img { height: 36px; display: block; }
+  @media (max-width: 768px) { .site-header-inner { padding: 14px 24px; } .site-header-logo img { height: 30px; } }
 </style>
 <style>
 :root {
-    --soil:       #2C1F0E;
-    --bark:       #4A3520;
-    --moss:       #3D5C2A;
-    --sage:       #6B8F5A;
-    --sprout:     #9BBF7A;
-    --leaf:       #C8E6A0;
-    --parchment:  #F4EFE4;
-    --cream:      #FAF8F2;
-    --ink:        #1C1610;
-    --ink-mid:    #5C4F3A;
-    --ink-faint:  #A89880;
-    --rule:       #DDD4C0;
+    --soil:       #272727;
+    --bark:       #3A3A3A;
+    --moss:       #5C8A2A;
+    --sage:       #8EC63F;
+    --sprout:     #A8D66B;
+    --leaf:       #D9EFC0;
+    --parchment:  #F2F2F2;
+    --cream:      #FFFFFF;
+    --ink:        #222222;
+    --ink-mid:    #777777;
+    --ink-faint:  #AAAAAA;
+    --rule:       #E5E5E5;
     --amber:      #C4821A;
     --amber-light:#F5E8C8;
   }
 
 #jl-growwise {
-    --soil:       #2C1F0E;
-    --bark:       #4A3520;
-    --moss:       #3D5C2A;
-    --sage:       #6B8F5A;
-    --sprout:     #9BBF7A;
-    --leaf:       #C8E6A0;
-    --parchment:  #F4EFE4;
-    --cream:      #FAF8F2;
-    --ink:        #1C1610;
-    --ink-mid:    #5C4F3A;
-    --ink-faint:  #A89880;
-    --rule:       #DDD4C0;
+    --soil:       #272727;
+    --bark:       #3A3A3A;
+    --moss:       #5C8A2A;
+    --sage:       #8EC63F;
+    --sprout:     #A8D66B;
+    --leaf:       #D9EFC0;
+    --parchment:  #F2F2F2;
+    --cream:      #FFFFFF;
+    --ink:        #222222;
+    --ink-mid:    #777777;
+    --ink-faint:  #AAAAAA;
+    --rule:       #E5E5E5;
     --amber:      #C4821A;
     --amber-light:#F5E8C8;
   }
@@ -62,7 +70,7 @@
 #jl-growwise {
     background: var(--cream);
     color: var(--ink);
-    font-family: 'Proxima Nova', 'Inter', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-weight: 300;
     font-size: 17px;
     line-height: 1.75;
@@ -83,8 +91,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(61,92,42,0.35) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(155,191,122,0.12) 0%, transparent 60%);
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(92,138,42,0.35) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(168,214,107,0.12) 0%, transparent 60%);
     pointer-events: none;
   }
 
@@ -98,7 +106,7 @@
   }
 
 #jl-growwise .hero-eyebrow {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 11px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -118,7 +126,7 @@
   }
 
 #jl-growwise .hero-title {
-    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400;
     font-size: clamp(48px, 6vw, 80px);
     font-weight: 400;
     color: var(--parchment);
@@ -132,7 +140,7 @@
   }
 
 #jl-growwise .hero-subtitle {
-    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400;
     font-size: clamp(18px, 2.5vw, 26px);
     font-weight: 400;
     font-style: italic;
@@ -156,15 +164,15 @@
   }
 
 #jl-growwise .meta-chip {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 6px 14px;
-    border: 1px solid rgba(155,191,122,0.3);
+    border: 1px solid rgba(168,214,107,0.3);
     border-radius: 2px;
     color: var(--sprout);
-    background: rgba(61,92,42,0.2);
+    background: rgba(92,138,42,0.2);
   }
 
 #jl-growwise .hero-visual {
@@ -194,7 +202,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 10px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -243,7 +251,7 @@
 #jl-growwise .section:last-child { border-bottom: none; }
 
 #jl-growwise .section-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 10px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -263,7 +271,7 @@
   }
 
 #jl-growwise h2 {
-    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400;
     font-size: clamp(28px, 4vw, 44px);
     font-weight: 400;
     line-height: 1.15;
@@ -274,7 +282,7 @@
 #jl-growwise h2 em { font-style: italic; color: var(--moss); }
 
 #jl-growwise h3 {
-    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400;
     font-size: 22px;
     font-weight: 400;
     color: var(--ink);
@@ -295,7 +303,7 @@
   }
 
 #jl-growwise .pull p {
-    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400;
     font-size: 22px;
     font-style: italic;
     line-height: 1.5;
@@ -318,7 +326,7 @@
   }
 
 #jl-growwise .stat-number {
-    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400;
     font-size: 48px;
     color: var(--moss);
     line-height: 1;
@@ -327,7 +335,7 @@
   }
 
 #jl-growwise .stat-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -355,7 +363,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Oswald', sans-serif; font-weight: 400;
+    font-family: 'Alfa Slab One', sans-serif; font-weight: 400;
     font-size: 20px;
     font-style: italic;
     color: var(--leaf);
@@ -389,7 +397,7 @@
   }
 
 #jl-growwise .state-machine-title {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 10px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -404,20 +412,20 @@
   }
 
 #jl-growwise .state-node {
-    background: rgba(61,92,42,0.25);
-    border: 1px solid rgba(107,143,90,0.3);
+    background: rgba(92,138,42,0.25);
+    border: 1px solid rgba(142,198,63,0.3);
     border-radius: 3px;
     padding: 12px 14px;
     position: relative;
   }
 
 #jl-growwise .state-node.highlight {
-    background: rgba(61,92,42,0.5);
+    background: rgba(92,138,42,0.5);
     border-color: var(--sage);
   }
 
 #jl-growwise .state-name {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 10px;
     letter-spacing: 0.08em;
     color: var(--sprout);
@@ -467,7 +475,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 10px;
     color: var(--leaf);
     letter-spacing: 0.05em;
@@ -499,7 +507,7 @@
   }
 
 #jl-growwise .insight-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 9px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -531,11 +539,11 @@
     width: 100%;
     border-radius: 20px;
     border: 5px solid var(--soil);
-    box-shadow: 0 24px 48px rgba(44,31,14,0.22);
+    box-shadow: 0 24px 48px rgba(39,39,39,0.22);
   }
 
 #jl-growwise .device-caption {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 10px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -568,7 +576,7 @@
   }
 
 #jl-growwise .reflection-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 10px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -580,6 +588,11 @@
     background: var(--soil);
     padding: 72px 0;
     text-align: center;
+  }
+
+#jl-growwise .case-footer img {
+    height: 44px;
+    margin-bottom: 24px;
   }
 
 #jl-growwise .case-footer p {
@@ -631,7 +644,14 @@
 </head>
 <body>
 
-<p class="back-link"><a href="index.html">← Back to UX Portfolio</a></p>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-header-back" href="index.html">← UX Portfolio</a>
+    <a class="site-header-logo" href="https://jessiemlacey.com" target="_blank" rel="noopener" aria-label="Jessie M Lacey / J·ML Studio">
+      <img src="images/jml-logo.png" alt="J/ML Studio logo">
+    </a>
+  </div>
+</header>
 
 <div id="jl-growwise">
 <!-- ── HERO ──────────────────────────────────────────────── -->
@@ -653,63 +673,63 @@
     <div class="garden-grid">
       <svg viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- Garden grid -->
-        <rect x="10" y="10" width="300" height="300" rx="4" fill="rgba(61,92,42,0.15)" stroke="rgba(107,143,90,0.2)" stroke-width="1"/>
+        <rect x="10" y="10" width="300" height="300" rx="4" fill="rgba(92,138,42,0.15)" stroke="rgba(142,198,63,0.2)" stroke-width="1"/>
         <!-- Grid lines -->
-        <line x1="70" y1="10" x2="70" y2="310" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
-        <line x1="130" y1="10" x2="130" y2="310" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
-        <line x1="190" y1="10" x2="190" y2="310" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
-        <line x1="250" y1="10" x2="250" y2="310" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
-        <line x1="10" y1="70" x2="310" y2="70" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
-        <line x1="10" y1="130" x2="310" y2="130" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
-        <line x1="10" y1="190" x2="310" y2="190" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
-        <line x1="10" y1="250" x2="310" y2="250" stroke="rgba(107,143,90,0.15)" stroke-width="0.5"/>
+        <line x1="70" y1="10" x2="70" y2="310" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
+        <line x1="130" y1="10" x2="130" y2="310" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
+        <line x1="190" y1="10" x2="190" y2="310" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
+        <line x1="250" y1="10" x2="250" y2="310" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
+        <line x1="10" y1="70" x2="310" y2="70" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
+        <line x1="10" y1="130" x2="310" y2="130" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
+        <line x1="10" y1="190" x2="310" y2="190" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
+        <line x1="10" y1="250" x2="310" y2="250" stroke="rgba(142,198,63,0.15)" stroke-width="0.5"/>
         <!-- Plant cells - various states -->
-        <rect x="12" y="12" width="56" height="56" rx="2" fill="rgba(155,191,122,0.3)" stroke="rgba(155,191,122,0.5)" stroke-width="1"/>
-        <circle cx="40" cy="40" r="16" fill="rgba(155,191,122,0.6)"/>
-        <circle cx="40" cy="40" r="8" fill="rgba(61,92,42,0.8)"/>
+        <rect x="12" y="12" width="56" height="56" rx="2" fill="rgba(168,214,107,0.3)" stroke="rgba(168,214,107,0.5)" stroke-width="1"/>
+        <circle cx="40" cy="40" r="16" fill="rgba(168,214,107,0.6)"/>
+        <circle cx="40" cy="40" r="8" fill="rgba(92,138,42,0.8)"/>
 
-        <rect x="72" y="12" width="56" height="56" rx="2" fill="rgba(155,191,122,0.15)" stroke="rgba(155,191,122,0.3)" stroke-width="1" stroke-dasharray="3 2"/>
+        <rect x="72" y="12" width="56" height="56" rx="2" fill="rgba(168,214,107,0.15)" stroke="rgba(168,214,107,0.3)" stroke-width="1" stroke-dasharray="3 2"/>
 
-        <rect x="132" y="12" width="56" height="56" rx="2" fill="rgba(155,191,122,0.3)" stroke="rgba(155,191,122,0.5)" stroke-width="1"/>
-        <circle cx="160" cy="40" r="12" fill="rgba(200,230,160,0.7)"/>
+        <rect x="132" y="12" width="56" height="56" rx="2" fill="rgba(168,214,107,0.3)" stroke="rgba(168,214,107,0.5)" stroke-width="1"/>
+        <circle cx="160" cy="40" r="12" fill="rgba(217,239,192,0.7)"/>
 
-        <rect x="192" y="12" width="56" height="56" rx="2" fill="rgba(61,92,42,0.4)" stroke="rgba(107,143,90,0.5)" stroke-width="1"/>
-        <circle cx="220" cy="40" r="16" fill="rgba(61,92,42,0.7)"/>
-        <circle cx="220" cy="40" r="6" fill="rgba(155,191,122,0.9)"/>
+        <rect x="192" y="12" width="56" height="56" rx="2" fill="rgba(92,138,42,0.4)" stroke="rgba(142,198,63,0.5)" stroke-width="1"/>
+        <circle cx="220" cy="40" r="16" fill="rgba(92,138,42,0.7)"/>
+        <circle cx="220" cy="40" r="6" fill="rgba(168,214,107,0.9)"/>
 
-        <rect x="252" y="12" width="56" height="56" rx="2" fill="rgba(155,191,122,0.15)" stroke="rgba(155,191,122,0.2)" stroke-width="1"/>
+        <rect x="252" y="12" width="56" height="56" rx="2" fill="rgba(168,214,107,0.15)" stroke="rgba(168,214,107,0.2)" stroke-width="1"/>
 
-        <rect x="12" y="72" width="56" height="56" rx="2" fill="rgba(155,191,122,0.15)" stroke="rgba(155,191,122,0.2)" stroke-width="1"/>
+        <rect x="12" y="72" width="56" height="56" rx="2" fill="rgba(168,214,107,0.15)" stroke="rgba(168,214,107,0.2)" stroke-width="1"/>
 
-        <rect x="72" y="72" width="116" height="116" rx="2" fill="rgba(61,92,42,0.3)" stroke="rgba(107,143,90,0.4)" stroke-width="1"/>
-        <circle cx="130" cy="130" r="32" fill="rgba(61,92,42,0.5)"/>
-        <circle cx="130" cy="130" r="18" fill="rgba(107,143,90,0.6)"/>
-        <circle cx="130" cy="130" r="8" fill="rgba(155,191,122,0.9)"/>
-        <text x="130" y="134" text-anchor="middle" fill="rgba(200,230,160,0.9)" font-size="8" font-family="monospace">4×4</text>
+        <rect x="72" y="72" width="116" height="116" rx="2" fill="rgba(92,138,42,0.3)" stroke="rgba(142,198,63,0.4)" stroke-width="1"/>
+        <circle cx="130" cy="130" r="32" fill="rgba(92,138,42,0.5)"/>
+        <circle cx="130" cy="130" r="18" fill="rgba(142,198,63,0.6)"/>
+        <circle cx="130" cy="130" r="8" fill="rgba(168,214,107,0.9)"/>
+        <text x="130" y="134" text-anchor="middle" fill="rgba(217,239,192,0.9)" font-size="8" font-family="monospace">4×4</text>
 
-        <rect x="192" y="72" width="56" height="56" rx="2" fill="rgba(155,191,122,0.2)" stroke="rgba(155,191,122,0.4)" stroke-width="1"/>
-        <circle cx="220" cy="100" r="10" fill="rgba(155,191,122,0.5)"/>
+        <rect x="192" y="72" width="56" height="56" rx="2" fill="rgba(168,214,107,0.2)" stroke="rgba(168,214,107,0.4)" stroke-width="1"/>
+        <circle cx="220" cy="100" r="10" fill="rgba(168,214,107,0.5)"/>
 
-        <rect x="252" y="72" width="56" height="56" rx="2" fill="rgba(155,191,122,0.3)" stroke="rgba(155,191,122,0.5)" stroke-width="1"/>
-        <circle cx="280" cy="100" r="14" fill="rgba(155,191,122,0.6)"/>
+        <rect x="252" y="72" width="56" height="56" rx="2" fill="rgba(168,214,107,0.3)" stroke="rgba(168,214,107,0.5)" stroke-width="1"/>
+        <circle cx="280" cy="100" r="14" fill="rgba(168,214,107,0.6)"/>
 
-        <rect x="192" y="132" width="116" height="56" rx="2" fill="rgba(61,92,42,0.2)" stroke="rgba(107,143,90,0.3)" stroke-width="1"/>
-        <circle cx="220" cy="160" r="8" fill="rgba(107,143,90,0.5)"/>
-        <circle cx="252" cy="160" r="8" fill="rgba(107,143,90,0.5)"/>
-        <circle cx="284" cy="160" r="8" fill="rgba(107,143,90,0.5)"/>
+        <rect x="192" y="132" width="116" height="56" rx="2" fill="rgba(92,138,42,0.2)" stroke="rgba(142,198,63,0.3)" stroke-width="1"/>
+        <circle cx="220" cy="160" r="8" fill="rgba(142,198,63,0.5)"/>
+        <circle cx="252" cy="160" r="8" fill="rgba(142,198,63,0.5)"/>
+        <circle cx="284" cy="160" r="8" fill="rgba(142,198,63,0.5)"/>
 
-        <rect x="12" y="132" width="56" height="56" rx="2" fill="rgba(155,191,122,0.3)" stroke="rgba(155,191,122,0.5)" stroke-width="1"/>
-        <circle cx="40" cy="160" r="14" fill="rgba(200,230,160,0.5)"/>
+        <rect x="12" y="132" width="56" height="56" rx="2" fill="rgba(168,214,107,0.3)" stroke="rgba(168,214,107,0.5)" stroke-width="1"/>
+        <circle cx="40" cy="160" r="14" fill="rgba(217,239,192,0.5)"/>
 
-        <rect x="12" y="192" width="176" height="116" rx="2" fill="rgba(61,92,42,0.25)" stroke="rgba(107,143,90,0.35)" stroke-width="1"/>
-        <text x="100" y="258" text-anchor="middle" fill="rgba(107,143,90,0.6)" font-size="10" font-family="monospace">planned</text>
+        <rect x="12" y="192" width="176" height="116" rx="2" fill="rgba(92,138,42,0.25)" stroke="rgba(142,198,63,0.35)" stroke-width="1"/>
+        <text x="100" y="258" text-anchor="middle" fill="rgba(142,198,63,0.6)" font-size="10" font-family="monospace">planned</text>
 
-        <rect x="192" y="192" width="116" height="116" rx="2" fill="rgba(155,191,122,0.1)" stroke="rgba(155,191,122,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
-        <text x="250" y="258" text-anchor="middle" fill="rgba(107,143,90,0.4)" font-size="10" font-family="monospace">empty</text>
+        <rect x="192" y="192" width="116" height="116" rx="2" fill="rgba(168,214,107,0.1)" stroke="rgba(168,214,107,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="250" y="258" text-anchor="middle" fill="rgba(142,198,63,0.4)" font-size="10" font-family="monospace">empty</text>
 
         <!-- Companion indicator lines -->
-        <line x1="40" y1="40" x2="160" y2="40" stroke="rgba(155,191,122,0.3)" stroke-width="1" stroke-dasharray="2 3"/>
-        <circle cx="100" cy="40" r="3" fill="rgba(155,191,122,0.5)"/>
+        <line x1="40" y1="40" x2="160" y2="40" stroke="rgba(168,214,107,0.3)" stroke-width="1" stroke-dasharray="2 3"/>
+        <circle cx="100" cy="40" r="3" fill="rgba(168,214,107,0.5)"/>
       </svg>
     </div>
   </div>
@@ -1030,6 +1050,7 @@
 <!-- ── FOOTER ─────────────────────────────────────────────── -->
 <footer class="case-footer">
   <div class="wrapper">
+    <img src="images/jml-logo.png" alt="J/ML Studio logo">
     <p>GrowWise is live on the <strong>App Store</strong> and <strong>Google Play.</strong></p>
     <p style="margin-top: 8px; font-size: 13px;">Designed and built by <strong style="color: var(--parchment)">Jessie Lacey</strong> — <a href="https://jessiemlacey.com" style="color: var(--sprout); text-decoration: none;">jessiemlacey.com</a></p>
   </div>
