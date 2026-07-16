@@ -514,6 +514,52 @@
     margin: 0;
   }
 
+#jl-growwise .device-shot {
+    width: 230px;
+    margin: 4px 0 24px 32px;
+    float: right;
+  }
+
+#jl-growwise .device-shot.left {
+    float: left;
+    margin: 4px 32px 24px 0;
+  }
+
+#jl-growwise .device-shot img,
+#jl-growwise .device-shot video {
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+    border: 5px solid var(--soil);
+    box-shadow: 0 24px 48px rgba(44,31,14,0.22);
+  }
+
+#jl-growwise .device-caption {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: center;
+    margin-top: 10px;
+  }
+
+#jl-growwise .clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+#jl-growwise .demo-block {
+    text-align: center;
+    margin: 48px 0;
+  }
+
+#jl-growwise .demo-block .device-shot {
+    float: none;
+    margin: 0 auto 12px;
+  }
+
 #jl-growwise .reflection {
     background: var(--parchment);
     border-radius: 4px;
@@ -570,7 +616,13 @@
 
 #jl-growwise .scroll-hint { left: 28px; }
 
-
+#jl-growwise .device-shot,
+#jl-growwise .device-shot.left {
+    float: none;
+    width: 60%;
+    max-width: 240px;
+    margin: 0 auto 28px;
+  }
 
 }
 
@@ -796,9 +848,21 @@
       <p>The companion planting logic, which initially seemed like the complex part, turned out to be more elegant once I realized it operates at the plant <em>family</em> level — alliums, asteraceae, solanaceae — rather than requiring custom rules for every individual plant pair. That insight collapsed what could have been thousands of relationship rules into a manageable taxonomy.</p>
     </div>
 
-    <div class="fade-up">
+    <div class="fade-up clearfix">
       <h3>Two views, three tabs</h3>
+      <div class="device-shot left">
+        <img src="images/growwise-garden-grid-view.png" alt="GrowWise grid view of Bed 1, with a quick-view card for a Tomato planting showing its harvest window and status.">
+        <p class="device-caption">Grid view — spatial planning</p>
+      </div>
+      <div class="device-shot">
+        <img src="images/growwise-plantings-list.png" alt="GrowWise list view of My Plantings, showing 159 active plantings sortable by status and timing.">
+        <p class="device-caption">List view — sequential planning</p>
+      </div>
       <p>The planning interface needed to serve two mental models simultaneously: spatial thinkers who plan by grid and sequential thinkers who plan by timing. I designed both — a visual grid view and a list view sortable by timing or alphabetically — unified by the same three-tab structure: <strong>Active</strong> (in the ground now), <strong>Planned</strong> (placed but not yet started), and <strong>Done</strong> (completed, failed, or saved).</p>
+      <div class="device-shot">
+        <img src="images/growwise-seed-box.png" alt="GrowWise Seed Box screen listing Arugula varieties with sow timing and spacing per square foot.">
+        <p class="device-caption">Seed Box inventory</p>
+      </div>
       <p>The three-tab structure did something important beyond organization: it defined the seed inventory. A planting only counts toward seeds needed once it's in the Planned tab — giving users a clear, accurate picture of what to buy before the season starts.</p>
     </div>
   </div>
@@ -811,6 +875,15 @@
       <p class="section-label">03 — The Build</p>
       <h2>From personal tool to<br><em>App Store product.</em></h2>
       <p>GrowWise began as a tool I was building for myself in Lovable.ai — a prototype that worked well enough to use in my own garden. The moment it became a real product was when I realized the underlying system I'd built had value for anyone who gardened the same way I was trying to learn.</p>
+    </div>
+
+    <div class="demo-block fade-up">
+      <div class="device-shot">
+        <video controls playsinline preload="metadata" poster="images/growwise-app-demo-poster.jpg">
+          <source src="images/growwise-app-demo.mp4" type="video/mp4">
+        </video>
+        <p class="device-caption">GrowWise — App Store preview</p>
+      </div>
     </div>
 
     <div class="process-steps fade-up">
@@ -918,8 +991,16 @@
       <p>"A new build shipped every other weekend. The garden told me what to fix."</p>
     </div>
 
-    <div class="fade-up">
+    <div class="fade-up clearfix">
       <p>The iteration cycle was simple and direct: spend Saturday in the garden using the app, notice what was confusing or missing, build the fix, ship Sunday. Repeat. Over two growing seasons this produced a cadence of <strong>continuous real-world usability testing</strong> — not in a lab, not with a script, but under actual conditions with actual stakes.</p>
+      <div class="device-shot">
+        <img src="images/growwise-tomato-detail.png" alt="GrowWise Tomato detail screen showing maturity signs and ripe-and-ready visual cues for the Fruiting stage.">
+        <p class="device-caption">Harvest guidance per plant</p>
+      </div>
+      <div class="device-shot left">
+        <img src="images/growwise-seed-saving.png" alt="GrowWise Radish detail screen prompting the user to save seeds once the plant reaches the Going to Seed stage.">
+        <p class="device-caption">Seed-saving prompts</p>
+      </div>
       <p>Key features that emerged from this process: the timing relative to last frost (I needed to know how many weeks I had, not a calendar date that meant nothing to me), the seed quantity calculator (I kept buying too many or too few), and the harvest guidance per plant (I kept harvesting too early or missing the window entirely).</p>
     </div>
 
